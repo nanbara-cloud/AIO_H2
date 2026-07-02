@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEO × AIO ご提案資料 | H2technology</title>
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Meiryo','メイリオ','MS Gothic',sans-serif; color:#333; background:#fff; line-height:1.75; }
+:root {
+  --pink:#e8327a; --orange:#ff8000; --teal:#00b4a6;
+  --grad:linear-gradient(135deg,#e8327a 0%,#ff8000 100%);
+  --grad-t:linear-gradient(135deg,#e8327a,#ff8000);
+  --navy:#0f1a2e; --dark:#111;
+  --gray-bg:#f7f7f7; --border:#e0e0e0; --lgray:#e2e8f0;
+}
+img { max-width:100%; }
+a { text-decoration:none; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; width:100%; background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(8px); z-index:999; border-bottom:1px solid #eee;
+  display:flex; flex-direction:column;
+}
+.nav-top { display:flex; justify-content:space-between; align-items:center; padding:12px 32px; }
+.nav-logo { font-size:1.05rem; font-weight:700; color:#222; }
+.nav-btn {
+  background:var(--grad); color:#fff; padding:9px 20px;
+  border-radius:25px; font-size:0.82rem; font-weight:700;
+}
+.nav-links {
+  display:flex; align-items:center; justify-content:center;
+  gap:2px; padding:0 16px 10px; flex-wrap:wrap;
+}
+.nav-link {
+  font-size:0.72rem; font-weight:600; color:#555;
+  padding:4px 10px; border-radius:16px; transition:all 0.2s;
+}
+.nav-link:hover { background:#fff0f6; color:var(--pink); }
+
+/* ── BASE SECTION ── */
+section { padding:80px 20px; }
+.container { max-width:960px; margin:0 auto; }
+.section-label {
+  display:inline-block; font-size:0.72rem; font-weight:700;
+  letter-spacing:0.15em; text-transform:uppercase; color:var(--pink); margin-bottom:12px;
+}
+.section-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; background:var(--grad); border-radius:50%;
+  font-size:11px; font-weight:700; color:#fff; margin-right:8px; vertical-align:middle;
+}
+h2 { font-size:clamp(1.5rem,3.2vw,2.2rem); font-weight:900; line-height:1.35; margin-bottom:12px; }
+.accent { background:var(--grad-t); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.section-desc { color:#666; font-size:0.92rem; margin-bottom:36px; line-height:1.85; }
+
+/* ── CARDS ── */
+.card-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.card {
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:14px; padding:24px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,0.1); }
+.card-icon { font-size:1.8rem; margin-bottom:10px; }
+.card h4 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:8px; }
+.card p { font-size:0.88rem; color:#555; line-height:1.75; }
+
+/* ── TIP BOX ── */
+.tip-box {
+  background:#fff8f0; border-left:4px solid var(--pink);
+  border-radius:0 12px 12px 0; padding:16px 20px;
+  font-size:0.9rem; color:#333; margin-top:20px; line-height:1.8;
+}
+.tip-box strong { color:var(--pink); }
+
+/* ── DARK SECTION ── */
+.dark-section { background:var(--navy); color:#fff; padding:80px 20px; }
+.dark-section h2 { color:#fff; }
+.dark-section .section-label { color:#ff69b4; }
+.dark-section .section-desc { color:#aaa; }
+
+/* ── GRADIENT SECTION ── */
+.grad-section {
+  background:linear-gradient(135deg,#0d0d1a,#1a0530);
+  color:#fff; padding:80px 20px;
+}
+.grad-section h2 { color:#fff; }
+
+/* ── TABLE ── */
+.compare-table { width:100%; border-collapse:collapse; }
+.compare-table th {
+  background:var(--navy); color:#fff; padding:12px 14px;
+  font-size:0.85rem; font-weight:700; text-align:center;
+}
+.compare-table th:first-child { text-align:left; }
+.compare-table th.col-aio { background:var(--grad); }
+.compare-table td {
+  padding:10px 14px; border-bottom:1px solid #f0f0f0;
+  font-size:0.88rem; color:#555; text-align:center;
+}
+.compare-table td:first-child { text-align:left; font-weight:600; color:#333; }
+.compare-table tr:nth-child(even) td { background:#fafafa; }
+.compare-table .aio-v { color:var(--teal); font-weight:700; }
+.ck { color:#16a34a; font-size:1.1rem; }
+.cx { color:#ccc; }
+.ct { color:#f59e0b; }
+
+/* ── HEARING TABLE ── */
+.hearing-table { width:100%; border-collapse:collapse; }
+.hearing-table td {
+  padding:12px 16px; border:1px solid var(--border);
+  font-size:0.88rem; vertical-align:top;
+}
+.hearing-table td:first-child {
+  background:var(--gray-bg); font-weight:700; color:var(--dark);
+  width:200px; white-space:nowrap;
+}
+.hearing-table tr:nth-child(even) td:last-child { background:#fffdf8; }
+
+/* ── CASE STUDY ── */
+.case-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.case-card {
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:14px; overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.case-head {
+  background:linear-gradient(135deg,#f0fafa,#e8f4f4);
+  padding:16px 20px; border-bottom:1px solid var(--border);
+}
+.case-head h4 { font-size:1rem; font-weight:700; color:var(--navy); }
+.case-body { padding:18px 20px; }
+.case-num { font-size:2.2rem; font-weight:900; color:var(--pink); line-height:1; }
+.case-label { font-size:0.8rem; color:#888; margin-top:2px; }
+.case-grid-inner { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.case-stat { text-align:center; background:var(--gray-bg); border-radius:8px; padding:10px; }
+.bar-wrap { background:#e2e8f0; border-radius:4px; height:8px; margin:6px 0; overflow:hidden; }
+.bar-fill { background:var(--grad); border-radius:4px; height:100%; }
+
+/* ── PLAN CARDS ── */
+.plan-card {
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:16px; padding:28px 22px;
+  position:relative; overflow:hidden;
+  box-shadow:0 2px 14px rgba(0,0,0,0.07);
+}
+.plan-card.featured { border:2.5px solid var(--pink); }
+.plan-badge {
+  position:absolute; top:16px; right:16px;
+  background:var(--grad); color:#fff; font-size:0.72rem;
+  font-weight:700; padding:4px 12px; border-radius:20px;
+}
+.plan-name { font-size:0.92rem; font-weight:700; color:#888; margin-bottom:6px; }
+.plan-price {
+  font-size:2.4rem; font-weight:900;
+  background:var(--grad-t); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1.1;
+}
+.plan-unit { font-size:0.8rem; color:#aaa; }
+.plan-tax { font-size:0.78rem; color:#aaa; margin-bottom:10px; }
+.plan-features { list-style:none; font-size:0.82rem; color:#555; margin-top:14px; }
+.plan-features li { padding:5px 0; border-bottom:1px solid #f0f0f0; }
+.plan-features li::before { content:"✓ "; color:var(--pink); font-weight:700; }
+
+/* ── STEP FLOW ── */
+.step-flow { display:flex; gap:16px; align-items:flex-start; }
+.step-box {
+  flex:1; background:#fff; border:1.5px solid var(--border);
+  border-radius:14px; padding:22px 18px; text-align:center;
+  position:relative;
+}
+.step-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; background:var(--grad); border-radius:50%;
+  font-size:14px; font-weight:700; color:#fff; margin-bottom:10px;
+}
+.step-title { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:8px; }
+.step-detail {
+  margin-top:12px; background:var(--gray-bg);
+  border-radius:10px; padding:12px; font-size:0.82rem;
+  color:#555; text-align:left; line-height:1.8;
+}
+.step-arrow { font-size:1.4rem; color:var(--pink); margin-top:40px; flex-shrink:0; }
+
+/* ── ROLE TABLE ── */
+.role-table { width:100%; border-collapse:collapse; }
+.role-table th {
+  background:var(--navy); color:#fff; padding:10px 12px;
+  font-size:0.82rem; font-weight:700; text-align:center;
+}
+.role-table th:first-child { text-align:left; }
+.role-table td {
+  padding:9px 12px; border-bottom:1px solid #f0f0f0;
+  font-size:0.85rem; color:#555; text-align:center;
+}
+.role-table td:first-child { font-weight:700; color:var(--dark); text-align:left; }
+.role-table tr:nth-child(even) td { background:#fafafa; }
+
+/* ── REVEAL ANIMATION ── */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+/* ── HERO ── */
+#hero {
+  padding:140px 20px 80px;
+  background:linear-gradient(160deg,#fff 0%,#fff5f8 50%,#fff8f0 100%);
+  text-align:center;
+}
+#hero h1 { font-size:clamp(2rem,5vw,3.4rem); font-weight:900; line-height:1.3; margin-bottom:18px; }
+
+/* ── NEED CARD ── */
+.need-card {
+  background:#fff; border-radius:18px; border:2px solid var(--lgray);
+  overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.07);
+  transition:box-shadow 0.2s;
+}
+.need-card:hover { box-shadow:0 8px 32px rgba(232,50,122,0.15); }
+.need-head {
+  padding:22px 24px; display:grid;
+  grid-template-columns:1fr auto; align-items:center; gap:16px;
+}
+.need-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.need-tag {
+  border-radius:20px; padding:4px 12px; font-size:0.8rem; font-weight:700;
+}
+.need-price-wrap { text-align:right; min-width:140px; }
+.need-plan-name { font-size:0.75rem; color:#aaa; margin-bottom:2px; }
+.need-price-num {
+  font-size:2rem; font-weight:900;
+  background:var(--grad-t); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.need-price-tax { font-size:0.72rem; color:#aaa; }
+
+/* ── CLOSING ── */
+#closing-question {
+  background:var(--navy); color:#fff;
+  padding:100px 20px; text-align:center;
+}
+#closing-question h2 { color:#fff; font-size:clamp(2rem,5vw,3rem); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--dark); color:#aaa; padding:40px 20px; text-align:center;
+  font-size:0.82rem;
+}
+footer a { color:var(--pink); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px) {
+  #plans > .container > div[style*="grid-template-columns:1fr 1.15fr"],
+  #plans > .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+  .card-grid-3 { grid-template-columns:1fr; }
+  .card-grid-2 { grid-template-columns:1fr; }
+  .case-grid { grid-template-columns:1fr; }
+  .step-flow { flex-direction:column; }
+  .step-arrow { transform:rotate(90deg); margin:0 auto; }
+  .need-head { grid-template-columns:1fr; }
+  .need-price-wrap { text-align:left; }
+  nav .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-top">
+    <div class="nav-logo">H2technology ／ MEO × AIO 提案資料</div>
+    <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" class="nav-btn" target="_blank">無料相談を予約する</a>
+  </div>
+  <div class="nav-links">
+    <a href="#hero"       class="nav-link">表紙</a>
+    <a href="#company"    class="nav-link">会社紹介</a>
+    <a href="#era"        class="nav-link">時代</a>
+    <a href="#user-change" class="nav-link">行動変化</a>
+    <a href="#issues"     class="nav-link">現状の課題</a>
+    <a href="#hearing"    class="nav-link">現状確認</a>
+    <a href="#roles"      class="nav-link">役割整理</a>
+    <a href="#why-meo"    class="nav-link">なぜ継続</a>
+    <a href="#what-meo"   class="nav-link">MEO</a>
+    <a href="#what-aio"   class="nav-link">AIO</a>
+    <a href="#ai-info"    class="nav-link">AI情報構築</a>
+    <a href="#opportunity-loss" class="nav-link">機会損失</a>
+    <a href="#competitive" class="nav-link">競合比較</a>
+    <a href="#closing-question" class="nav-link">確認</a>
+    <a href="#service-overview" class="nav-link">全体像</a>
+    <a href="#meo-strength" class="nav-link">MEOの強み</a>
+    <a href="#aio-strength" class="nav-link">AIOの強み</a>
+    <a href="#tool"       class="nav-link">ツール</a>
+    <a href="#managed"    class="nav-link">運用代行</a>
+    <a href="#cases"      class="nav-link">事例</a>
+    <a href="#plans"      class="nav-link">料金</a>
+    <a href="#onboarding" class="nav-link">導入の流れ</a>
+    <a href="#ads"        class="nav-link">広告</a>
+    <a href="#sns"        class="nav-link">SNS</a>
+    <a href="#final"      class="nav-link">まとめ</a>
+  </div>
+</nav>
+
+<!-- ═══ 1. 表紙 ═══ -->
+<section id="hero" style="padding:160px 20px 80px;background:linear-gradient(160deg,#0f1a2e 0%,#1a0a3e 100%);text-align:center;color:#fff;position:relative;overflow:hidden;">
+  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,180,166,0.18),transparent 70%);top:-150px;right:-100px;pointer-events:none;"></div>
+  <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,50,122,0.15),transparent 70%);bottom:-100px;left:-80px;pointer-events:none;"></div>
+  <div class="container" style="position:relative;">
+    <div style="display:inline-block;background:var(--grad);color:#fff;font-size:0.78rem;font-weight:700;padding:6px 18px;border-radius:20px;letter-spacing:0.1em;margin-bottom:24px;">H2technology ／ MEO × AIO 提案資料</div>
+    <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.25;margin-bottom:20px;">「調べる」から、<br><span style="background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">「AIに聞く」時代へ。</span></h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:2;margin-bottom:40px;">集客の常識が、根本から変わっています。<br>Googleマップで見つけてもらうだけでは、もう足りない。<br><strong style="color:#fff;">AIに推薦される店になることが、これからの集客の必須条件です。</strong></p>
+    <div style="margin-top:0;">
+      <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" style="display:inline-block;background:var(--grad);color:#fff;padding:16px 40px;border-radius:40px;font-size:1rem;font-weight:700;box-shadow:0 6px 24px rgba(232,50,122,0.4);" target="_blank">無料相談を予約する →</a>
+    </div>
+    <div style="margin-top:20px;font-size:0.82rem;color:rgba(255,255,255,0.4);">株式会社 H2technology ／ MEO事業部 ／ r.nanbara@h2t.co.jp</div>
+  </div>
+</section>
+
+<!-- ═══ 2. 会社紹介 ═══ -->
+<section id="company" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">2</span> Company Profile</span>
+    <h2>株式会社 H2technology<span class="accent">　会社紹介</span></h2>
+    <div class="card-grid-2" style="margin-bottom:24px;">
+      <div class="card">
+        <div style="font-size:0.9rem;font-weight:700;color:var(--teal);margin-bottom:14px;">会社概要</div>
+        <table style="width:100%;font-size:0.88rem;border-collapse:collapse;">
+          <tr><td style="padding:8px 0;color:#888;width:80px;font-weight:600;">会社名</td><td style="padding:8px 0;color:#333;">株式会社 H2technology</td></tr>
+          <tr><td style="padding:8px 0;color:#888;font-weight:600;border-top:1px solid #f0f0f0;">事業内容</td><td style="padding:8px 0;color:#333;border-top:1px solid #f0f0f0;">MEO / AIO コンサルティング・ツール提供</td></tr>
+          <tr><td style="padding:8px 0;color:#888;font-weight:600;border-top:1px solid #f0f0f0;">対応業種</td><td style="padding:8px 0;color:#333;border-top:1px solid #f0f0f0;">医療・飲食・美容・フィットネス・小売 等</td></tr>
+          <tr><td style="padding:8px 0;color:#888;font-weight:600;border-top:1px solid #f0f0f0;">連絡先</td><td style="padding:8px 0;border-top:1px solid #f0f0f0;"><a href="mailto:r.nanbara@h2t.co.jp" style="color:var(--pink);">r.nanbara@h2t.co.jp</a></td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div style="font-size:0.9rem;font-weight:700;color:var(--pink);margin-bottom:14px;">私たちの強み</div>
+        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;">
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ MEO × AIO 統合アプローチを国内でいち早く確立</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 独自ツール「Mappy」で自社データを完全可視化</li>
+          <li style="padding:6px 0;">→ 海外企業との独占パートナーシップにより<br>　 他社にない手段を提供</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-grid-3" style="margin-bottom:0;">
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">📊</div>
+        <h4>MEO対策</h4>
+        <p>GBP最適化・口コミ促進・順位管理・NAP統一</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">🤖</div>
+        <h4>AIO対策</h4>
+        <p>AI参照元整備・113媒体配信・コンテンツ設計</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">📱</div>
+        <h4>SNS・広告運用</h4>
+        <p>Instagram運用代行・Google/Meta広告運用</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. 今、集客はどんな時代か ═══ -->
+<section id="era" style="background:var(--navy);color:#fff;">
+  <div class="container">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num">3</span> The New Era</span>
+    <h2 style="color:#fff;">今、集客は<span style="color:#00b4a6;">どんな時代か</span></h2>
+    <p style="color:#aaa;margin-bottom:40px;">検索行動は、3つの時代を経て根本的に変わりました。</p>
+    <div class="card-grid-3" style="margin-bottom:32px;">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px 20px;">
+        <div style="font-size:0.8rem;font-weight:700;color:#777;letter-spacing:0.1em;margin-bottom:10px;">STAGE 01</div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px;">SEO・ポータル時代</h4>
+        <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 12px;font-size:0.78rem;color:#888;margin-bottom:12px;">食べログ / ホットペッパー</div>
+        <p style="font-size:0.88rem;color:#aaa;">ネットで「調べて」、検索結果のポータルへ誘導される集客モデル。</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px 20px;">
+        <div style="font-size:0.8rem;font-weight:700;color:#777;letter-spacing:0.1em;margin-bottom:10px;">STAGE 02</div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px;">SNS・マップ検索時代</h4>
+        <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 12px;font-size:0.78rem;color:#888;margin-bottom:12px;">Googleマップ / Instagram</div>
+        <p style="font-size:0.88rem;color:#aaa;">ビジュアルと位置情報が主役。「見てから選ぶ」行動が定着。</p>
+      </div>
+      <div style="background:rgba(232,50,122,0.1);border:2px solid var(--pink);border-radius:14px;padding:24px 20px;position:relative;">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;white-space:nowrap;">NOW</div>
+        <div style="font-size:0.8rem;font-weight:700;color:var(--pink);letter-spacing:0.1em;margin-bottom:10px;">STAGE 03</div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px;">AI検索時代　← 今ここ</h4>
+        <div style="background:rgba(232,50,122,0.2);border-radius:8px;padding:6px 12px;font-size:0.78rem;color:#ff69b4;margin-bottom:12px;">ChatGPT / Gemini / AI Overview</div>
+        <p style="font-size:0.88rem;color:#ccc;">「AIに聞いて決める」。推薦された店に直接来店するように。</p>
+      </div>
+    </div>
+    <div style="background:#111;border-radius:12px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;">
+        <div style="background:var(--pink);padding:16px 20px;text-align:center;font-size:1.05rem;font-weight:700;color:#fff;">AI Overview 50%</div>
+        <div style="background:#00b4a6;padding:16px 20px;text-align:center;font-size:1.05rem;font-weight:700;color:#fff;">Googleマップ 50%</div>
+      </div>
+      <div style="padding:10px 20px;text-align:center;font-size:0.82rem;color:#666;">2026年の検索結果予測 ── 食べログ・ホットペッパーなどの外部サイト表示がほぼゼロに（出典：Google I/O 2024 / SparkToro調査 / BrightEdge 2025）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. ユーザー行動の変化 ═══ -->
+<section id="user-change" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">4</span> User Behavior Change</span>
+    <h2>ユーザー行動の<span class="accent">変化</span></h2>
+    <p class="section-desc">「AIに聞いて決める」消費者は、想像以上に速く増えています。</p>
+    <div class="card-grid-3" style="margin-bottom:32px;">
+      <div class="card" style="text-align:center;border-top:4px solid var(--pink);">
+        <div style="font-size:3rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;margin-bottom:10px;">61%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">「AIを使って買い物・来店を決めた」経験あり</div>
+        <div style="background:#fff0f6;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--pink);font-weight:700;margin-bottom:8px;">→ 10人中6人がAIに動かされた</div>
+        <div style="font-size:0.75rem;color:#aaa;">Capital One Shopping（2025年）</div>
+      </div>
+      <div class="card" style="text-align:center;border-top:4px solid var(--orange);">
+        <div style="font-size:3rem;font-weight:900;color:var(--orange);line-height:1.1;margin-bottom:10px;">31%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">「Googleより先にAIで検索する」ユーザー</div>
+        <div style="background:#fff8f0;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--orange);font-weight:700;margin-bottom:8px;">→ 従来Google派21%。AI派が逆転</div>
+        <div style="font-size:0.75rem;color:#aaa;">adMarketplace（2025年）</div>
+      </div>
+      <div class="card" style="text-align:center;border-top:4px solid #6366f1;">
+        <div style="font-size:3rem;font-weight:900;color:#6366f1;line-height:1.1;margin-bottom:10px;">30%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">日本人のAI利用経験率（2025年）</div>
+        <div style="background:#f0f0ff;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:#6366f1;font-weight:700;margin-bottom:8px;">→ 2023年3.4%→たった2年で約9倍</div>
+        <div style="font-size:0.75rem;color:#aaa;">日本リサーチセンター（2025年）</div>
+      </div>
+    </div>
+    <!-- 年齢別 -->
+    <div style="background:var(--navy);border-radius:16px;padding:28px 32px;">
+      <h3 style="color:#fff;font-size:1rem;font-weight:700;margin-bottom:20px;">📊 年齢層別 AI検索利用率（2025年 推定値）</h3>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">20代</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:var(--grad);height:78%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">78%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#666;margin-top:6px;">最も高い</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">30代</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:var(--grad);height:62%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">62%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#666;margin-top:6px;">主要消費層</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">40代</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:var(--grad);height:44%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">44%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#666;margin-top:6px;">急拡大中</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">50代</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:28%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">28%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#666;margin-top:6px;">増加傾向</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">60代〜</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:14%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">14%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#666;margin-top:6px;">今後の成長</div>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:#555;margin-top:12px;text-align:right;">※ NRC調査・各種調査をもとにした推定値</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. 店舗・企業の現状の課題 ═══ -->
+<section id="issues" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">5</span> Current Issues</span>
+    <h2>店舗・企業の<span class="accent">現状の課題</span></h2>
+    <p class="section-desc">多くの地域ビジネスが直面している、集客の構造的な課題です。</p>
+    <div class="card-grid-3">
+      <div class="card" style="border-left:4px solid var(--pink);">
+        <div class="card-icon">📉</div>
+        <h4>チラシ・DM・外部媒体の効果が落ちてきた</h4>
+        <p>ポータルサイトへの掲載料を払い続けているが、集客数が年々減少。費用対効果が見えない。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--orange);">
+        <div class="card-icon">🌐</div>
+        <h4>HPからの問い合わせが来ない</h4>
+        <p>サイトはあるのに検索されない。SEO対策をしても効果が見えない状態が続いている。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--teal);">
+        <div class="card-icon">🗺️</div>
+        <h4>Googleマップで競合に負けている</h4>
+        <p>同業他社の方が口コミ数・評価が高く、検索上位を取られて来店数が伸びない。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #6366f1;">
+        <div class="card-icon">🤖</div>
+        <h4>AIに自分の店が紹介されているか不明</h4>
+        <p>ChatGPTやGeminiで「近くの〇〇屋」と検索したとき、自分の店が出るか確認できていない。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #f97316;">
+        <div class="card-icon">💰</div>
+        <h4>広告コストが高い割に成果が出ない</h4>
+        <p>リスティング広告・SNS広告を出しているが、費用対効果の数値が見えにくく判断できない。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #ec4899;">
+        <div class="card-icon">📊</div>
+        <h4>何をどう改善すればいいかわからない</h4>
+        <p>集客が伸び悩んでいるが、何から手を付けるべきか判断材料がなく手が打てない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. 現在の取り組みヒアリング ═══ -->
+<section id="hearing" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num" style="background:#f59e0b;">6</span> 現在の取り組み確認</span>
+    <h2>現在の取り組みを<span class="accent">整理しましょう</span></h2>
+    <p class="section-desc">当てはまる項目に<strong>チェック</strong>を入れてください。現状を可視化することで、最適な打ち手が見えてきます。</p>
+    <div style="background:var(--gray-bg);border-radius:14px;padding:24px 28px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;">
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>MEO対策</strong>に取り組んでいる</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>GBP</strong>を最適化済み</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>口コミ獲得</strong>の仕組みがある</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>SNS運用</strong>をしている</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>Web広告</strong>を実施中</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>SEO・ブログ</strong>を実施中</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>ホームページ</strong>を最近更新した</span></label>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>AIへの対策</strong>に取り組んでいる</span></label>
+      </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:2px solid #e0e0e0;font-size:0.88rem;color:#666;">
+        ✓ チェックが<strong style="color:var(--pink);">少ないほど、伸びしろが大きい</strong>状態です。まだ手をつけていない施策こそ、競合と差をつけるチャンスです。
+      </div>
+    </div>
+
+    <!-- LTVシミュレーター -->
+    <div style="margin-top:36px;background:linear-gradient(135deg,#fff0f6,#fff8f0);border:2px solid var(--pink);border-radius:16px;padding:28px 28px;">
+      <h3 style="font-size:1.15rem;font-weight:900;color:var(--pink);margin-bottom:6px;">💰 新規1人あたりのLTV（生涯価値）シミュレーター</h3>
+      <p style="font-size:0.88rem;color:#666;margin-bottom:20px;">数値を入力すると、新規客が1人増えたときの価値を自動計算します。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:20px;">
+        <div>
+          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">客単価（円）</label>
+          <input type="number" id="ltv-price" value="3000" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">月間来店回数</label>
+          <input type="number" id="ltv-freq" value="2" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">継続年数</label>
+          <input type="number" id="ltv-years" value="3" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">月間 新規増加数（人）</label>
+          <input type="number" id="ltv-new" value="10" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:#fff;border-radius:12px;padding:18px 20px;text-align:center;box-shadow:0 2px 10px rgba(232,50,122,0.1);">
+          <div style="font-size:0.82rem;color:#888;margin-bottom:4px;">新規1人あたりのLTV</div>
+          <div style="font-size:2rem;font-weight:900;color:var(--pink);" id="ltv-result">¥18,000</div>
+        </div>
+        <div style="background:var(--navy);border-radius:12px;padding:18px 20px;text-align:center;">
+          <div style="font-size:0.82rem;color:#aaa;margin-bottom:4px;">年間の追加売上インパクト</div>
+          <div style="font-size:2rem;font-weight:900;color:#00b4a6;" id="ltv-year">¥2,160,000</div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;color:#999;margin-top:12px;">※ LTV ＝ 客単価 × 月間来店回数 × 12ヶ月 × 継続年数。年間の追加売上インパクト ＝ LTV × 月間新規増加数。あくまで試算です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. 広告・SNS・SEO・MEO・AIOの役割整理 ═══ -->
+<section id="roles" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">7</span> Role Map</span>
+    <h2>各施策の<span class="accent">役割を整理する</span></h2>
+    <p class="section-desc">それぞれの施策は競合ではなく、組み合わせることで最大効果を発揮します。</p>
+    <div style="overflow-x:auto;">
+      <table class="role-table" style="min-width:700px;">
+        <tr>
+          <th>施策</th><th>効果の即効性</th><th>コスト感</th><th>持続性</th><th>主な用途</th>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;background:#f97316;border-radius:50%;margin-right:6px;"></span>Web広告（Google/Meta）</td>
+          <td>◎ 即効性あり</td><td>高額</td><td>止めると即終了</td><td>短期集客・新規リーチ</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;background:#8b5cf6;border-radius:50%;margin-right:6px;"></span>SNS運用</td>
+          <td>△ 中〜長期</td><td>中程度</td><td>継続が必要</td><td>ブランド構築・ファン化</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;background:#3b82f6;border-radius:50%;margin-right:6px;"></span>SEO</td>
+          <td>△ 長期安定</td><td>初期投資大</td><td>資産として積み上がる</td><td>情報収集型ユーザー獲得</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;background:#00b4a6;border-radius:50%;margin-right:6px;"></span>MEO</td>
+          <td>○ 来店直結</td><td>低〜中</td><td>積み上がる</td><td>今すぐ来店ユーザー獲得</td>
+        </tr>
+        <tr style="background:#fff0f6;">
+          <td><strong style="color:var(--pink);">★ AIO</strong></td>
+          <td>○ 次世代対策</td><td>先行投資</td><td>長期資産になる</td><td>AI経由のユーザー獲得</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tip-box" style="margin-top:24px;">
+      <strong>MEO × AIO を軸に</strong>、広告・SNSと組み合わせることで「集客の全方位対策」が完成します。まずMEO × AIOで基盤を作り、そこに広告・SNSを重ねていくのが最も効率的です。
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. なぜMEO・AIOが継続的に必要なのか ═══ -->
+<section id="why-meo" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">8</span> Why Continuous</span>
+    <h2>なぜMEO・AIOは<span class="accent">「続ける」必要があるのか</span></h2>
+    <p class="section-desc">答えはシンプル。集客は「一度やって終わり」ではなく、積み上げるものだからです。</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+      <div style="background:linear-gradient(135deg,#fff0f6,#fff8f0);border-radius:16px;padding:32px 28px;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:12px;">📈</div>
+        <div style="font-size:1.3rem;font-weight:900;color:var(--pink);margin-bottom:10px;">口コミは「資産」</div>
+        <p style="font-size:0.95rem;color:#555;line-height:1.8;">積み上げた口コミは消えません。続けるほど<strong>競合との差が開いていきます。</strong></p>
+      </div>
+      <div style="background:linear-gradient(135deg,#f0faf9,#e8f4f4);border-radius:16px;padding:32px 28px;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:12px;">🔄</div>
+        <div style="font-size:1.3rem;font-weight:900;color:#00b4a6;margin-bottom:10px;">Googleは常に変化</div>
+        <p style="font-size:0.95rem;color:#555;line-height:1.8;">検索ルールは定期的に更新。<strong>続けないと順位は維持できません。</strong></p>
+      </div>
+      <div style="background:linear-gradient(135deg,#f0f0ff,#eef2ff);border-radius:16px;padding:32px 28px;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:12px;">🤖</div>
+        <div style="font-size:1.3rem;font-weight:900;color:#6366f1;margin-bottom:10px;">AIは鮮度を見る</div>
+        <p style="font-size:0.95rem;color:#555;line-height:1.8;">古い情報はAIに無視されます。<strong>継続的な更新が信頼を生みます。</strong></p>
+      </div>
+      <div style="background:linear-gradient(135deg,#fff8f0,#fffbf0);border-radius:16px;padding:32px 28px;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:12px;">🏃</div>
+        <div style="font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:10px;">競合も走っている</div>
+        <p style="font-size:0.95rem;color:#555;line-height:1.8;">止まった瞬間に追い抜かれます。<strong>走り続けた店だけが上位に残ります。</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9-12. MEO 統合ページ ═══ -->
+<section id="what-meo" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">9</span> MEO</span>
+    <h2>MEO＝<span style="color:#00b4a6;">Googleマップで選ばれる対策</span></h2>
+    <p class="section-desc">スマホで「近くの〇〇」と検索したユーザーに、真っ先に見つけてもらう施策です。</p>
+
+    <!-- 2本柱：上位表示 と 口コミ -->
+    <div class="card-grid-2" style="margin-bottom:24px;">
+      <div style="background:#fff;border-radius:16px;padding:28px 26px;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:10px;">🗺️</div>
+        <h3 style="font-size:1.25rem;font-weight:900;color:#00b4a6;margin-bottom:12px;">① 上位表示</h3>
+        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">Googleマップで上位に出るほど来店が増えます。<strong style="color:#00b4a6;">1位のクリック率は35〜40%。</strong></p>
+        <div style="background:#e8faf8;border-radius:10px;padding:14px 16px;">
+          <div style="font-size:0.82rem;font-weight:700;color:#00b4a6;margin-bottom:6px;">上位表示を決める3要素</div>
+          <div style="font-size:0.88rem;color:#555;line-height:1.9;">
+            <strong>関連性</strong>：業種・説明文の最適化<br>
+            <strong>距離</strong>：住所・NAP情報の統一<br>
+            <strong>知名度</strong>：口コミ・投稿・情報量
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 26px;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:10px;">⭐</div>
+        <h3 style="font-size:1.25rem;font-weight:900;color:var(--pink);margin-bottom:12px;">② 口コミ</h3>
+        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">口コミは順位にも来店判断にも直結。<strong style="color:var(--pink);">88%の人が来店前に口コミを確認します。</strong></p>
+        <div style="background:#fff0f6;border-radius:10px;padding:14px 16px;">
+          <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">口コミが効く3つの理由</div>
+          <div style="font-size:0.88rem;color:#555;line-height:1.9;">
+            <strong>順位</strong>：Googleの評価要因に直結<br>
+            <strong>AI評価</strong>：AIが内容を分析・信頼<br>
+            <strong>来店判断</strong>：最後のひと押しになる
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- なぜ必要なのか（下部） -->
+    <div style="background:var(--navy);border-radius:16px;padding:28px 32px;color:#fff;">
+      <h3 style="font-size:1.1rem;font-weight:700;color:#00b4a6;margin-bottom:16px;">なぜ、情報を「充実させる」必要があるのか？</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;color:#ff8a8a;margin-bottom:8px;">✕ 情報が少ない店</div>
+          <p style="font-size:0.88rem;color:#bbb;line-height:1.8;">写真1〜2枚、説明なし、口コミも少ない。<strong style="color:#fff;">ユーザーは不安になり競合を選びます。</strong></p>
+        </div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:700;color:#00b4a6;margin-bottom:8px;">✓ 情報が充実した店</div>
+          <p style="font-size:0.88rem;color:#bbb;line-height:1.8;">写真30枚以上、丁寧な説明、口コミ多数。<strong style="color:#fff;">来店率が上がり、AIにも信頼されます。</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ═══ 13. AIOとは ═══ -->
+<section id="what-aio" style="background:var(--navy);color:#fff;">
+  <div class="container">
+    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">13</span> What is AIO</span>
+    <h2 style="color:#fff;">AIO（AI最適化）<span style="color:var(--pink);">とは</span></h2>
+    <div style="background:rgba(232,50,122,0.12);border:1.5px solid rgba(232,50,122,0.35);border-radius:14px;padding:20px 24px;margin-bottom:32px;">
+      <p style="color:#fff;font-size:1rem;line-height:1.9;"><strong style="color:var(--pink);">AIO（AI Optimization）</strong>とは、ChatGPT・Gemini・AI Overviewsなど主要AIが<strong>「おすすめの店」として推薦する対象になるための対策</strong>です。MEOが「Googleマップで順位を上げる」施策なら、AIOは「AIに信頼される情報基盤を作る」施策です。</p>
+    </div>
+    <div class="card-grid-3">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(66,133,244,0.4);border-radius:14px;padding:22px 18px;">
+        <div style="font-size:0.9rem;font-weight:700;color:#4285f4;margin-bottom:10px;">🔍 AI Overview（Google）</div>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">GBP・Googleマップが主要参照元。Googleマップ最適化が引き続き最重要です。</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(16,163,127,0.4);border-radius:14px;padding:22px 18px;">
+        <div style="font-size:0.9rem;font-weight:700;color:#10a37f;margin-bottom:10px;">🤖 ChatGPT</div>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">リアルタイム検索はBing経由。店舗MAPのデフォルトはAppleマップ。構造化データ整備がカギ。</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(26,115,232,0.4);border-radius:14px;padding:22px 18px;">
+        <div style="font-size:0.9rem;font-weight:700;color:#4285f4;margin-bottom:10px;">✨ Gemini</div>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">Google検索と深く統合。GBP・ローカルガイドの評価・レビューが参照される。</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;background:rgba(232,50,122,0.1);border:1px solid rgba(232,50,122,0.3);border-radius:12px;padding:16px 20px;">
+      <p style="color:#ff69b4;font-weight:600;font-size:0.92rem;">💡 GBP充実・Appleマップ登録・構造化データ整備を組み合わせることで、すべての主要AIをカバーできます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 14. AI検索時代に必要な情報構築 ═══ -->
+<section id="ai-info" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num" style="background:var(--pink);">14</span> AI Info Build</span>
+    <h2>AI検索時代に必要な<span class="accent">情報構築</span></h2>
+    <p class="section-desc"><strong>「複数の信頼できる情報源で同じ内容が確認できる店舗」</strong>をAIは優先的に推薦します。</p>
+
+    <!-- フロー図（余白調整版） -->
+    <div style="background:#fff;border-radius:16px;padding:32px 24px;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+      <div style="display:flex;align-items:stretch;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:150px;max-width:230px;background:var(--gray-bg);border-radius:12px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">📍</div>
+          <div style="font-size:0.95rem;font-weight:800;color:#333;margin-bottom:4px;">お店の情報</div>
+          <div style="font-size:0.78rem;color:#888;line-height:1.6;">名前・住所・電話<br>メニュー・写真</div>
+        </div>
+        <div style="display:flex;align-items:center;font-size:1.5rem;color:var(--pink);font-weight:700;">→</div>
+        <div style="flex:1;min-width:150px;max-width:230px;background:var(--gray-bg);border-radius:12px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">🌐</div>
+          <div style="font-size:0.95rem;font-weight:800;color:#333;margin-bottom:4px;"><strong style="color:var(--pink);">113媒体</strong>に同時配信</div>
+          <div style="font-size:0.78rem;color:#888;line-height:1.6;">Google・Apple・Bing<br>Alexa・Siri・他110媒体</div>
+        </div>
+        <div style="display:flex;align-items:center;font-size:1.5rem;color:var(--pink);font-weight:700;">→</div>
+        <div style="flex:1;min-width:150px;max-width:230px;background:#fff0f6;border:2px solid var(--pink);border-radius:12px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">🤖</div>
+          <div style="font-size:0.95rem;font-weight:800;color:var(--pink);margin-bottom:4px;">AIが「信頼できる」と認識</div>
+          <div style="font-size:0.78rem;color:#888;line-height:1.6;">複数ソースで一致<br>→ 推薦・引用の対象に</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6項目（アイコン付き） -->
+    <div class="card-grid-2">
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🏷️</div><div><strong style="color:#333;">店名・住所・電話番号の統一（NAP調査）</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">全媒体でNAP情報を一致させる。矛盾があるとAIの信頼スコアが下がります。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">📇</div><div><strong style="color:#333;">GBPの充実</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">写真・投稿・サービス・説明文を完璧に整備。すべてのAIの基本参照元です。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🍎</div><div><strong style="color:#333;">Appleマップへの登録・最適化</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">ChatGPTのデフォルトMAPはAppleマップ。登録なしでは届きません。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🌐</div><div><strong style="color:#333;">113媒体への情報一括配信</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AIが参照する主要媒体すべてに正確な情報を届け、信頼スコアを高めます。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">⭐</div><div><strong style="color:#333;">口コミと返信の質・量を高める</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AIは口コミ内容もテキスト分析。具体的な口コミが信頼性を高めます。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">✍️</div><div><strong style="color:#333;">AIO対応コンテンツの継続発信</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AI向けに最適化された記事・投稿でサイテーションを継続獲得します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 15. やるメリットではなく、やらない機会損失 ═══ -->
+<section id="opportunity-loss" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">15</span> Opportunity Loss</span>
+    <h2>やる「メリット」より、<span class="accent">やらない「機会損失」</span></h2>
+    <p class="section-desc">対策しない間にも、競合は着々と差をつけ続けています。</p>
+    <div class="card-grid-2">
+      <div class="card" style="border-left:4px solid var(--pink);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">01</div>
+        <h4 style="font-size:0.98rem;">競合がAIに選ばれ続ける</h4>
+        <p style="font-size:0.86rem;">今日も明日も、競合の店にお客が流れています。対策しない間にも差は広がります。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--pink);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">02</div>
+        <h4 style="font-size:0.98rem;">毎日の機会損失が蓄積する</h4>
+        <p style="font-size:0.86rem;">「今すぐ行きたい」ユーザーを毎日取り逃がしています。1ヶ月で何人失っていますか？</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--pink);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">03</div>
+        <h4 style="font-size:0.98rem;">後から始めても追いつけない</h4>
+        <p style="font-size:0.86rem;">口コミ・情報資産はゼロからのスタート。今動いた競合との差は半年後に大きくなります。</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--pink);">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">04</div>
+        <h4 style="font-size:0.98rem;">AIの学習には時間がかかる</h4>
+        <p style="font-size:0.86rem;">AIに認識・推薦されるには継続的なデータ積み上げが必要。遅れるほど不利になります。</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:24px;text-align:center;">
+      <strong>「やるかどうか」ではなく「今すぐやるか、あとでやるか」の選択です。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 16. 競合比較で負けるポイント ═══ -->
+<section id="competitive" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">16</span> Competitive Gap</span>
+    <h2>競合比較で<span class="accent">負けるポイント</span></h2>
+    <p class="section-desc">競合がMEO・AIO対策をしている場合、以下の差が生まれます。</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <tr>
+          <th>比較項目</th>
+          <th>未対策の店舗</th>
+          <th class="col-aio">MEO×AIO対策済みの競合</th>
+        </tr>
+        <tr><td>Googleマップ順位</td><td style="color:#e53e3e;">下位表示 or 非表示</td><td class="aio-v">上位3位以内に安定</td></tr>
+        <tr><td>AI検索への対応</td><td style="color:#e53e3e;">AIに存在を認識されない</td><td class="aio-v">ChatGPT・Geminiで推薦される</td></tr>
+        <tr><td>口コミ数・評価</td><td style="color:#e53e3e;">少ない・低評価放置</td><td class="aio-v">継続的に増加・適切に返信</td></tr>
+        <tr><td>来店前の第一印象</td><td style="color:#e53e3e;">情報が少なく不安を与える</td><td class="aio-v">写真・情報が充実し信頼される</td></tr>
+        <tr><td>インバウンド対応</td><td style="color:#e53e3e;">外国語対応なし</td><td class="aio-v">多言語対応で4000万人市場にリーチ</td></tr>
+        <tr><td>情報の一貫性</td><td style="color:#e53e3e;">媒体ごとに情報がバラバラ</td><td class="aio-v">NAP統一・113媒体に正確な情報</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══ 18. 新規を本当に増やしたいのか確認 ═══ -->
+<section id="closing-question" style="background:var(--navy);color:#fff;padding:90px 20px;text-align:center;">
+  <div class="container" style="max-width:720px;">
+    <span class="section-label" style="color:#f59e0b;"><span class="section-num" style="background:#f59e0b;">18</span> Let's Check</span>
+    <p style="color:#aaa;margin-bottom:16px;font-size:1rem;">少しだけ、一緒に考えてみませんか。</p>
+    <h2 style="color:#fff;font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:32px;">もし新規のお客様が増えたら、<br>お店はどう変わりそうですか？</h2>
+    <div style="text-align:left;max-width:580px;margin:0 auto 36px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
+        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
+        <p style="font-size:1rem;color:#ccc;">今の集客に、少し物足りなさを感じることはありますか？</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
+        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
+        <p style="font-size:1rem;color:#ccc;">3年後も、今と同じやり方で大丈夫そうでしょうか？</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
+        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
+        <p style="font-size:1rem;color:#ccc;">競合より一歩先に、AI対策を始めてみませんか？</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;">
+        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
+        <p style="font-size:1rem;color:#ccc;">まずは小さく、できることから始めてみませんか？</p>
+      </div>
+    </div>
+    <div style="background:#00b4a6;border-radius:12px;padding:18px 28px;">
+      <p style="font-size:1.02rem;font-weight:700;color:#fff;">ひとつでも気になったら、それが始めどきのサインです。<br>H2technologyが、無理なく一歩ずつサポートします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 19. サービス全体像 ═══ -->
+<section id="service-overview" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">19</span> Service Overview</span>
+    <h2>H2technology<span class="accent">　サービス全体像</span></h2>
+    <p class="section-desc">MEO × AIOを軸に、広告・SNS・ツール提供まで一気通貫でサポートします。</p>
+    <div style="background:var(--gray-bg);border-radius:16px;padding:32px;text-align:center;margin-bottom:24px;">
+      <div style="display:inline-block;background:var(--navy);color:#fff;border-radius:50%;width:120px;height:120px;line-height:120px;font-size:1rem;font-weight:700;margin-bottom:24px;">MEO × AIO<br>コア戦略</div>
+      <div class="card-grid-3" style="max-width:760px;margin:0 auto;">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📊</div>
+          <strong style="color:#00b4a6;">MEO対策</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">GBP最適化・口コミ促進・順位管理</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">🤖</div>
+          <strong style="color:var(--pink);">AIO対策</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">AI参照元整備・113媒体配信</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">🛠️</div>
+          <strong style="color:#6366f1;">ツール提供</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Mappy / Mappy＋ 内製化支援</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📱</div>
+          <strong style="color:#8b5cf6;">SNS運用</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Instagram運用・GBP連携</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📣</div>
+          <strong style="color:#f97316;">広告運用</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Google/Meta広告運用代行</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📋</div>
+          <strong style="color:#f59e0b;">月次レポート</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">成果の可視化・定期コンサル</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 20. MEOサービスの強み ═══ -->
+<section id="meo-strength" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">20</span> MEO Strength</span>
+    <h2>MEOサービスの<span style="color:#00b4a6;">強み</span></h2>
+    <p class="section-desc">他社にない、H2technologyの3つの強みです。</p>
+    <div class="card-grid-3">
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🛠️</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">独自ツールで<br>徹底管理</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">自社開発ツール「Mappy」で順位・口コミ・分析をひとつの画面で完全可視化。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">⭐</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">口コミを<br>仕組みで増やす</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">SMS→口コミ依頼→AI返信まで一気通貫。現場任せにせず、継続的に口コミを獲得。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">📊</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">レポート＋<br>コンサル付き</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">毎月の成果をデータで報告。次の打ち手を一緒に設計し、改善を繰り返します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 21. AIOサービスの強み ═══ -->
+<section id="aio-strength" style="background:#fff;">
+  <div class="container">
+    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">21</span> AIO Strength</span>
+    <h2>AIOサービスの<span class="accent">強み</span></h2>
+    <div style="background:var(--navy);border-radius:14px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <div style="display:inline-block;background:var(--pink);color:#fff;font-size:0.75rem;font-weight:700;padding:5px 14px;border-radius:6px;flex-shrink:0;">🔒 日本独占</div>
+      <p style="color:#ddd;font-size:0.9rem;flex:1;min-width:200px;">海外トップ企業との<strong style="color:#fff;">独占パートナーシップ</strong>。この仕組みを使えるのは当社だけ。競合には真似できません。</p>
+    </div>
+    <div class="card-grid-3">
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🌐</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">113媒体へ<br>一括自動配信</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">日本で登録できる113媒体すべてに正確な情報を自動配信。1回設定で継続更新。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🤖</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">AIに<br>推薦される</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">複数媒体で一致した情報により、ChatGPT・Geminiが「信頼できる店」として推薦。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🍎</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">Appleマップ<br>最適化</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">ChatGPTのデフォルトMAPはAppleマップ。登録でChatGPTユーザーへのリーチが向上。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ═══ 24. ツール紹介 ═══ -->
+<section id="tool" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">24</span> Tool</span>
+    <h2>専用ツール<span class="accent">「Mappy」</span>のご紹介</h2>
+    <p class="section-desc">MEO運用に必要な機能をワンストップで。<strong>最大の強みは「口コミを現場任せから仕組みへ変える」こと。</strong><br>※ 詳細は別途お送りするマニュアル資料をご覧ください。</p>
+
+    <!-- 実画面2枚 -->
+    <div class="card-grid-2" style="margin-bottom:24px;">
+      <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <img src="data:image/webp;base64,UklGRiQ3AABXRUJQVlA4IBg3AADQQgGdASogA8sBPm00lkikIrQhJNCZ2oANiWVu9Hx2i4nODPpTuE5VrVta1CZYf6P90/bfyJZV9xfnf7d+2nFKePPkzxx+zco/oi/qf4r2i/5T/gf5b3g/p7/ue4T/gf7f+tnW+/qfoI/lH+D/X7/w/EZ/u/2k95n989QD/B/5X1vPV69BX9y/WY/8X7x/D7/Z//L+5ntYf//WgfPP+K9V/hL+E+371H8ZvnP3Q/uvzifaf+H4nuv/NP+dfd39h/ifap/Of7fw9+Ev+n6hH5p/Q/8/4ou0z1f/begL64/Vf+f91PwS/Jf8z/I+pX12/5vuA/zP+r/8z1b/5fhv/Yf91+0PwA/y7+0f9T/D/ld9NP9l/7v9N5+v0r/Uf+r/UfAN/Ov7d6bX//9xf7hf/P3UP2H//ASb9oDLOqYoTGw5Kb9z+176KONYpeZBolDhY2pydC7UBC9jqFwoCW0CJIy5Ep3nt/SxNELvl6diarPz7m+JeJpsTiDN8KPfRKmxaMvqahuWpprG+qRc5+lHLrRG/wtSP1IO8niafFcXg1f9Kh7ruopFGcS7gNp3urdiqw75baFpXwqrtU80vpfRde1K2vfO+eAAQyGOfGdca50tUIp45jWI6+Gwqo5sCwatABzdXH6jwFpzCdxJLRmwFfsSKWsEBo9ZJ9rn8SRYcvJ0Xwe91GEKUrdGO2/3aEeNUhJAqEOdPMXsGAhcvMwllBEO+GBKlbXvnfPAAIZDHH0BuKE9/KUv///MLkBP/XDJli5iwcYp3mJCCZULzg8gm6OZdGrwACGQxz4zrjXPf/////////8sPCWpf/UXLAgzmQACrynET0u/i5Uaw9iqVHz2k5OhdqAhex1C4UOFjanJ0LtOwUttdH56NaNmWP2goFd4hOwNTUJtND/UHYA97jrM8Ck2UpSlKUpRCD5aR/ANGLvHrFw/EZrkVxQd0h1pK6Npiy35zoUhZuS6muk3eg5Y5RbQHRCswcUAI4dRy6VeOhQaut+qcMJfupyPIirR65JMa4wpaiSEbDDSLafeMJHSTaZuIHl69XCJwPYbJn6V+/eLo/adDgSLwOLbqpPb40s+PhbipvKI6x8GVDdjTcCYZeF///////2sME8t70SCPF5zQMnnfPup1ACbnWD0e/iqrTVDFGMi4pYFh8YD5xN1biH6RBPNjB+BIeWVbDgIdACCbQAeTyVeR492+eOF8+SvalM+trSBuEh4TwaDvQEMhjnxhORdvqdcuuFHGoGcvXCbmCAORuXQtQWSEQ+Zc22I3SpWk7rd41W7QcWCHylFPovfUo/3fUIGQxXALDRe6FHdTuH4IhglDhY2qJf5DHPjOuNc9////////////UR03AnQtS7snP+M+Jf6LhK4JYy7mKiJvjyy/////////////////////////////////8uqxe1ztpBlwEZpeLAZf8iUHxfs/l0KSqYEw//////////6FO/zilZYr83hAlPY6Wfq5dvxjTI2cBveyEJ8gPICOjoi1JydSOIRhJCNfLR4c3CMJcfVVkMc+M63SP25m+67AvdNlVy9nE+l970N4A4CExi30gWv/b02bCXqLRtTk6F2oCFmiufNHvPZjyqVkInWLj09d4mte9awjnyNBWnSY51sA4B28Ig9CdmqkIBhbxfOTUtmQsVgJxEwROhdp3b13FVyLnYvUlpuRDT17Igl0uRPwlOdIjfDharpmO2NifhSA/zKl4QDCNS8zUdC2Oe973ve9P0/en73vT96fve973vfGKF+deYWZMisI/DXRk1rfPAAIIvbAu6RBJtqQlKi1////////////////////////8eFPi/91S0yzTk4uzhIPthnpqDuxCfyhuFif7NYpM+G6PSPvdalikzsGr7vt2jYWH5UY6hcKHCxtTkb3BzSaf/IUQg4ruv3WJPqgA1iJ/P+C9AvHrs2CJop7cm6ZUQewB4tPY1CdPvaST3iJKv6KxQZPgUhviYwT1jrz3IMvfXKevyEAufRMP8qyQ2B+FN1wi9ayF+E4SDz3rFn9k3TwOiolS5s2w8FoFRk65+czKBFfdWEv1Fazr9mw6yyEbGAgqsNxunfr8oydAVReZ8x4jnwBjW0/DqlQzkFNG089I9cpBGiQbNJKTYIu9wuC/mHFR/EXrlSe4tCejxDGWIkpTBYCCIensfX6NPXjDvDiCUztyq80QrkhzO7LVZPN/S90Ol1QWA1fCOxiJJIWqE9Jhz/LJJmeL+2I4JV+cY2Oa3mTICzSYphHoAN79i6lEW0SCO3sJxCtIssevQGQpmxzW8yyv4WowaPpCrSROq2LnVtAm4BLFKdTNGTxB7ax+bYqD6TGnA2/VitRANnXXyMqnXs2h6ULx7EywOUMUDXSXZz0ZRl+m9/oTqBXR9ntyeo88ZBHbImBYs9DDKYvI0EVyCO4MfDl8mDh27Gr9CzjAmhFZJWtRBtmFhwWeJaUQLj7bGAU4Ke87+Y4pftKd1jPkIo+B8yuZspBGEqCHUnpu43p/VyQhSvShRdtHv4VHwJuLUju9BpZCHzLY/CHP7N+zq5wqu2z3HFBBshKBpBZbhaykuoMrU/Q1VdghjK83vEhGPrkM9g76CEn8Nome4PvP4NIoPQgrpPiapPoE94HT4xFk3RfhmfndR86Q3IX6G6RiT3uWfK70hfHI0CKjgEJkIGMl6KoOxemz8eiiqNqh8CBpF11JoJdM3AbzkTG1XR26DoqBPdsRq9SlaFqVJUj1VPRrtu3arRRMtxPs9QiH75JuaxyPtNHmZ2cliCK8pGFypkq1ebCJ626AfgDaSF8v/48P3MPyXZpPVa+AjLECL1tfllmIFJx8enmkm229KCj8Ynf5xvSESJUymEORB0RiMLgIUFSYTpH3/C6afwOunWCUMKmADYwf0kEoSmpFym4c6uPPXL3cugdlgEleqARts1yN/KylL8pSlKX5f/KUpSl+UpSlKX5S//8pSl0JWjO/uJmiR/lmdpR3i5/dbV0iLxPlAQCFPGdp/SxXDROvUfC7UBC9jqFwocLG1OToXagIXsdQKG5bGvNaQrrDrOntvAC0F5uH52KMbDiJf/////////////G01ub//vWOln85wWnQStsPaBkMc+M641sj9nXgmjc2CM8i1Y4a29so/Rz5Klu7tQEL2OoXChwrdYd+T2Fttk3VkVD9GHPCZaWeoCYL3T6skvebU9dYI2T1z7HULffzRHlaiIdP42zpIVmBKiJOEaYdUf6tCl5ZIUlKNp139Kw4eEkrI2a4ZbWfNuYrMv/HVxiONc9///////////K/iVGExz4zrjXPf//K/hsMUiHoP77zklrYbhnFUBC9jqFwocLG1OToXagIXsdQuFDhY2X8nz4fAJrjSSdbGue///TOdG6q6AuEnEMav////////////////////////iN03NwW8qAAD+9p9VUgFwRm2f8gn7vy9JPad1AaUVSbOjHrN8RwGTYTjhWgSZxOQuf4Tnqh7iDiTF7h96i17raPP10hcRqyJlz/Ekof1/fA/xmc8+C0+o3VpEzpd8zRfDWKS8/pkVZYZTq/sWai4J5rkrRyOHaMzQkPXeFv/92ASMeHnp7m+JIvCMlzOFtsE7D1Cs03KkShR26HqFXbrM6s8Qs5JH/T8JnBdBJdCzPZOUC+Zd5gL0wPDTt4zpTV8LEtBmfdoJnZ2g2/OQI0m1KPbjmYb5O0la2dOkZ3RWzSa/VWlzRl4xZIie9XQKvCXhAx3pOjNOHVm8lldSMiiHgFUMgQNwABJdY/ZJVw3Pf4WhX0Pv5IpLJk8Ku70CYeHNAySZUiQn4lnZ0cfWuwDdCISsZzFpN6+wOLAMqD3lfXG+urghF0BxdGNjHJrsKiu2nrJog3mOZdqBrOWuAw8HtZ0BP6++VwgEOeQ0Umnql1W5Xiu8plt6ISZicAChgnoIbSQc3h6G9UqMg/7tw3cFSSBKSxPXZysOGKh/1G/drNMzy/PXbk7K/9qPX+fbjmXTzUXul6jEZ/stryAIJA4rweucE8kF713iWnXYSHPjagoL0/fYGsPfCyT8lscdjDt1bwW50sYcB6xw5GerKsA/yBaH/3rGqKp96b320WunboW7h5RUHXKfNeS1BX1yt3W0lSb/Vy1HzHbGpOAl5SICjoGKqyF67237W5KGOYqhwjU+fcJDab6gJSNNmNWKT7ieA7SWwICgARUaOOBTiQctrGcF28TJs7cqXMMtbteRPJoUfzhAyR0AwFftnIMLeVviIuyPKdXGT4OBZmVKhyPIfRPtyHwiP5RUrJdQ43bTAl0LziG2SQl3+mtq8w7VpUjCCNqDe14/D/wux3QP5iGPeRTgLNYZCJeDmcfvgtv5CSj4GzUqMm3qq95/7tgMsc3gzYIpHTSdZ78b4GYrTaS3J3MTopWSHEDzZd/lwFircaT6YUgU+nBr8TmxwXWrdSVD+xYsKxFu73ZGCtRyQNxLU0zJNyv80n06aGx73gD+15lvEBu8Mv9U0PpBzfOgf6FfMOId5uEUi6y3I2ZjoV9buxZCqLqGJZU+8OCav0s8JnXPVj74tP0YxvukJMztsEeSPkcA8LlS0sxIZ+rwI9eCSFSKpX0FKT5wXuPS+lRFFyQfZwoXSloBzR5+ohBxLk6VyOcacYt085bFFQLYCCVFSDH3XQTspyU5jHjFwMBXRYCHhTIV3gQncf8O6wV3bRZKlADLM0+pQCA+7JEEroJ9jlzJ1m5HpG/ULm4Tp2uCthiP9FqcK7LCcKM/P0hvF7hWKtxeH6CNdA5wCRvtOhhk9aubmnPEp6J6gKdvbGiPPUjFa7nEDKA+Pa44idplUOpANX1Jg0DYWmbje9JIzb8ejHlpiDdHhOm1e+vD95c1eXocx8wd0+AASkcZ9EP0BoC2zEigQMmFZsCzZ46/OuxlEBkXPzHw2Q/PpUnkNlnPIUtPWwKs+EVvIFnECJL9OUf1VXXGmjVY5+vT4uOTTRozJhdZG58lbiy1Re3yHUzuD8a7x0J579d8HjC/0UE9WnrDwe+s8P0DphjWcAI6jQ8YihF79szz3mYrKhOrPmEnNii9POEO86+taQiCcLbnvbLlBQcANoJkKLnEPNlhaiyq5Au9LT0Zcn4CVgTBCjAE72YtgZGo3RUUTVWBEU5CWmnWcuBT+6yEyFAgqqhaQMhMBkw5voWOhrf8rtJnidcCO3RKs/zfFCdQjdF7ffzmpYV/cbqOi7PCVyeHKlJdiFcBoSZV6A2yHv0ufNM8pJdQpAWntz/BxawUnbSFXsGWDF6VZr7qvH5tSWRBys7mSN7NBLNFq0adrroROFDRf3gt5gfFfvJKTgF0+CP7gbfHZSUNzk6UtI1hOUjuVJZKW1Ytk74P4oxEOLtKDllk9GpXMpIKaYlBAtiXtJYj5co6+qYtnmqYI1pFf/8Ku0nsjf5AedZMG2SsGkyIH76iOse682jcW8tRPw9Jl1OSqxlUQj4ISPRKchF6ZMLiQorSVwGgb4YiV8kn2U523vCf/K+EK3KrrVIdY4kn5whFQWx2jPzUUagUPTXgn6vtipaKf1nfPViHPd1XS49dfdT5szHT/Vm8JVbjcXFUVmeU2/DopZApyepbVAYtuRYWxg7gPjyHv9jO/OisUdLO1wTbUQk43wPcrH1bdmnIiy9PfeZCN2CyL5WQagpfPWVNkgZejlywPAwDJsrGMjTh5oWnbTHg0C+3S3h2XOUOy3d8WK3dYANBnLjPDldMUdudo2UAAAAG52Qa21oQZ2RL+EH2jOideXfpKkVWmv5+rTr5yMda1RFz0rP6L1Yky/4QjVVAGRRqOds7/qiDCN3wmJiZBKWTmKXPKl9EvmNNE2yhGPIHAoHI3lBnWEkj36jQO5SQJb6QTrTMhvzJ4k9GpwqLHnfnXcacPeqWUjlGczciMUdaL1UqTlb7d/SK/2p8AAAAW/hJ8uAoJOTo3bhZvJrYxQLLKyka41S9PGdknAtTSpq6blpSz+lv4Iw8m+u4B0hAa/ABV2jSOhAs5vh7jDEeRDKhaz2AwjNBVBgA0Q6/opOPOlPVqC4ver2eAvPR3syvIWJ+o7qNFIgqpxAx2urjgfXJrnnZz+OGRNxvVw0GC6Tj1kJgQueOZic8suc10BJIT1NAuf59ssD0DFN0oFBUO/LwGawUFYt/hCNJms5sUonECpIYtjxOTvQTz5pjf7AysYkrwlZ2yxxX9rGhceHSjxo+Df6YuoPDUukAAAAACGnhNOMjLcO5rHw12NTpbESj/bANxGKC9LquY55Okg95gEewiFV4kBmtkWRt8OYWiCDzOn90mUMCQVNq65Tg0Ju3Voza/tp30HhPLy1jCpndpWultegjXRx83tomOWyIXFszH6bxQIgLekO88MQ8JRyJzLtYIxYjtHugwlrGvi/QGUMIa+ZrVgR9iPOXPdqgOqzJ7wLj6rI+1pmDasj+2Qi9kvWOAWinEvw0Zs3ArTZY8ghRrYFK7t2icLKou1lhbqPMt1KIZV+RUfwbgq0bNiNg2XBdtphtO6JLDFSbh7SYsAjIglXOC0W9ie9QBxWd4wLhx0xC88nV6NxNFAKvPmU1A4mfm6Xvqh/4xS8BHHC6DAbgOascUn6ZLD+jTPROhaT/tFP+7ztMUapZwuvHxE/6tLABl3tuwX6yce4SnXAj6bkYLZvq4cq2id2LQEpp1LudQ+le0so6U6tSHWIuzSz8ortDSAvezdyhESkTBLtuJ38TnsP8VURCOsBPOSQn9Bn/fg+pwwmeun72bSf8maMnKP34Ze7s0hxgCsBCrC45UFv3hQBs6vBYux47XIsHz9PJFJT7tGj4GqsyKbri+QoTD7yKSOeBCf796cJIogBgwf83IM96AyFFXopeJ8TjDTcbijEgnWFzu2EIms8O7ZMl1xqDw80vd3bOhLOaGvr1MVtpCxtSbk6jt2XFEAbVVQs5Hwuw0rwXQFFNE+TZrU/ErZm3NcTL57Tkk0ZOHfQ0Z277Tai5tsYmOA5s+b2vJOVvASlrqJODLnbOvTPZwRYLWcsofgAorHqg2+NkZ0mdppPsrvJSNWLqsvhPZz2tdlycHuT7Mo8DzIo1ZU795hdCv6oF2KByH6ORz6JTppG+Lh+u6Dok52Zn2B01cIlKsWkElZsvlV6InV4ClTCraz2/N5yuakgV68YeTtB3nI7b7afXhJLQTnp3A/iA05GlAk2bQs3wia+uRwKjNCu7qn30X0SUOqtZIOsITnL7Lv7xM/6ZKcm4lB2eiS521nd5WkfzLhPqa5G1mnSut1wdLoc6gnUI8mSbJScu9Cehm0V+M696MhC7xoDGgT9v/AVUBtDO0aaDiehgMVcAYHQaI8xA/+QdRyc0GfC7u19aD1ps4QwqjeSQuooF9fuO5K8mJSiuAmtW6uIDbHAEB4gJIl4Svl5IoNNaSThOf6P6pWqkJHs3mHckxft/c42g6CJfofnzA0cPRhce3EGdZJZzhx/HM8WyiEQGxd+/FQRKmiUtASFeru+yXioqNkRrCOS4uuokBTwp5vg0xpiWlHz8eDtlt5ievnFQHblgJPOGA+DBn/5nOj1Vkdu4y1/Xpn90GFe0+lBpEsmY+xNIhAkECh686yylomIOzftuKKAKolYozagXeAv8hLVhOXyX7mn1RGQPPf5Oj5vQxQD13aCsL5ap3W/x9AqFiW+mEI3n9Rq3oNcgjFNRrfsy7bvMGGtgEzkecp1RZnj6l2BqclphA268Q1Xhwg2DB3cobh9vuXQMdhyLKAd8rgmlw+GNN/5uTl6K0wXrwOsyqnMML7XYFfuFUvEOIKdynbuIWmYrmfz6Xnr0dOR+2AV4JfNoNH4k4eY7/R1JOKRc67oriA00d3xRjZI9fa/fIKG5mu40htPX6Sd47tTeTsyasTCYXRqW4AWV8Ciwo0FoO93MbgueL1/tL3bNiCx3DwrN7m4Y+rnv2ymP48O1mufML/6oV04I3cnR9elfhDUcZHRl50b+dH3W1kfvij7bCWp739VR7Q87OsgE/xes5ZUxxHavkkAL5NtJ58fk4mqpACYGc6rRJhFq2hHkf0ln+BPetZQa9iQjZK9KtEImOaMELnc4HqV2Z+EPKiDZvG+RGuU8R4lAStFZ3OP1WB9KMU4qy547NDCnROKsgE0paM+E1dzb+jLhosedWOJL1bhq+5x6AkGZeRL1qu6JZnjTC1yKN5BqADsQzbHF2RA8i3TEkl+tdUt+eO/YnHDpeTJ5Xxs/wrPwNdaKthANynOlsB/WJoxTMFsdV+Pw4LwErVL0tU6qKXtSg8/CDlnkF2nbwp+Upyo4nKjH/QkKna6XCVZR2+cMeuqjxMgg4APBqs7ZMqZUoV5eN509gSqYCapdy+KiLH4mytnV4FHmKM1c7xews3ejqGDhdJH4GRw+jMFuBeMZKg1ZGEoCB+DdRPQOsklkXzyQa1KjnWxKO7bOFEm+3TVfCiSucz5B5rPoAS+eI7b5AIOT63Kmgq8BevHMOrXRDYTHLElwm7CIVkBNwjl1QXY0t71ox7qCRWnFW6KYDjSiD6SVh9MTuOIbRLPhWU6y5yYVDykDAKdAdbOD2YItvuCzd1wKiQFSDGv5MN7PZJ2PaeebK+EF5hXjFNWZAar8zXjklGANGijCMzptBnxOVj54HLE6qRJJ8Wz7p1QoGy/dPqVRV48BQKB6B9bH1GPnNJgHDvaJoVKT1qlDUpwCpNxD0qHv20LWN/uwyFMc5mDyCiwVeZs9EzJf5Dc9DnRxX7fns1ltO819A2LgrdrIDCKagK5KU0cpq+sIarNxNANrtozhQBKcAV6TvgnKUi0Oykygn68Di7GwfqfwoAI5pUZjoDB+fdO4XBx74N/lzwAIdemOh1etkJG/dKV7hb1EOD7ER/OQGDuo0XRkhCx+87j/ouL9l/9P4UQJk5ki6yyFCkg99TrpdJ+rqgCfJ9wAAAANo5mq7A8+aqMLZkxKePD3dxwk0zxWphFhu8Ne9QbQN2G5xqyilfi3A2WgZjw34ZWX7xGqxQKTRp0/vlLO/E7KZERGdW/DvD1pa9+vCj2PfCDa/o3hkrt/xKUxUBfFLHghjQM/U8QcFzd6+adkO6clwK/RMxEMe+btDJb55/uZd7Sh2gEEpfVvCG0EuLHLlZZcNua/w/7iF0Z7kd9Z7XxWlkjamTAAABVuk6Y56hqyLRzcESPaOGTaGoPpy0jKbv1qmDBml0AZ+gzDFIL9xY24NEv0C60h0GLpj+VoRg4uBbLR16xN54VJ1r2dephyZWzS12v8FzxEIrClFbHirfYFbF+cuRZVXRhPcb7x24PGpD+wVsT2Z9iBaGpoikmFPww21uVSXu23gnqgp3sfXQVgeksjYSl6IvhfEcnR5emlgu6xNUjHocbjWdrlCIiDSZuh8L8zJBcOXgXbeDJwVGVbBPtPjG/vH3TejahYBB1FG6xv0FGmRu/q6InxKQu2hprscng3IxFQrWQiqFGllvDfr5kotBzdHOTOJMykXhoybY5Ef/dkRgr/AiW/keFZmfEzpnTZu5R/WHEttH4XZ+Z2YinNj6997fP0tRzGfi2hzPd449GsA5UKMrLp1fPKfVhVXMG/cSoDhMsvVtSVCycg5l+53e2c6vYtZKyFqSp/DDA8fwQLeL3DXkbzvtEpXI3Mymr8HjJIX11JptL5ifSiRDTSvQoEE7BTn51blDXtPfXqCFO7a5fBaqEi/rh1hDYeYzXmaR5pOFitbArS7uIoK+2GyaD9Au+3SKq80ewxFKiTTz5JSU84u/zzd1gtFyibmy3gIFARbUdGggvZOFhDvnlvjiDxs2kTCuLd1bj0f5DC4NUbwv+eIEEUbLDiyYo64BQSqw5BH/zaDbLVzdFMKDQHcQjncNYmRV1EZXYKvnueewQbe3+wFHmrlF0rQCWJtEtWX4Ijea0crTtmI0C14dZihebF3IC7/jYrkh3IB7siOBI2UsAjTwavOhXh9Lftcsv57c+Y6MdEXhuw5Dg5jJKcS+FhMZnf2009JB+3Tqqv2K3j6yo0WIdPc9Q+NZWcQxQ2eNlFJZtzBTVd93BwveM2ZTv1n0JE/xkBPoDwxbbxlLh+b+UOPiimQrXvFkX2g6RqyABhuBx6xgvlnfJuML4tFfzFGrz6BYHI0gog0Js1kcnPDR4rMYu2NhmO+2ISPguwhKjm8G5neO72NateVbbCBzIF7FfnhY/h6dXD2rTJgAPITF9lAdZvxGaZd3mYxhztmvmDpAGVdvv1VtuNLJUySJOZD0t0+xpY5oIhrmg05zjeltec5nPtA+kWsFiAeme7SU8KtdWtNHqT+PtW/SLr/axnUHKaGdlspjnXeO6hUVg/nOzAC+eLLJ7+HS8T1Za8f1xjj/rKc3U8XZGxBREfJqFs7p/uf/aGKqbXoRNAuNTG7zw1SXsEnXQWXt7dIQOXexbNRDmdhbvmjFwV30OFwtOuL1X76P2Af+lxI4xqumdAujqJIDTONIA4k0ZkGIlUXBQJoNHNYVoK8ZIyAivTUvYXmKhv7PytYlTE5KJiXYJW9ViKEiuIFr9wXIn0vc9Y7MJsQsqssQrdFjkAHpaTWD8KPkGE7AqLnOT5NaUkXbEpJwz0+E9NzQCA2kWTsp0uBe/7Qj6LPvgQ1XYg6NjtIpi5is3EIQ/ttbd6Y0GLRJwu5gmMcFCA2O6kaSyakL1MBxUyLiMtUimpetjWHX/F5TKq3L/EGCCWHKKKNvCQomQt7o1UXMG9gJiXsLUn6OwwxJC1CQ+QV2FnJkzSEoLSb6r7FeaUOFEIEdCfCIXORzME2X27S4Fcdi+kwuMZTO/qXnLZqGR7VoKATeFu2vWGSZ6yORIDJAy21d+DyF6BC26kmT+REvfyBD4aT4k6E+9GYu5h41uwwTe6A8Tq1CWzzXpLHG5XripxSWb4hkwLMzm+dQSmrEOQ6Wy4Jwvsq2onAB4tsFBXzvW6wizEr4poR0PllXELWxhDlek4VUWmyeBniJlr4n6ipR4ohQ8RxS7kBPFQosBpBYDk6BNAPRm3QsJFWKR2wvUJg9uQllQ5oRewKuBsWwulMYo2Oe55aV0IIoEWS/rhHfbjqx9HeHziXtCp2zr3rNZgAAAAAAAMYKLOGUhfqa+loN/637PXRIXq5uTv/a/c40m7dHTf0GFU+VrQItJWXJdpX7/V362PAc1gAL4OP3Sc+6WvhvcKj+pu6ljm5X1L8cjzIWpcz9madLBqjEEP9dAltpkhvODWLm289XaAtAAAALINuQHHU3RXybvTMqYhvydxANjlQU+lxbdrwmht16Dh+8yCQmzoiNF9R8PlT/UZzAhxSf4vneuFxrm7aOvyYOGiuKbjgIic6KVFM9Q1e+YRWQkuvEjMzJn2KOnZbQDEhXsWv3poOQlM/s/WuU6PVHSvBEK2EBB4n7mzraVxmhkoWAQftX3opQt/xouGReIXvCHvCwECEWkbT2XkgcECiw4kVDTgxndUjBkayuDNPdqaQIMB6vNEhl060rxZEaZyB8M/q6G5rcxugWavYnpWG9DZNbAn2Yu6Van/Y7IlFK0rluyp4ve7OZ5TjTzgBAdVvRSfysY77+MZhGhF1L9zUQoqzmxAfLkWkwtKIoFjJx0cLCMW4LHoSR0+qcif1roXVKomm6vb0ptLm1P3TvxhoXoUkiXCoAs/Ug+nNJFIG9JlT2VbHsVvpv9fY/514PhCIDHW75JfOr4sChAbnk4rTDDIxUPG+5YD/obdzv/7fBMyWirvXeDXIrCtSiH2Qu29eCqo31Xq68CTLnegWTirD2SO1Q7x9DfSSesuDHlCiC8ug9jFwBCrdIUGKF/34pKFoXrkk9eGAzRcpTU0szRKT+glawmc2HfSjZQGVMNdnUmJQh7hWPYv/oSovrEfe1QNcjtIlG2uxQ59CIAa+FtV6sA2q2/nNGVfxBgYWZK+grLXp/x02v7OEFRfS2poRW8RlVCCO+DAyp1Qxoyf11QRfooW1ACbRwjPBngLq1p8btvoghdf46kopjWpIx7DzdmsWP1kXOBkKtTGlE0ya5ifnz/YNqmAOjPWjSs3nnvtkGPpLojE/2sWJ8Q0JsQBWgeCiU1rTb9moO6vqGRkGkbHkEgdWteqLikNPYh1Cj/n6Y5QfDG0dBzwUp9EkCQhBVQCIY4o0lQNMYkytGh5CL17IjscEZJIJTYEqS6gna+3PPUgr8+zIqYxXiChu+vaEjABELaJw0xTFV8amfV4ffDyJheJHiBvMsbIPwcXjGpe9G65d0DMbzcpcNv3M2Dat7FurE87uYftz04rAfHzJF1RA9MPwxW/kSY9RUTOvjjL/dNzCUBtvIxEr/BMLjhhs1M+rtraY28axFdOf9xOrjKBTkYqUKE7azLc4GzwU47nfUcxHykcZKIA3juhhLGM5fy1Yeytvqd/nWZiiNgd4Ih++v+6OHmNpkIUwm77DTlJtSL3hhUyEGAMHgzttkA98ZaaY4bXIN5ADQQx1oKJVO6vbxu810MzEgfUUUNyHxQKTjGFqDVC3oli4K3uYutuplFKmYlw0/hNr9XKFg6VTSDpFvKozqPggPhCJjie8nUfk2Tsif2UkMU7YyYdaMtJ2AZY12TXM95bqZzIIgp/ejaxHxv5HXR74ZUuGP6OYNZ1WFPkPjrrJOfOnkhcExOcXVMPQHgmAkBPtt7Lt9bjD+RF/4LUP+Rf1aygLS9AvoeTrWTVkkTl1m/LAXa0W3Fe527k9nz5qPPdfKUqxUAhaP0qnGbCIqvBtZtYE4CwmKK0kvAjcCVvARr/s1ba0OaHaKi7IsFQYeAb4K6YBx+q3U0eAIYXJIcLzBN3VjS8yDnbFHE1ncvFCmk8JTnD7p8lxYinYTuAfZcBEkimShok1z0ne62FvfOCOsQA0Y4Xkun33IQM6NqPd3hYSnOi0/vOyDIC15Ee+crZg6oT9rpuIiIdy/7vKSeNEOybA/7UC9UDMDmNy9hdgps+cKod69wBbBmTlVZRL54mSTNa11qMAJfAk6wS87LUsYJzU41oIOym+JGaWYZFGQZbqWlipNbIy4SKlk+Pgk5XdX+hfeEC98EbZgZUPT1/fHYHqCrWBolgzty/L6O9DVdKemdIZKU57QdW9yQbFccrqDqCwsXP4aPjHWizvhVm9Jk04N536DHrNna4rutkf4MpY2EjI7iZ/HAw8l+f2GL/yryj2cKQ7Po0f2NHfj6Km5rlF6u9Ziki/xHP1AiuTw5KM4KVjXJFU/sbxCA98hFrqDSc1Ib5x8QcaPpzwPFT60oXKvIAsNoKlw/uvE9CNSxeApA6xef8XIhuileAgKgdsMSSzLvO13R0Z9C5UFgt6p7XkdreUnKYfx7Any3DrFt7BWsGvyGsdiueZ2wgawWag1xmbnDQnQ/3ewFLyYbuoScmZGsy/ujujUqtinLSNliezEqlfAo0d7gsJDyMhQOJrLYfZsbNv6UIfSQ+M5AshdRTlVVgQg9k/ux+rm7OJX2hbylQabBrrt4qR2CZfcyP29sBDYHuwerHKjMgia6Xuum8+2ezl9l10DlG9SSVO0wwgyxTJnhhHvZJoqumWlbACM2E9I3rwRhvXfTv2cr96swaGQLwFupxIkEdRJnctu1G7xK+rqpXNaCLFIhDsCX8dJ1SQ7mIxF20CRBxIr2ReXkmX/dzp4FNJ/gJMNfjXWdNazfQbXkAwz4E+kdno02SFyMcYTr1wBoRtfdSUR064dXrRtZert6zonBkkhjrqrQYULeCVakFGk5qcypOiyG5MsGrH2VB7kdbN8DYqedgVu1RUKOGbo55dG/A/AksUIRCMRwqASpBbyBanDUFYx8tMdTlise1P6kFC7X+L7GKzDu+zyvmq+kua/Fjvf49ihRc+M0Lf1x7FfabD7sFwKlgu0w/TYFti4izAflWuGOWbpgOWKZY0lx4g/aYghXnaY0r6eNkVXLak8gP7BRajyggRwWQl7VVsXXJjNPvfhiarC9M8qL9ozTg7SugsckPBUOhJHAn5D75nStXdOQqgZ5g3XsPCZfpCcKok9Y/N7wjX9nZGCnUAJ7o9gzhyH3qX7uuSGxiU7tdD3ZTkpzkyLyWi3ViRbkx0dAJ6KzZO0LQTebvUNaKKPOAKtqKs6EBpwuXxQke/BNYwxACcTvM/QeFmKKyVHaVdiWXptFk53EXwaKS3l02vwTCUXBqWfkDkl/NhGvPF7Oo1ExURPOnCqeMhGBHolaywa84LS+/5cwHGrE/F2/CzZnZVIccIfw+g/otZ72qqh4alTpEUvA6l+fX7+2NdA+X5kNpPdU2T93JTL4Kd6C5VNneFEK7uMQw6G4arJXtVZxd/e6eKL7RtEoOEBWpv9K+j1K12q1+bZccQjXP9SF7CTI2vI5+1OrD6Mn7HPElsCKptmuHyxQPUu9DVPsdSgX+xHYxmBkSBZGf74kaPBneYfe7Dh6CCoGZegKMGLPwCJ4nsANt2TBAdGkpEYycRSoGi4MAZDsX+9HynlEfcFNgsPVAgcyDflW8wupL626jxnHI3U28WMuriyHLAV4RS+7duGUh+XgOSesN2ApCOSLUU9OPSAjsKqUQM+QgTa3GP2Pf/D5qgGcZK3I7zpVRqMIFw929ycpz6mmWG74qW+NJRt4sMsEYBWhdx4iG01BgFxPn2aWvktTQpu4UjqTphjcx5aiPaOrjmcEreR2h5vQwCY8F03OhNaM6T9e8tiz8C8+3y3M1GCIr8RUVdKX6SDNaGyXp4AGgH0N9Bc3BBvpJwDlH9pMALwBuwo03+eieNUAM8oLwAhJl0W206P9oGwd74tciwQWOaTmJFGhk/VROZLXBSURlwVU5a6FgaHBraAnz7syernDhM0uAebpMlFmHne17pA4ClxHWFcLw5zwOdVD33IjeArLwLHEtk46KUUwP1APbGiMGwZ31HH+taENmh8lwSsm7ZvO6oR+wWUrkDtwsbqXEAXmjL57On7iHrF6nTbxY738+aieU55mQ+u1NIdK/Bap+hal4psoaGyFQzI+pPq56ME2+UxK6cvdUbpxjd6PafG9fNGIamny1/CEHSy7+9zuY+UZeG3vmlVLaB2BnbK9horIM8/02jijJ/IHMZBat62uJU5yxFiNPG0izu/8DjyUSWn/uDu/xjPmt7lgGAvB6ulSqVTIpZ85iwrHUw1KG+8bAuEvCrkOwhQ9Fqdlo4QM9oPPMYO0Q2N5Hwh7QiPHMs2P0u2a1I/6QiAUgufQZuQMw6BGUH11UUUkimmn4ANelk0adqWS3WvgmSSZZceh1u53M7mdsJZXUmMs1/YCxpVjTzvw44i5VOFSGoMrUr47Bjs1UptkWmTPqyUxpgReJq7LO1zaOmoN/a9+QpsMbcWhqCHltedex37WDM76PEul433BhxqYAtGQJqLB8KFV6WR93F1/oxm3ua0AgLj/OoRX2bsIGrLrBDp730YivNm3WBsjStvlrd5NJPFNcT8FTZ6OgSIMRCnQa9S9HVwfcOKyIItC6e5Yul+MkRN/zrRjCYc7Sa3lZePjxoSggbawE+RvWDrS/ptTYMyQVFwEAUmhGSkjQ5mn3yVUtLfyvuK3A+pb7SK45uS7vCpWerQVyme4cEw8gSkLKzSPr6uaxw9ZfUsTuVSlfMDqsAoBS28hRQQz/0d0LtkbOi1RIOxWOHfXDsKSZRh48/XAWTpzqBxofGjZkclZmOKF3BTXn3XusU6f0vE90B8uaChVawjgcNe5vTNkXG3OgjaWxAEeApQWaxpiC2ZUvztxjBFtMI7g6iUi9KsLp3M5aN9l8fV7kRf7AaZhCKgD41CC4rYyvQNXbnkUsZc/pHT7enGsQh+YQwGPVXO6irCAC/FSnpxch+DK6Ywt02E1FOG3huGNhDJ6u6wjUJ8VTQNmMEWE7P/o9NfFYS7AzwuZEtzRuVmKbf24QA6imS57IUjBXESA1/+Cvgz04KpwFW0QXAXnjKq/U8M3vTW4h8tIMirOdoKbd+PmcKYG9JZLLBn792fYDATjTO6VXnvqX4dhmQR6r21NPpQ7EA+fp6F1gobDI0KT5+ZA7FMy2GcS/8Jch7XVGxHMhyYZBujGiai5k3yD1BfM7WfyrqY2eYYvitDcu3DpM8s0ImVpF+tnYh94cr12fiLL7mfnraY4iYApn5AnMqFiJzDRE3uCnZWzVG8yh6JtZ2xxN6Yf9RZeVZJbs7hK5AT4lYCaE1ijzSa5CP997s6c/5faN/EMdl3g6AMZAssS0xDqwpvuQX7lHxts0qezLuijTPXntv1jT6ZoO+xb/FpDH5wYYhIbAybqgNJd85Z/DDxzQIbtdLG70GL6L8OsQFzQ2hwwzD92wfOrv3LcJVmSosPKg6vaArJPUBnkDqfI4m2xqCnEV4RCZVBAk4FbWs5y7LapAGUAlbDSY/XP2EFn+rgAJ30wXmmZ7//VTSa2asiDCvRABEJpCAsQi1vQUqBEprqhDa9B+znXVMA0EMLEt+XFk6maivDRk4qtpfKmehWMkKdbJ8j6/LTFU8FAs/AblmI3rAqEE8QgW0Xj+io43YkkdWXxW8O2BFZa5yDL9IxJGHYMBllsLQMXzgJneOEUAekc82Gnwtym0kohOq/uZYBcxA0XiED4I35bc+0n9CSJAYpKdPRBJt1iUU2egVmQCoSgLohQn73+QZOLuEmeB2PLbJaXV/nrfzGxTcMh3k3GFcySszXHdrX6Srvt+4r4p6OoUAGZIKi42gKvcK3cphDr72tgXsM3lw50U543eeH5BI2r1b8acqymJ9nw1j6TlrTgTbi1793y4rtaddTi8N4ecS+A1IV0+zAPRPdPkj0hNoGnMRiK/72ACSJWFpMSBNm+zwv6JGXVAVJM3NVHq96d7gKj+vAAAAAAOaBBYaWvi+Hd5VtjyXSzeST3a/b21GL8M0rudTV/pbQ3NN0C7fe8yP41d9Ds2XSzGJOb9K6+GA/UgnOajaquCaI8DuEiyyZg/Q3AJ0nEx3PjQG0ssgfUUd3eOsk3XxuGutNVIuNvOqxKFdhwzNrKY6DoTyCf0Y3FHB3t/CemhZESMClDMUYllqMYeTbLcSbL05TUP3equJ6+lamZHyhw4WXkdWXKKuJkrcBrMWf5WMl8DUf5jF1KMo3AIPKkTsloiHPUnKxdAL7PXiTy8rUzPml3AAG3ryyqJ3AdacvvGnS5rl7Oud/avDFW1UhtheVTPUGywvQVICfjhlm5mUVW2DuF30aVNlCM2I0ehnpQkU2d2o23P/VN3CiP3zyEY8FhjkIAAAAZfHcIaAHulSQZggKF2SS6hROO+3Hn7MEqw0ewWLZQflqSViDCPX9Regt8ypgRYjB7tHH/bddcG/+3cKKCeHhQgtJkDBBAa8PnA9HZsOIPHnBcrnZIBtbqTRFFqvQhAKvYEGM8UWJY2zqTfXqBS0uC/jgjL3xkX5O2cBSAo5tvGJF73d70ugtvse/saon6uTT5jSQhorl/cAbqxeTSTWH4Aps69mcM88rEwt6N4oJ7GU3XgaNXwCqkXrF0W/HZQczzQ1PiqShoRnKSRRckHBs+Xggh2FLrruEfLYj+GbjKPZ++ae79JIfn/PujrCvcimbvD9A72AKOtZJdEygRNyvp3tHvyiy0IlAp6e0d5VjNOHN5QXcBrIuqKcn9iUtA15v3Db8A/I28aUvipniAKoSIdq4lUs/BBrkzSXg+MXQ7ncP5SKUOx+16BqJKqXPYJtojkP3Rw4Vlr2lm83m+EMBIweNC3/go2vPdJlH0cj9025YZDyTVYAEu5/X8onGG1Ol0Q7oi8Kd2phRb8dvKl8TFRvXAhY2pqlci0Pw/ES9zbxZ/yDWYlCa1pfDz0/p/SrhU9Fg2MhRg/VrR2b8JfPL9o+B1zNosZ4+mHws0ITr0xh8Y3s0f4SbKdqMOGQov7AIfHjKC5oyAb2/OsiQgYKyAmQbrgCirWdUJadJiZjowViFZZ2gSIo6OTLW/PFYMsDLsqaFH8JogapZO8CLV1rw79gelGPrHyCdt1mqxz08Q/e1+VBFwnZJ7ZdaXzr9UGLLA75pF3O/10DkeQpsRplkder+W40f5eLImNRhNlR0FYJ7vi4INsFrUBgLFffP4MlwQcTw4PgDrsmuq1JHUoI2wdbDgCD23IUPxLkii89rbbyDKEFan3+G0I23UcCUwKGrwM3SeO4CcVGkAX9QhLKRdYpqNODZ2Pq+LDDR/sPI4EmT6tgXgFADNrmr/TwJk3lIm5ttaDmYL8VzjJ7EKz4OTGbeqepoyVKYK9hwG/y0Sy9uEHs4dg0EI40HQQMTAFdM9k6G5mVxnNwNwBrCkYREaHPOYUesFHn4X3jkTLcuFi7pfeUivf8t4Dr/sqREBGvXDbyfgcQigT6kbPy4i/d3Sd51Nt2S3MvO7yIfgIbAxDTlGNRVtWhQBoQg5bNxzwZrNmHjlltosiCwVLfBgECcBCvyPISGw4XUYnLshhqfiIfQbwVLPGAyrqAC6RWvoGEPRD4z5XHSCx32Fj3K3lbDppXuaz4X9bZ5TG2i1P4F+GwI324BUh9d7w5BqAMP7u1Dt7P09xI8tZ0INeVAEp8N1PrJRuUJOeUBAtfcMIIrg5MUqf81L5/+2XTlEknoJqFddDOebkPQkBO8JpYX6GYjqrf3y89Jtt+XMS44Q53gD53NOrGF17Ok6KT6YjDyIAAAAAAAAAAR4IAAAABkSGfNZD3rgfUAaOxKJ7Xnv4531JzgYv+MmQOH39Q9RHI+/n/G0ZK9NMG4OCeAf2sCS6KmjjU8IWZSHkDW8KuSiOPHvxAuHUWmgJAtpQGv+wAAAQJ2oRIQxC2iIkyAAA" alt="Mappy 分析ダッシュボード" style="width:100%;display:block;border-bottom:1px solid #eee;">
+        <div style="padding:16px 18px;">
+          <strong style="color:#00b4a6;font-size:0.95rem;">📊 分析：施策の効果を「数値」で見える化</strong>
+          <p style="font-size:0.85rem;color:#555;margin-top:6px;">マップ表示・ブラウザ表示・ユーザー行動を月次/週次/日次で確認。前年同月比も一目でチェック。</p>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <img src="data:image/webp;base64,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" alt="Mappy 検索順位" style="width:100%;display:block;border-bottom:1px solid #eee;">
+        <div style="padding:16px 18px;">
+          <strong style="color:#00b4a6;font-size:0.95rem;">📈 検索順位：競合と並べてポジション把握</strong>
+          <p style="font-size:0.85rem;color:#555;margin-top:6px;">狙ったキーワードの上位表示率を可視化。自社と競合の順位を同じグラフで日次追跡。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6機能 -->
+    <div class="card-grid-3">
+      <div class="card"><div class="card-icon">📊</div><h4>分析</h4><p>表示回数・検索順位・キーワードを可視化。施策効果を数値で把握。</p></div>
+      <div class="card"><div class="card-icon">💬</div><h4>クチコミ管理</h4><p>全店舗の口コミを一覧管理。AI返信・一括返信で対応負荷を削減。</p></div>
+      <div class="card"><div class="card-icon">📱</div><h4>SMS</h4><p>来店客へ口コミ依頼・アンケートを送信。到達状況まで計測。</p></div>
+      <div class="card"><div class="card-icon">🏪</div><h4>店舗管理</h4><p>投稿・メニュー・写真・基本情報をMappyから直接更新。</p></div>
+      <div class="card"><div class="card-icon">📸</div><h4>SNS連携</h4><p>Instagram投稿をGBPへ自動連携。運用の手間を半減。</p></div>
+      <div class="card"><div class="card-icon">📋</div><h4>アンケート</h4><p>顧客の声を収集し、満足顧客を口コミ投稿へ誘導。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 25. 運用代行サービス ═══ -->
+<section id="managed" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">25</span> Managed Service</span>
+    <h2>運用代行<span class="accent">サービス</span></h2>
+    <p class="section-desc">MEO・AIO対策を丸ごとお任せ。専門チームがすべて代行します。</p>
+    <div style="display:grid;gap:12px;">
+      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">1</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">GBP最適化・情報更新</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">ビジネスプロフィールの全項目を定期的に最適化・最新状態に保ちます</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">2</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">AIO対応記事・投稿作成</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">AIに引用されやすい記事・GBP投稿を月1〜4回作成・配信します</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">3</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">ブログサイテーション獲得</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">外部サイトへの言及・引用を継続的に増やしAI信頼スコアを向上させます</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">4</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">口コミ返信・促進対応</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">24時間以内のAI対応口コミ返信＋SMS送信で口コミを継続的に獲得します</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">5</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">月次レポート提出</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">順位・インサイト・口コミ状況を毎月レポートでわかりやすくご報告します</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
+        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">6</div>
+        <div>
+          <strong style="font-size:0.95rem;color:#333;">定期コンサルテーション</strong>
+          <p style="font-size:0.85rem;color:#666;margin-top:2px;">次の施策の方向性を一緒に設計する定例MTGを実施します（年2〜4回）</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ═══ 28. モデル店舗紹介（口コミ事例） ═══ -->
+<section id="cases" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">28</span> Case Study</span>
+    <h2>口コミ増加実績<span class="accent">　導入事例</span></h2>
+    <p class="section-desc">実際に導入されたお客様の口コミ増加成果です。</p>
+    <div class="case-grid">
+      <!-- アイシークリニック大宮院 -->
+      <div class="case-card">
+        <div class="case-head"><h4>アイシークリニック 大宮院 様</h4></div>
+        <div class="case-body">
+          <div class="case-grid-inner">
+            <div class="case-stat">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">契約前</div>
+              <div style="font-size:1.6rem;font-weight:900;color:#333;">0件</div>
+            </div>
+            <div class="case-stat" style="background:#fff0f6;">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">9ヶ月後</div>
+              <div style="font-size:1.6rem;font-weight:900;color:var(--pink);">142件</div>
+            </div>
+          </div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--pink);margin-bottom:4px;">+142件</div>
+          <div style="font-size:0.82rem;color:#888;margin-bottom:12px;">9ヶ月間での口コミ増加数</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:100%;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:0.82rem;color:#555;">
+            <div>SMS送信数：<strong>3,491件</strong></div>
+            <div>SMS開封率：<strong style="color:var(--pink);">22.4%</strong></div>
+          </div>
+        </div>
+      </div>
+      <!-- アイシークリニック新宿院 -->
+      <div class="case-card">
+        <div class="case-head"><h4>アイシークリニック 新宿院 様</h4></div>
+        <div class="case-body">
+          <div class="case-grid-inner">
+            <div class="case-stat">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">契約前</div>
+              <div style="font-size:1.6rem;font-weight:900;color:#333;">448件</div>
+            </div>
+            <div class="case-stat" style="background:#fff0f6;">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">24ヶ月後</div>
+              <div style="font-size:1.6rem;font-weight:900;color:var(--pink);">840件</div>
+            </div>
+          </div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--pink);margin-bottom:4px;">+392件</div>
+          <div style="font-size:0.82rem;color:#888;margin-bottom:12px;">24ヶ月間での口コミ増加数</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:87%;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:0.82rem;color:#555;">
+            <div>SMS送信数：<strong>16,616件</strong></div>
+            <div>SMS開封率：<strong style="color:var(--pink);">19%</strong></div>
+          </div>
+        </div>
+      </div>
+      <!-- デンタルオフィス千葉中央 -->
+      <div class="case-card">
+        <div class="case-head"><h4>デンタルオフィス千葉中央 様</h4></div>
+        <div class="case-body">
+          <div class="case-grid-inner">
+            <div class="case-stat">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">契約前</div>
+              <div style="font-size:1.6rem;font-weight:900;color:#333;">28件</div>
+            </div>
+            <div class="case-stat" style="background:#fff0f6;">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">24ヶ月後</div>
+              <div style="font-size:1.6rem;font-weight:900;color:var(--pink);">101件</div>
+            </div>
+          </div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--pink);margin-bottom:4px;">+73件</div>
+          <div style="font-size:0.82rem;color:#888;margin-bottom:12px;">24ヶ月間での口コミ増加数</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:72%;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:0.82rem;color:#555;">
+            <div>SMS送信数：<strong>1,603件</strong></div>
+            <div>SMS開封率：<strong style="color:var(--pink);">29.8%</strong></div>
+          </div>
+        </div>
+      </div>
+      <!-- JBCジュノビューティークリニック横浜院 -->
+      <div class="case-card">
+        <div class="case-head"><h4>JBCジュノビューティークリニック 横浜院 様</h4></div>
+        <div class="case-body">
+          <div class="case-grid-inner">
+            <div class="case-stat">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">契約前</div>
+              <div style="font-size:1.6rem;font-weight:900;color:#333;">0件</div>
+            </div>
+            <div class="case-stat" style="background:#fff0f6;">
+              <div style="font-size:0.78rem;color:#888;margin-bottom:4px;">4ヶ月後</div>
+              <div style="font-size:1.6rem;font-weight:900;color:var(--pink);">59件</div>
+            </div>
+          </div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--pink);margin-bottom:4px;">+59件</div>
+          <div style="font-size:0.82rem;color:#888;margin-bottom:12px;">4ヶ月間での口コミ増加数（最速事例）</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:60%;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:0.82rem;color:#555;">
+            <div>SMS送信数：<strong>1,362件</strong></div>
+            <div>SMS開封率：<strong style="color:var(--pink);">32.3%</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 29. 料金プラン ═══ -->
+<section id="plans" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">29</span> Pricing</span>
+    <h2>料金<span class="accent">プラン</span></h2>
+    <p class="section-desc">ご状況に合わせて、運用代行プランとツールプランをご用意しています。</p>
+
+    <!-- 運用代行プラン（縦長カード） -->
+    <h3 style="font-size:1.15rem;font-weight:900;color:#00b4a6;margin-bottom:18px;">運用代行プラン　<span style="font-size:0.85rem;font-weight:600;color:#888;">プロにまるごとお任せ</span></h3>
+    <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:start;margin-bottom:44px;">
+      <!-- スタンダード -->
+      <div style="background:#fff;border:2px solid var(--border);border-radius:18px;padding:32px 28px;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
+        <div style="font-size:0.85rem;font-weight:700;color:#6366f1;margin-bottom:4px;">📍 まずはMEO対策だけ</div>
+        <div style="font-size:1.7rem;font-weight:900;color:#333;margin-bottom:10px;">スタンダードプラン</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:2px;">
+          <span style="font-size:2.8rem;font-weight:900;color:#333;">¥20,000</span>
+          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
+        </div>
+        <div style="font-size:0.82rem;color:#aaa;margin-bottom:20px;padding-bottom:20px;border-bottom:2px solid #f0f0f0;">税込 ¥22,000 ／ 契約期間 12ヶ月</div>
+        <ul style="list-style:none;font-size:0.9rem;color:#444;line-height:1.5;">
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ GBP最適化</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ AIO対応記事　1回/月</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ ブログサイテーション　1回/月</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ 分析ツール（Mappy）</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ Instagram連動</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ SMS送信・口コミ促進</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ アンケート機能</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ 改ざん防止対応</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ 口コミ対応（AI対応）</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ NAP調査</li>
+          <li style="padding:9px 0;">✓ 定例コンサル　2回/年</li>
+        </ul>
+      </div>
+      <!-- プレミアム（大きく強調） -->
+      <div style="background:linear-gradient(160deg,#fff8f0,#fff0f6);border:3px solid var(--pink);border-radius:18px;padding:36px 30px;box-shadow:0 8px 32px rgba(232,50,122,0.18);position:relative;">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.82rem;font-weight:700;padding:6px 20px;border-radius:20px;white-space:nowrap;box-shadow:0 4px 12px rgba(232,50,122,0.3);">⭐ 一番人気・おすすめ</div>
+        <div style="font-size:0.85rem;font-weight:700;color:var(--pink);margin-bottom:4px;margin-top:6px;">🏆 全部まるごと任せたい</div>
+        <div style="font-size:2rem;font-weight:900;color:#333;margin-bottom:10px;">プレミアムプラン</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:2px;">
+          <span style="font-size:3.4rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">¥50,000</span>
+          <span style="font-size:0.95rem;color:#aaa;">/月（税抜）</span>
+        </div>
+        <div style="font-size:0.82rem;color:#aaa;margin-bottom:20px;padding-bottom:20px;border-bottom:2px solid #fce0ec;">税込 ¥55,000 ／ 契約期間 12ヶ月</div>
+        <ul style="list-style:none;font-size:0.95rem;color:#333;line-height:1.5;font-weight:500;">
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ GBP最適化</li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>AIO対応記事　4回/月</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>ブログサイテーション　4回/月</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>外部媒体登録 100件以上（113媒体配信）</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>AI参照元の網羅的整備</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>Appleマップ・各種AI媒体登録</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ 改ざん防止・口コミ対応（AI対応）</li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>インバウンド対応（多言語）</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ Instagram連動</li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ <strong>競合分析 定期</strong></li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ 口コミ促進・アンケート機能</li>
+          <li style="padding:10px 0;border-bottom:1px solid #fce8f0;">✓ NAP調査</li>
+          <li style="padding:10px 0;">✓ <strong>定期コンサル　4回/年</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ツールプラン（縦型） -->
+    <h3 style="font-size:1.15rem;font-weight:900;color:#6366f1;margin-bottom:18px;">ツールプラン　<span style="font-size:0.85rem;font-weight:600;color:#888;">自社で運用したい方向け</span></h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <!-- Mappy -->
+      <div style="background:#fff;border:2px solid var(--border);border-radius:18px;padding:32px 28px;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
+        <div style="font-size:1.7rem;font-weight:900;color:#6366f1;margin-bottom:10px;">Mappy</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:2px;">
+          <span style="font-size:2.8rem;font-weight:900;color:#333;">¥5,000</span>
+          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
+        </div>
+        <div style="font-size:0.82rem;color:#aaa;margin-bottom:20px;padding-bottom:20px;border-bottom:2px solid #f0f0f0;">税込 ¥5,500 ／ 契約期間 12ヶ月</div>
+        <ul style="list-style:none;font-size:0.9rem;color:#444;line-height:1.5;">
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ 分析・検索順位モニタリング</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ 口コミ管理・AI返信</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ SMS送信・アンケート</li>
+          <li style="padding:9px 0;border-bottom:1px solid #f4f4f4;">✓ SNS連携（Instagram→GBP）</li>
+          <li style="padding:9px 0;">✓ 店舗管理（投稿・写真・基本情報）</li>
+        </ul>
+      </div>
+      <!-- Mappy＋ -->
+      <div style="background:linear-gradient(160deg,#fff8f0,#fff0f6);border:2.5px solid var(--pink);border-radius:18px;padding:32px 28px;box-shadow:0 4px 20px rgba(232,50,122,0.12);position:relative;">
+        <div style="position:absolute;top:16px;right:16px;background:var(--grad);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:20px;">AIO対応</div>
+        <div style="font-size:1.7rem;font-weight:900;color:var(--pink);margin-bottom:10px;">Mappy＋</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:2px;">
+          <span style="font-size:2.8rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">¥18,000</span>
+          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
+        </div>
+        <div style="font-size:0.82rem;color:#aaa;margin-bottom:20px;padding-bottom:20px;border-bottom:2px solid #fce0ec;">税込 ¥19,800 ／ 契約期間 12ヶ月</div>
+        <ul style="list-style:none;font-size:0.9rem;color:#333;line-height:1.5;">
+          <li style="padding:9px 0;border-bottom:1px solid #fce8f0;">✓ <strong>Mappy全機能</strong></li>
+          <li style="padding:9px 0;border-bottom:1px solid #fce8f0;">✓ <strong>113媒体への一括情報配信</strong></li>
+          <li style="padding:9px 0;border-bottom:1px solid #fce8f0;">✓ Appleマップ・各種AI媒体登録</li>
+          <li style="padding:9px 0;border-bottom:1px solid #fce8f0;">✓ AI参照元の網羅的整備</li>
+          <li style="padding:9px 0;">✓ サイテーション・AIリスティング管理</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:24px;">全プラン税抜表示 ｜ 契約期間：12ヶ月　※ ニーズに合わせて最適なプランをご提案します。</div>
+  </div>
+</section>
+
+<!-- ═══ 30. 導入までの流れ ═══ -->
+<section id="onboarding" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">30</span> Onboarding</span>
+    <h2>導入までの<span class="accent">流れ</span></h2>
+    <p class="section-desc">最短翌月よりサービスを開始できます。</p>
+    <div class="step-flow">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div class="step-title">GBP権限の付与</div>
+        <p style="font-size:0.88rem;color:#555;margin-bottom:12px;">Googleビジネスプロフィールのオーナー権限を下記アカウントに付与してください。</p>
+        <div class="step-detail">
+          <strong>付与先アカウント</strong><br>
+          <a href="mailto:newlife.install@gmail.com" style="color:var(--pink);font-weight:600;">newlife.install@gmail.com</a>
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div class="step-title">電子契約書の締結</div>
+        <p style="font-size:0.88rem;color:#555;margin-bottom:12px;">必要情報をご準備のうえ、電子契約書にご署名ください。</p>
+        <div class="step-detail">
+          <strong>■ 必要情報</strong><br>
+          ・法人名<br>
+          ・法人住所<br>
+          ・代表者名<br>
+          ・店舗名<br>
+          ・店舗ご住所<br>
+          ・代表者住所<br>
+          ・電子契約書の送り先メールアドレス<br>
+          ・請求書の送り先メールアドレス
+        </div>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div class="step-title">ヒアリングフォームの提出</div>
+        <p style="font-size:0.88rem;color:#555;margin-bottom:12px;">サービス開始前に現状・ご要望をお聞かせください。</p>
+        <div class="step-detail">
+          <strong>ヒアリングフォームURL</strong><br>
+          <a href="https://forms.gle/5gWnX3Fr2wA8yitC6" style="color:var(--pink);font-weight:600;word-break:break-all;" target="_blank">https://forms.gle/5gWnX3Fr2wA8yitC6</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:28px;background:var(--navy);border-radius:12px;padding:18px 24px;text-align:center;">
+      <p style="color:#fff;font-size:1rem;font-weight:700;">3日以内に契約意思　＋　GBP権限付与 or 電子契約書締結が完了　→　<span style="color:#00b4a6;">最短翌月よりサービス開始</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 26. 広告運用サービス ═══ -->
+<section id="ads" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#f97316;"><span class="section-num" style="background:#f97316;">26</span> Ad Management</span>
+    <h2>広告運用<span style="background:linear-gradient(135deg,#f97316,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
+    <p class="section-desc">MEO・AIOと組み合わせることで、短期集客と長期資産構築を両立します。</p>
+    <div class="card-grid-2">
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h4 style="color:#f97316;">Google広告</h4>
+        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 検索広告・P-MAX・ローカル広告</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ キーワード・入札の継続最適化</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 月次レポート・改善提案</li>
+          <li style="padding:6px 0;">→ MEO対策との相乗効果設計</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h4 style="color:#f97316;">Meta広告（Facebook / Instagram）</h4>
+        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ ターゲティング設計・クリエイティブ制作</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ A/Bテストによる継続改善</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ リターゲティング活用</li>
+          <li style="padding:6px 0;">→ SNS運用との連携</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:20px;background:#fff8f0;border-radius:12px;padding:16px 20px;font-size:0.9rem;color:#c2410c;font-weight:700;">
+      料金：広告運用費の10%（管理費）
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 27. SNS運用サービス ═══ -->
+<section id="sns" style="background:#fff;">
+  <div class="container">
+    <span class="section-label" style="color:#8b5cf6;"><span class="section-num" style="background:#8b5cf6;">27</span> SNS Management</span>
+    <h2>SNS運用<span style="background:linear-gradient(135deg,#8b5cf6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
+    <p class="section-desc">Instagramを中心にSNS運用を代行。GBPへの自動連携でMEO効果も高めます。</p>
+    <div class="card-grid-2">
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>コンテンツ企画・制作</h4>
+        <p>集客に直結するInstagramの投稿を企画・制作。ターゲット層に合ったビジュアルと文章で発信します。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>Instagram→GBP自動連携</h4>
+        <p>Mappyを活用し、Instagramへの投稿をGoogleビジネスプロフィールに自動配信。手間ゼロで情報を二重発信。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>ハッシュタグ・アカウント最適化</h4>
+        <p>検索流入を最大化するハッシュタグ設計と、プロフィール・ハイライトの最適化を実施します。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>効果測定・月次レポート</h4>
+        <p>フォロワー数・リーチ数・保存数・来店誘導数を毎月レポート。投稿内容の改善に活用します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 31. まとめ・クロージング ═══ -->
+<section id="final" style="background:var(--navy);color:#fff;padding:100px 20px;text-align:center;">
+  <div class="container" style="max-width:760px;">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">31</span> Summary</span>
+    <h2 style="color:#fff;font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:16px;">AIはすでに「おすすめの店」を<br>選び始めています。</h2>
+    <p style="color:#00b4a6;font-size:1.1rem;margin-bottom:40px;">選ばれる側に回るかどうか、それを決めるのは「今」です。</p>
+    <div style="text-align:left;margin-bottom:40px;display:grid;gap:16px;">
+      <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:18px 22px;">
+        <div style="font-size:1rem;font-weight:700;color:#00b4a6;margin-bottom:6px;">01 ｜ MEO × AIOで検索〜AI推薦を制覇</div>
+        <p style="color:#aaa;font-size:0.9rem;">Googleマップ上位表示 ＋ ChatGPT・Geminiに推薦される情報基盤を同時に構築します。</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:18px 22px;">
+        <div style="font-size:1rem;font-weight:700;color:#00b4a6;margin-bottom:6px;">02 ｜ 他社にない独占インフラで差別化</div>
+        <p style="color:#aaa;font-size:0.9rem;">海外企業との独占パートナーシップにより、競合他社には絶対に真似できない手段を提供します。</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:18px 22px;">
+        <div style="font-size:1rem;font-weight:700;color:#00b4a6;margin-bottom:6px;">03 ｜ 口コミ・情報資産が積み上がり続ける</div>
+        <p style="color:#aaa;font-size:0.9rem;">継続的な対策が情報資産となり、長期的に競合優位を確立。やめるほどもったいない。</p>
+      </div>
+    </div>
+    <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" target="_blank" style="display:inline-block;background:#00b4a6;color:#fff;padding:18px 52px;border-radius:40px;font-size:1.1rem;font-weight:700;box-shadow:0 6px 24px rgba(0,180,166,0.4);transition:transform 0.2s;">無料相談を予約する →</a>
+    <p style="color:#555;font-size:0.82rem;margin-top:14px;">※ 無理な営業は一切いたしません</p>
+  </div>
+</section>
+
+<footer>
+  <p>株式会社 H2technology ／ MEO事業部</p>
+  <p style="margin-top:6px;"><a href="mailto:r.nanbara@h2t.co.jp">r.nanbara@h2t.co.jp</a></p>
+  <p style="margin-top:6px;font-size:0.75rem;color:#555;">©2025 H2technology Inc.</p>
+</footer>
+
+<script>
+// スクロールアニメーション
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// アクティブナビ
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 160) cur = s.id; });
+  links.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#'+cur); });
+});
+
+// LTV Calculator
+function calcLTV() {
+  const price = +document.getElementById('ltv-price').value || 0;
+  const freq  = +document.getElementById('ltv-freq').value || 0;
+  const years = +document.getElementById('ltv-years').value || 0;
+  const newC  = +document.getElementById('ltv-new').value || 0;
+  const ltv = price * freq * 12 * years;
+  const yearImpact = ltv * newC;
+  document.getElementById('ltv-result').textContent = '¥' + ltv.toLocaleString();
+  document.getElementById('ltv-year').textContent = '¥' + yearImpact.toLocaleString();
+}
+['ltv-price','ltv-freq','ltv-years','ltv-new'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('input', calcLTV);
+});
+calcLTV();
+
+</script>
+</body>
+</html>
