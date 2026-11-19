@@ -110,16 +110,6 @@ h2 { font-size:clamp(1.5rem,3.2vw,2.2rem); font-weight:900; line-height:1.35; ma
 .ct { color:#f59e0b; }
 
 /* ── HEARING TABLE ── */
-.hearing-table { width:100%; border-collapse:collapse; }
-.hearing-table td {
-  padding:12px 16px; border:1px solid var(--border);
-  font-size:0.88rem; vertical-align:top;
-}
-.hearing-table td:first-child {
-  background:var(--gray-bg); font-weight:700; color:var(--dark);
-  width:200px; white-space:nowrap;
-}
-.hearing-table tr:nth-child(even) td:last-child { background:#fffdf8; }
 
 /* ── CASE STUDY ── */
 .case-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
@@ -236,13 +226,6 @@ h2 { font-size:clamp(1.5rem,3.2vw,2.2rem); font-weight:900; line-height:1.35; ma
 }
 .need-price-tax { font-size:0.72rem; color:#aaa; }
 
-/* ── CLOSING ── */
-#closing-question {
-  background:var(--navy); color:#fff;
-  padding:100px 20px; text-align:center;
-}
-#closing-question h2 { color:#fff; font-size:clamp(2rem,5vw,3rem); }
-
 /* ── FOOTER ── */
 footer {
   background:var(--dark); color:#aaa; padding:40px 20px; text-align:center;
@@ -262,7 +245,73 @@ footer a { color:var(--pink); }
   .need-head { grid-template-columns:1fr; }
   .need-price-wrap { text-align:left; }
   nav .nav-links { display:none; }
+  .ai-stats { grid-template-columns:1fr !important; }
+  .aio-mock-notes { grid-template-columns:1fr !important; }
+  .line-contract { grid-template-columns:1fr !important; }
+  .lx-container { grid-template-columns:1fr !important; gap:20px !important; }
+  .lx-tablewrap { overflow-x:auto; }
+  .lx-table { min-width:560px; }
+
+  .measure-grid,.measure-phase,.measure-summary { grid-template-columns:1fr !important; }
+
+  .ai-stats > div > div[style*="margin-top:22px"] { margin-top:4px !important; }
 }
+
+.aio-caret{display:inline-block;width:2px;height:1.1em;background:#1a73e8;vertical-align:-3px;margin-left:1px;animation:aioBlink 1s steps(1) infinite;}
+@keyframes aioBlink{50%{opacity:0}}
+.aio-loading div{height:12px;border-radius:6px;margin:10px 0;background:linear-gradient(90deg,#e8eaed 25%,#d2e3fc 50%,#e8eaed 75%);background-size:200% 100%;animation:aioShimmer 1.1s linear infinite;}
+@keyframes aioShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.aio-mock.aio-anim .aio-step{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease;}
+.aio-mock.aio-anim .aio-step.on{opacity:1;transform:none;}
+.aio-mock mark.aio-hl{animation:aioPulse 1.4s ease 2;}
+@keyframes aioPulse{0%,100%{box-shadow:0 0 0 0 rgba(26,115,232,0)}50%{box-shadow:0 0 0 5px rgba(26,115,232,0.25)}}
+.aio-h2card.glow{box-shadow:0 0 0 4px rgba(26,115,232,0.18);}
+
+.measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
+.measure-grid > .measure-card:nth-child(n+3){grid-column:span 1;}
+
+
+
+section[id]{scroll-margin-top:92px;}
+
+.lx-section{background:linear-gradient(160deg,#1b1e23 0%,#2a2e35 55%,#1f2228 100%);color:#e8e6e1;padding:44px 20px!important;}
+.lx-container{max-width:1240px;display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:center;}
+.lx-label{color:#c8a86b!important;letter-spacing:0.18em;}
+.lx-num{background:#c8a86b!important;color:#1b1e23!important;}
+.lx-h2{color:#fff!important;font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;font-weight:600;font-size:clamp(1.7rem,3vw,2.3rem)!important;letter-spacing:0.06em;margin:10px 0 14px;}
+.lx-h2 span{display:block;font-family:Georgia,serif;font-size:0.8rem;letter-spacing:0.35em;color:#c8a86b;margin-top:8px;font-weight:400;}
+.lx-desc{font-size:0.9rem;line-height:1.9;color:#b9b6ae;}
+.lx-note{margin-top:22px;padding-top:16px;border-top:1px solid rgba(200,168,107,0.35);font-size:0.75rem;line-height:1.8;color:#8f8b82;}
+.lx-table{width:100%;border-collapse:separate;border-spacing:0;}
+.lx-table th,.lx-table td{padding:6px 12px;line-height:1.3;font-size:0.82rem;border-bottom:1px solid rgba(255,255,255,0.07);}
+.lx-table tr.lx-glast th,.lx-table tr.lx-glast td{border-bottom:1px solid rgba(200,168,107,0.28);}
+.lx-cat{width:88px;white-space:nowrap;text-align:left;vertical-align:middle;border-bottom:1px solid rgba(200,168,107,0.28)!important;}
+.lx-cat span{font-size:0.7rem;color:#c8a86b;letter-spacing:0.1em;font-weight:600;}
+.lx-item{text-align:left;font-weight:500;color:#d9d6cf;}
+.lx-col{text-align:center;width:24%;background:rgba(255,255,255,0.03);}
+.lx-prem{background:linear-gradient(180deg,rgba(200,168,107,0.13),rgba(200,168,107,0.07));border-left:1px solid rgba(200,168,107,0.55);border-right:1px solid rgba(200,168,107,0.55);}
+.lx-head{padding:20px 10px 14px!important;line-height:1.2!important;vertical-align:bottom;position:relative;border-bottom:1px solid rgba(200,168,107,0.45)!important;}
+.lx-head.lx-prem{border-top:1px solid rgba(200,168,107,0.55);border-radius:12px 12px 0 0;}
+.lx-head:not(.lx-prem){border-radius:12px 12px 0 0;}
+.lx-foot td{height:14px;padding:0!important;border-bottom:none!important;border-radius:0 0 12px 12px;}
+.lx-foot td.lx-prem{border-bottom:1px solid rgba(200,168,107,0.55)!important;}
+.lx-foot th{border:none!important;}
+.lx-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#e2c993,#c8a86b);color:#1b1e23;font-size:0.62rem;font-weight:800;letter-spacing:0.18em;padding:3px 12px;border-radius:2px;white-space:nowrap;}
+.lx-catch{font-size:0.68rem;color:#9a968d;letter-spacing:0.04em;}
+.lx-prem .lx-catch{color:#d8c08e;}
+.lx-name{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;font-size:1.15rem;color:#fff;letter-spacing:0.12em;margin:4px 0 8px;font-weight:600;}
+.lx-price{font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;color:#fff;line-height:1;letter-spacing:0.02em;}
+.lx-prem .lx-price{color:#f1dfb5;}
+.lx-price small{font-size:0.95rem;margin-right:2px;}
+.lx-price span{font-family:inherit;font-size:0.7rem;color:#9a968d;margin-left:3px;}
+.lx-tax{font-size:0.64rem;color:#8f8b82;margin-top:6px;letter-spacing:0.03em;}
+.lx-check{color:#cfcac0;font-size:0.95rem;}
+.lx-gold{color:#c8a86b!important;}
+.lx-dash{color:#5b5e64;}
+.lx-val{font-weight:700;color:#e8e6e1;font-size:0.82rem;letter-spacing:0.03em;}
+.lx-val.lx-gold{color:#e6cd94!important;}
+
+#plans-tool.lx-section{background:linear-gradient(160deg,#23262c 0%,#30343b 60%,#24272d 100%);border-top:1px solid rgba(200,168,107,0.25);}
 </style>
 </head>
 <body>
@@ -271,34 +320,31 @@ footer a { color:var(--pink); }
 <nav>
   <div class="nav-top">
     <div class="nav-logo">H2technology ／ MEO × AIO 提案資料</div>
-    <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" class="nav-btn" target="_blank">無料相談を予約する</a>
   </div>
   <div class="nav-links">
-    <a href="#hero"       class="nav-link">表紙</a>
-    <a href="#company"    class="nav-link">会社紹介</a>
-    <a href="#era"        class="nav-link">時代</a>
+    <a href="#hero" class="nav-link">表紙</a>
+    <a href="#company" class="nav-link">会社紹介</a>
+    <a href="#era" class="nav-link">時代</a>
     <a href="#user-change" class="nav-link">行動変化</a>
-    <a href="#issues"     class="nav-link">現状の課題</a>
-    <a href="#hearing"    class="nav-link">現状確認</a>
-    <a href="#roles"      class="nav-link">役割整理</a>
-    <a href="#why-meo"    class="nav-link">なぜ継続</a>
-    <a href="#what-meo"   class="nav-link">MEO</a>
-    <a href="#what-aio"   class="nav-link">AIO</a>
-    <a href="#ai-info"    class="nav-link">AI情報構築</a>
-    <a href="#opportunity-loss" class="nav-link">機会損失</a>
-    <a href="#competitive" class="nav-link">競合比較</a>
-    <a href="#closing-question" class="nav-link">確認</a>
+    <a href="#issues" class="nav-link">課題</a>
+    <a href="#roles" class="nav-link">役割整理</a>
+    <a href="#what-meo" class="nav-link">MEO</a>
+    <a href="#what-aio" class="nav-link">AIO</a>
+    <a href="#ai-info" class="nav-link">AI情報構築</a>
     <a href="#service-overview" class="nav-link">全体像</a>
     <a href="#meo-strength" class="nav-link">MEOの強み</a>
     <a href="#aio-strength" class="nav-link">AIOの強み</a>
-    <a href="#tool"       class="nav-link">ツール</a>
-    <a href="#managed"    class="nav-link">運用代行</a>
-    <a href="#cases"      class="nav-link">事例</a>
-    <a href="#plans"      class="nav-link">料金</a>
+    <a href="#opportunity-loss" class="nav-link">機会損失</a>
+    <a href="#competitive" class="nav-link">競合比較</a>
+    <a href="#measures" class="nav-link">対策内容</a>
+    <a href="#tool" class="nav-link">ツール</a>
+    <a href="#cases" class="nav-link">事例</a>
+    <a href="#plans" class="nav-link">料金</a>
+        <a href="#ads" class="nav-link">広告</a>
+    <a href="#sns" class="nav-link">SNS</a>
+    <a href="#line" class="nav-link">LINE</a>
     <a href="#onboarding" class="nav-link">導入の流れ</a>
-    <a href="#ads"        class="nav-link">広告</a>
-    <a href="#sns"        class="nav-link">SNS</a>
-    <a href="#final"      class="nav-link">まとめ</a>
+    <a href="#final" class="nav-link">まとめ</a>
   </div>
 </nav>
 
@@ -310,14 +356,10 @@ footer a { color:var(--pink); }
     <div style="display:inline-block;background:var(--grad);color:#fff;font-size:0.78rem;font-weight:700;padding:6px 18px;border-radius:20px;letter-spacing:0.1em;margin-bottom:24px;">H2technology ／ MEO × AIO 提案資料</div>
     <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.25;margin-bottom:20px;">「調べる」から、<br><span style="background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">「AIに聞く」時代へ。</span></h1>
     <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:2;margin-bottom:40px;">集客の常識が、根本から変わっています。<br>Googleマップで見つけてもらうだけでは、もう足りない。<br><strong style="color:#fff;">AIに推薦される店になることが、これからの集客の必須条件です。</strong></p>
-    <div style="margin-top:0;">
-      <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" style="display:inline-block;background:var(--grad);color:#fff;padding:16px 40px;border-radius:40px;font-size:1rem;font-weight:700;box-shadow:0 6px 24px rgba(232,50,122,0.4);" target="_blank">無料相談を予約する →</a>
-    </div>
-    <div style="margin-top:20px;font-size:0.82rem;color:rgba(255,255,255,0.4);">株式会社 H2technology ／ MEO事業部 ／ r.nanbara@h2t.co.jp</div>
   </div>
 </section>
 
-<!-- ═══ 2. 会社紹介 ═══ -->
+<!-- ═══ 2. 挨拶・会社紹介 ═══ -->
 <section id="company" style="background:var(--gray-bg);">
   <div class="container">
     <span class="section-label"><span class="section-num">2</span> Company Profile</span>
@@ -350,7 +392,7 @@ footer a { color:var(--pink); }
       <div class="card" style="text-align:center;">
         <div class="card-icon">🤖</div>
         <h4>AIO対策</h4>
-        <p>AI参照元整備・113媒体配信・コンテンツ設計</p>
+        <p>AI参照元整備・100媒体以上への配信・コンテンツ設計</p>
       </div>
       <div class="card" style="text-align:center;">
         <div class="card-icon">📱</div>
@@ -361,7 +403,7 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 3. 今、集客はどんな時代か ═══ -->
+<!-- ═══ 3. 課題の認識：時代の変化 ═══ -->
 <section id="era" style="background:var(--navy);color:#fff;">
   <div class="container">
     <span class="section-label" style="color:#00b4a6;"><span class="section-num">3</span> The New Era</span>
@@ -389,16 +431,33 @@ footer a { color:var(--pink); }
       </div>
     </div>
     <div style="background:#111;border-radius:12px;overflow:hidden;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;">
-        <div style="background:var(--pink);padding:16px 20px;text-align:center;font-size:1.05rem;font-weight:700;color:#fff;">AI Overview 50%</div>
-        <div style="background:#00b4a6;padding:16px 20px;text-align:center;font-size:1.05rem;font-weight:700;color:#fff;">Googleマップ 50%</div>
+      <div style="padding:14px 20px 4px;text-align:center;font-size:0.85rem;font-weight:700;color:#ccc;">📈 Google検索のAI表示は、この1年で大きく拡大（2026年11月時点の最新データ）</div>
+      <div class="ai-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#222;margin-top:10px;">
+        <div style="background:#111;padding:18px 14px;text-align:center;">
+          <div style="font-size:0.75rem;color:#888;margin-bottom:4px;">国内 AI Overview 表示率</div>
+          <div style="font-size:0.85rem;color:#777;">31.7% <span style="color:#555;">（2025年10月）</span></div>
+          <div style="font-size:1.1rem;color:#666;line-height:1.2;">↓</div>
+          <div style="font-size:2rem;font-weight:900;color:var(--pink);line-height:1.1;">80.5%</div>
+          <div style="font-size:0.75rem;color:#aaa;">（2026年10月）</div>
+        </div>
+        <div style="background:#111;padding:18px 14px;text-align:center;">
+          <div style="font-size:0.75rem;color:#888;margin-bottom:4px;">AI Overview 利用者（世界）</div>
+          <div style="font-size:2rem;font-weight:900;color:#ff8000;line-height:1.1;margin-top:22px;">25億人</div>
+          <div style="font-size:0.75rem;color:#aaa;">／月（Google I/O 2026）</div>
+        </div>
+        <div style="background:#111;padding:18px 14px;text-align:center;">
+          <div style="font-size:0.75rem;color:#888;margin-bottom:4px;">AIモード 利用者（世界）</div>
+          <div style="font-size:2rem;font-weight:900;color:#00b4a6;line-height:1.1;margin-top:22px;">10億人</div>
+          <div style="font-size:0.75rem;color:#aaa;">／月（提供開始から約1年）</div>
+        </div>
       </div>
-      <div style="padding:10px 20px;text-align:center;font-size:0.82rem;color:#666;">2026年の検索結果予測 ── 食べログ・ホットペッパーなどの外部サイト表示がほぼゼロに（出典：Google I/O 2024 / SparkToro調査 / BrightEdge 2025）</div>
+      <div style="padding:12px 20px;text-align:center;font-size:0.8rem;color:#999;line-height:1.7;">2026年11月6日からは日本でも、AIモードで飲食店の空席検索（ぐるなび・一休・ebica連携）が始まり、<strong style="color:#fff;">「AIに聞いて、そのまま店を選ぶ」流れ</strong>が広がっています。</div>
+      <div style="padding:0 20px 12px;text-align:center;font-size:0.72rem;color:#666;">出典：グラッドキューブ調査（自社運営3サイトの上位100キーワード・各月15日時点）／Google I/O 2026 基調講演（2026年5月）／Google Japan発表（2026年11月6日）</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 4. ユーザー行動の変化 ═══ -->
+<!-- ═══ 4. 課題の認識：ユーザー行動の変化 ═══ -->
 <section id="user-change" style="background:#fff;">
   <div class="container">
     <span class="section-label"><span class="section-num">4</span> User Behavior Change</span>
@@ -406,75 +465,83 @@ footer a { color:var(--pink); }
     <p class="section-desc">「AIに聞いて決める」消費者は、想像以上に速く増えています。</p>
     <div class="card-grid-3" style="margin-bottom:32px;">
       <div class="card" style="text-align:center;border-top:4px solid var(--pink);">
-        <div style="font-size:3rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;margin-bottom:10px;">61%</div>
-        <div style="font-weight:700;color:#333;margin-bottom:6px;">「AIを使って買い物・来店を決めた」経験あり</div>
-        <div style="background:#fff0f6;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--pink);font-weight:700;margin-bottom:8px;">→ 10人中6人がAIに動かされた</div>
-        <div style="font-size:0.75rem;color:#aaa;">Capital One Shopping（2025年）</div>
+        <div style="font-size:3rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;margin-bottom:10px;">52.3%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">「生成AIで検索する」日本人（15〜69歳）</div>
+        <div style="background:#fff0f6;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--pink);font-weight:700;margin-bottom:8px;">→ 2025年5月21.3%から約1年で2.5倍。初の過半数</div>
+        <div style="font-size:0.75rem;color:#aaa;">サイバーエージェント GEOラボ（2026年8月・9,278名）</div>
       </div>
       <div class="card" style="text-align:center;border-top:4px solid var(--orange);">
-        <div style="font-size:3rem;font-weight:900;color:var(--orange);line-height:1.1;margin-bottom:10px;">31%</div>
-        <div style="font-weight:700;color:#333;margin-bottom:6px;">「Googleより先にAIで検索する」ユーザー</div>
-        <div style="background:#fff8f0;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--orange);font-weight:700;margin-bottom:8px;">→ 従来Google派21%。AI派が逆転</div>
-        <div style="font-size:0.75rem;color:#aaa;">adMarketplace（2025年）</div>
+        <div style="font-size:3rem;font-weight:900;color:var(--orange);line-height:1.1;margin-bottom:10px;">58.7%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">「AIのおすすめをきっかけに購入・利用した」経験あり</div>
+        <div style="background:#fff8f0;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:var(--orange);font-weight:700;margin-bottom:8px;">→ AIの回答が、実際の行動につながっている</div>
+        <div style="font-size:0.75rem;color:#aaa;">サイバーエージェント GEOラボ（2026年8月）</div>
       </div>
       <div class="card" style="text-align:center;border-top:4px solid #6366f1;">
-        <div style="font-size:3rem;font-weight:900;color:#6366f1;line-height:1.1;margin-bottom:10px;">30%</div>
-        <div style="font-weight:700;color:#333;margin-bottom:6px;">日本人のAI利用経験率（2025年）</div>
-        <div style="background:#f0f0ff;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:#6366f1;font-weight:700;margin-bottom:8px;">→ 2023年3.4%→たった2年で約9倍</div>
-        <div style="font-size:0.75rem;color:#aaa;">日本リサーチセンター（2025年）</div>
+        <div style="font-size:3rem;font-weight:900;color:#6366f1;line-height:1.1;margin-bottom:10px;">45%</div>
+        <div style="font-weight:700;color:#333;margin-bottom:6px;">お店探しにAIを使う消費者（米国）</div>
+        <div style="background:#f0f0ff;border-radius:8px;padding:8px 12px;font-size:0.82rem;color:#6366f1;font-weight:700;margin-bottom:8px;">→ 前年6%から急増。Google・Facebookに次ぐ3番手に</div>
+        <div style="font-size:0.75rem;color:#aaa;">BrightLocal Local Consumer Review Survey（2026年）</div>
       </div>
     </div>
     <!-- 年齢別 -->
     <div style="background:var(--navy);border-radius:16px;padding:28px 32px;">
-      <h3 style="color:#fff;font-size:1rem;font-weight:700;margin-bottom:20px;">📊 年齢層別 AI検索利用率（2025年 推定値）</h3>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+      <h3 style="color:#fff;font-size:1rem;font-weight:700;margin-bottom:20px;">📊 年代別 生成AIの検索利用率（2026年8月）</h3>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
+        <div style="text-align:center;">
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">10代</div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
+            <div style="width:100%;background:var(--grad);height:81%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">80.6%</div>
+          </div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">最も高い</div>
+        </div>
         <div style="text-align:center;">
           <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">20代</div>
           <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
-            <div style="width:100%;background:var(--grad);height:78%;border-radius:6px;"></div>
-            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">78%</div>
+            <div style="width:100%;background:var(--grad);height:61%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">61.0%</div>
           </div>
-          <div style="font-size:0.72rem;color:#666;margin-top:6px;">最も高い</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">6割超</div>
         </div>
         <div style="text-align:center;">
           <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">30代</div>
           <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
-            <div style="width:100%;background:var(--grad);height:62%;border-radius:6px;"></div>
-            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">62%</div>
+            <div style="width:100%;background:var(--grad);height:53%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">53.3%</div>
           </div>
-          <div style="font-size:0.72rem;color:#666;margin-top:6px;">主要消費層</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">過半数</div>
         </div>
         <div style="text-align:center;">
           <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">40代</div>
           <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
-            <div style="width:100%;background:var(--grad);height:44%;border-radius:6px;"></div>
-            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">44%</div>
+            <div style="width:100%;background:var(--grad);height:50%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">50.2%</div>
           </div>
-          <div style="font-size:0.72rem;color:#666;margin-top:6px;">急拡大中</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">初の5割超</div>
         </div>
         <div style="text-align:center;">
           <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">50代</div>
           <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
-            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:28%;border-radius:6px;"></div>
-            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">28%</div>
+            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:46%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">46.1%</div>
           </div>
-          <div style="font-size:0.72rem;color:#666;margin-top:6px;">増加傾向</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">拡大中</div>
         </div>
         <div style="text-align:center;">
-          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">60代〜</div>
+          <div style="font-size:0.8rem;color:#aaa;margin-bottom:8px;">60代</div>
           <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:90px;position:relative;overflow:hidden;display:flex;align-items:flex-end;">
-            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:14%;border-radius:6px;"></div>
-            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.3rem;font-weight:900;color:#fff;">14%</div>
+            <div style="width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);height:40%;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:1.15rem;font-weight:900;color:#fff;">39.6%</div>
           </div>
-          <div style="font-size:0.72rem;color:#666;margin-top:6px;">今後の成長</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:6px;">拡大中</div>
         </div>
       </div>
-      <p style="font-size:0.75rem;color:#555;margin-top:12px;text-align:right;">※ NRC調査・各種調査をもとにした推定値</p>
+      <p style="font-size:0.75rem;color:#888;margin-top:12px;text-align:right;">※ AIモードを含む生成AIでの検索利用率。出典：サイバーエージェント GEOラボ「生成AIのユーザー利用実態調査（2026年8月期）」全国15〜69歳 9,278名</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ 5. 店舗・企業の現状の課題 ═══ -->
+<!-- ═══ 5. 課題の認識：現状の課題 ═══ -->
 <section id="issues" style="background:var(--gray-bg);">
   <div class="container">
     <span class="section-label"><span class="section-num">5</span> Current Issues</span>
@@ -515,69 +582,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 6. 現在の取り組みヒアリング ═══ -->
-<section id="hearing" style="background:#fff;">
+<!-- ═══ 6. やるべきこと：施策の役割整理 ═══ -->
+<section id="roles" style="background:#fff;">
   <div class="container">
-    <span class="section-label"><span class="section-num" style="background:#f59e0b;">6</span> 現在の取り組み確認</span>
-    <h2>現在の取り組みを<span class="accent">整理しましょう</span></h2>
-    <p class="section-desc">当てはまる項目に<strong>チェック</strong>を入れてください。現状を可視化することで、最適な打ち手が見えてきます。</p>
-    <div style="background:var(--gray-bg);border-radius:14px;padding:24px 28px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;">
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>MEO対策</strong>に取り組んでいる</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>GBP</strong>を最適化済み</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>口コミ獲得</strong>の仕組みがある</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>SNS運用</strong>をしている</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>Web広告</strong>を実施中</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>SEO・ブログ</strong>を実施中</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>ホームページ</strong>を最近更新した</span></label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;border-bottom:1px solid #e8e8e8;"><input type="checkbox" style="width:18px;height:18px;accent-color:var(--pink);flex-shrink:0;"><span style="font-size:0.92rem;color:#333;"><strong>AIへの対策</strong>に取り組んでいる</span></label>
-      </div>
-      <div style="margin-top:16px;padding-top:16px;border-top:2px solid #e0e0e0;font-size:0.88rem;color:#666;">
-        ✓ チェックが<strong style="color:var(--pink);">少ないほど、伸びしろが大きい</strong>状態です。まだ手をつけていない施策こそ、競合と差をつけるチャンスです。
-      </div>
-    </div>
-
-    <!-- LTVシミュレーター -->
-    <div style="margin-top:36px;background:linear-gradient(135deg,#fff0f6,#fff8f0);border:2px solid var(--pink);border-radius:16px;padding:28px 28px;">
-      <h3 style="font-size:1.15rem;font-weight:900;color:var(--pink);margin-bottom:6px;">💰 新規1人あたりのLTV（生涯価値）シミュレーター</h3>
-      <p style="font-size:0.88rem;color:#666;margin-bottom:20px;">数値を入力すると、新規客が1人増えたときの価値を自動計算します。</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:20px;">
-        <div>
-          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">客単価（円）</label>
-          <input type="number" id="ltv-price" value="3000" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
-        </div>
-        <div>
-          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">月間来店回数</label>
-          <input type="number" id="ltv-freq" value="2" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
-        </div>
-        <div>
-          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">継続年数</label>
-          <input type="number" id="ltv-years" value="3" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
-        </div>
-        <div>
-          <label style="font-size:0.8rem;font-weight:700;color:#555;display:block;margin-bottom:4px;">月間 新規増加数（人）</label>
-          <input type="number" id="ltv-new" value="10" style="width:100%;padding:10px 12px;border:1.5px solid var(--pink);border-radius:8px;font-size:1rem;font-family:inherit;">
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div style="background:#fff;border-radius:12px;padding:18px 20px;text-align:center;box-shadow:0 2px 10px rgba(232,50,122,0.1);">
-          <div style="font-size:0.82rem;color:#888;margin-bottom:4px;">新規1人あたりのLTV</div>
-          <div style="font-size:2rem;font-weight:900;color:var(--pink);" id="ltv-result">¥18,000</div>
-        </div>
-        <div style="background:var(--navy);border-radius:12px;padding:18px 20px;text-align:center;">
-          <div style="font-size:0.82rem;color:#aaa;margin-bottom:4px;">年間の追加売上インパクト</div>
-          <div style="font-size:2rem;font-weight:900;color:#00b4a6;" id="ltv-year">¥2,160,000</div>
-        </div>
-      </div>
-      <p style="font-size:0.78rem;color:#999;margin-top:12px;">※ LTV ＝ 客単価 × 月間来店回数 × 12ヶ月 × 継続年数。年間の追加売上インパクト ＝ LTV × 月間新規増加数。あくまで試算です。</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 7. 広告・SNS・SEO・MEO・AIOの役割整理 ═══ -->
-<section id="roles" style="background:var(--gray-bg);">
-  <div class="container">
-    <span class="section-label"><span class="section-num">7</span> Role Map</span>
+    <span class="section-label"><span class="section-num">6</span> Role Map</span>
     <h2>各施策の<span class="accent">役割を整理する</span></h2>
     <p class="section-desc">それぞれの施策は競合ではなく、組み合わせることで最大効果を発揮します。</p>
     <div style="overflow-x:auto;">
@@ -613,42 +621,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 8. なぜMEO・AIOが継続的に必要なのか ═══ -->
-<section id="why-meo" style="background:#fff;">
-  <div class="container">
-    <span class="section-label"><span class="section-num">8</span> Why Continuous</span>
-    <h2>なぜMEO・AIOは<span class="accent">「続ける」必要があるのか</span></h2>
-    <p class="section-desc">答えはシンプル。集客は「一度やって終わり」ではなく、積み上げるものだからです。</p>
-
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
-      <div style="background:linear-gradient(135deg,#fff0f6,#fff8f0);border-radius:16px;padding:32px 28px;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:12px;">📈</div>
-        <div style="font-size:1.3rem;font-weight:900;color:var(--pink);margin-bottom:10px;">口コミは「資産」</div>
-        <p style="font-size:0.95rem;color:#555;line-height:1.8;">積み上げた口コミは消えません。続けるほど<strong>競合との差が開いていきます。</strong></p>
-      </div>
-      <div style="background:linear-gradient(135deg,#f0faf9,#e8f4f4);border-radius:16px;padding:32px 28px;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:12px;">🔄</div>
-        <div style="font-size:1.3rem;font-weight:900;color:#00b4a6;margin-bottom:10px;">Googleは常に変化</div>
-        <p style="font-size:0.95rem;color:#555;line-height:1.8;">検索ルールは定期的に更新。<strong>続けないと順位は維持できません。</strong></p>
-      </div>
-      <div style="background:linear-gradient(135deg,#f0f0ff,#eef2ff);border-radius:16px;padding:32px 28px;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:12px;">🤖</div>
-        <div style="font-size:1.3rem;font-weight:900;color:#6366f1;margin-bottom:10px;">AIは鮮度を見る</div>
-        <p style="font-size:0.95rem;color:#555;line-height:1.8;">古い情報はAIに無視されます。<strong>継続的な更新が信頼を生みます。</strong></p>
-      </div>
-      <div style="background:linear-gradient(135deg,#fff8f0,#fffbf0);border-radius:16px;padding:32px 28px;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:12px;">🏃</div>
-        <div style="font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:10px;">競合も走っている</div>
-        <p style="font-size:0.95rem;color:#555;line-height:1.8;">止まった瞬間に追い抜かれます。<strong>走り続けた店だけが上位に残ります。</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 9-12. MEO 統合ページ ═══ -->
+<!-- ═══ 7. やるべきこと：MEO ═══ -->
 <section id="what-meo" style="background:var(--gray-bg);">
   <div class="container">
-    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">9</span> MEO</span>
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">7</span> MEO</span>
     <h2>MEO＝<span style="color:#00b4a6;">Googleマップで選ばれる対策</span></h2>
     <p class="section-desc">スマホで「近くの〇〇」と検索したユーザーに、真っ先に見つけてもらう施策です。</p>
 
@@ -657,7 +633,7 @@ footer a { color:var(--pink); }
       <div style="background:#fff;border-radius:16px;padding:28px 26px;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
         <div style="font-size:2.8rem;margin-bottom:10px;">🗺️</div>
         <h3 style="font-size:1.25rem;font-weight:900;color:#00b4a6;margin-bottom:12px;">① 上位表示</h3>
-        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">Googleマップで上位に出るほど来店が増えます。<strong style="color:#00b4a6;">1位のクリック率は35〜40%。</strong></p>
+        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">Googleマップで上位に出るほど来店が増えます。<strong style="color:#00b4a6;">新しいお店を探すとき、約64%が「毎回」または「ほとんど」Googleマップを使っています。</strong><span style="display:block;font-size:0.75rem;color:#aaa;margin-top:4px;">出典：株式会社FINEXT「Googleマップの利用実態調査」（2026年2月・Googleマップで店舗情報を調べたことがある全国20〜60代 317名）</span></p>
         <div style="background:#e8faf8;border-radius:10px;padding:14px 16px;">
           <div style="font-size:0.82rem;font-weight:700;color:#00b4a6;margin-bottom:6px;">上位表示を決める3要素</div>
           <div style="font-size:0.88rem;color:#555;line-height:1.9;">
@@ -670,7 +646,7 @@ footer a { color:var(--pink); }
       <div style="background:#fff;border-radius:16px;padding:28px 26px;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
         <div style="font-size:2.8rem;margin-bottom:10px;">⭐</div>
         <h3 style="font-size:1.25rem;font-weight:900;color:var(--pink);margin-bottom:12px;">② 口コミ</h3>
-        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">口コミは順位にも来店判断にも直結。<strong style="color:var(--pink);">88%の人が来店前に口コミを確認します。</strong></p>
+        <p style="font-size:0.95rem;color:#555;line-height:1.85;margin-bottom:14px;">口コミは順位にも来店判断にも直結。<strong style="color:var(--pink);">口コミを見る場所はGoogleマップが76.6%で最多。約7割が「10件以上」を信頼の目安にしています。</strong><span style="display:block;font-size:0.75rem;color:#aaa;margin-top:4px;">出典：株式会社FINEXT「口コミ・レビューの利用実態調査」（2026年3月・全国20〜60代 329名）／米国でも97%がお店選びで口コミを確認（BrightLocal 2026）</span></p>
         <div style="background:#fff0f6;border-radius:10px;padding:14px 16px;">
           <div style="font-size:0.82rem;font-weight:700;color:var(--pink);margin-bottom:6px;">口コミが効く3つの理由</div>
           <div style="font-size:0.88rem;color:#555;line-height:1.9;">
@@ -688,7 +664,7 @@ footer a { color:var(--pink); }
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#ff8a8a;margin-bottom:8px;">✕ 情報が少ない店</div>
-          <p style="font-size:0.88rem;color:#bbb;line-height:1.8;">写真1〜2枚、説明なし、口コミも少ない。<strong style="color:#fff;">ユーザーは不安になり競合を選びます。</strong></p>
+          <p style="font-size:0.88rem;color:#bbb;line-height:1.8;">写真1〜2枚、説明なし、口コミも少ない。<strong style="color:#fff;">ユーザーは不安になり競合を選びます。</strong><span style="display:block;font-size:0.75rem;color:#888;margin-top:6px;">情報が充実していない場合「別の店舗を選ぶ」人は36.0%（FINEXT 2026年2月調査）</span></p>
         </div>
         <div>
           <div style="font-size:0.85rem;font-weight:700;color:#00b4a6;margin-bottom:8px;">✓ 情報が充実した店</div>
@@ -699,16 +675,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-
-
-
-
-
-
-<!-- ═══ 13. AIOとは ═══ -->
+<!-- ═══ 8. やるべきこと：AIO ═══ -->
 <section id="what-aio" style="background:var(--navy);color:#fff;">
   <div class="container">
-    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">13</span> What is AIO</span>
+    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">8</span> What is AIO</span>
     <h2 style="color:#fff;">AIO（AI最適化）<span style="color:var(--pink);">とは</span></h2>
     <div style="background:rgba(232,50,122,0.12);border:1.5px solid rgba(232,50,122,0.35);border-radius:14px;padding:20px 24px;margin-bottom:32px;">
       <p style="color:#fff;font-size:1rem;line-height:1.9;"><strong style="color:var(--pink);">AIO（AI Optimization）</strong>とは、ChatGPT・Gemini・AI Overviewsなど主要AIが<strong>「おすすめの店」として推薦する対象になるための対策</strong>です。MEOが「Googleマップで順位を上げる」施策なら、AIOは「AIに信頼される情報基盤を作る」施策です。</p>
@@ -716,27 +686,81 @@ footer a { color:var(--pink); }
     <div class="card-grid-3">
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(66,133,244,0.4);border-radius:14px;padding:22px 18px;">
         <div style="font-size:0.9rem;font-weight:700;color:#4285f4;margin-bottom:10px;">🔍 AI Overview（Google）</div>
-        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">GBP・Googleマップが主要参照元。Googleマップ最適化が引き続き最重要です。</p>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">GBP・Googleマップが主要参照元。2026年5月時点で月間25億人が利用。日本でも検索結果の多くに表示されるようになっています。</p>
       </div>
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(16,163,127,0.4);border-radius:14px;padding:22px 18px;">
         <div style="font-size:0.9rem;font-weight:700;color:#10a37f;margin-bottom:10px;">🤖 ChatGPT</div>
-        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">リアルタイム検索はBing経由。店舗MAPのデフォルトはAppleマップ。構造化データ整備がカギ。</p>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">国内の生成AI検索で利用率1位（30.6%）。独自の検索インデックスやBingなど複数の外部データを参照し、iPhone版の地図表示はAppleマップが標準。</p>
       </div>
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(26,115,232,0.4);border-radius:14px;padding:22px 18px;">
         <div style="font-size:0.9rem;font-weight:700;color:#4285f4;margin-bottom:10px;">✨ Gemini</div>
-        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">Google検索と深く統合。GBP・ローカルガイドの評価・レビューが参照される。</p>
+        <p style="color:#ccc;font-size:0.88rem;line-height:1.8;">Google検索と深く統合。GBP・口コミが参照される。Google検索の「AIモード」も国内利用率28.4%まで伸びています。</p>
       </div>
+    </div>
+    <!-- AI Overview 表示イメージ -->
+    <div style="margin-top:36px;">
+      <div style="text-align:center;margin-bottom:16px;">
+        <span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:20px;padding:6px 16px;font-size:0.82rem;color:#ddd;">📱 AIOを行うと、こんなふうに表示されます（表示イメージ）</span>
+        <button id="aio-replay" type="button" style="margin-left:8px;background:var(--pink);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:0.82rem;font-weight:700;cursor:pointer;">▶ もう一度再生</button>
+      </div>
+      <div class="aio-mock" style="max-width:720px;margin:0 auto;background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,0.35);overflow:hidden;color:#202124;font-family:Arial,'Hiragino Sans','Meiryo',sans-serif;">
+        <div style="padding:18px 20px 12px;border-bottom:1px solid #ebebeb;">
+          <div style="display:flex;align-items:center;gap:10px;border:1px solid #dfe1e5;border-radius:24px;padding:10px 16px;box-shadow:0 1px 4px rgba(32,33,36,0.12);">
+            <span style="font-size:0.95rem;color:#9aa0a6;">🔍</span>
+            <span style="flex:1;font-size:0.95rem;color:#202124;"><span id="aio-q">東京 赤坂 おすすめ MEO会社</span><span id="aio-caret" class="aio-caret"></span></span>
+            <span style="font-size:0.9rem;color:#9aa0a6;">🎤</span>
+          </div>
+          <div style="display:flex;gap:18px;font-size:0.8rem;color:#5f6368;margin-top:12px;padding-left:4px;">
+            <span style="color:#1a73e8;border-bottom:3px solid #1a73e8;padding-bottom:6px;font-weight:600;">すべて</span><span>AIモード</span><span>地図</span><span>ニュース</span><span>画像</span>
+          </div>
+        </div>
+        <div style="padding:18px 22px 20px;min-height:540px;">
+          <div id="aio-head" style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);color:#fff;font-size:0.8rem;">✦</span>
+            <span style="font-size:1rem;font-weight:700;color:#202124;">AI による概要</span>
+          </div>
+          <div id="aio-loading" class="aio-loading" style="display:none;"><div></div><div></div><div style="width:70%;"></div></div>
+          <p id="aio-para" style="font-size:0.92rem;line-height:1.85;color:#202124;margin-bottom:14px;">東京・赤坂エリアでMEO対策を依頼するなら、Googleマップ対策とAI検索対策（AIO）の両方に対応できる会社がおすすめです。中でも<mark style="background:#d2e3fc;color:#174ea6;font-weight:700;padding:1px 3px;border-radius:3px;">株式会社H2technology</mark>は、MEOとAIOを組み合わせた支援や、独自ツール「Mappy」による順位・口コミ管理に対応しており、多業種での運用実績があります。</p>
+          <div class="aio-step" style="font-size:0.88rem;font-weight:700;color:#202124;margin-bottom:8px;">選ぶときのポイント</div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;font-size:0.88rem;line-height:1.8;color:#3c4043;">
+            <li class="aio-step" style="padding-left:16px;position:relative;margin-bottom:4px;"><span style="position:absolute;left:0;">•</span><strong>MEOとAIOの両方に対応しているか：</strong>Googleマップ上位表示に加え、AIに推薦される情報整備まで任せられるかを確認しましょう。</li>
+            <li class="aio-step" style="padding-left:16px;position:relative;margin-bottom:4px;"><span style="position:absolute;left:0;">•</span><strong>口コミを増やす仕組みがあるか：</strong>SMSでの口コミ依頼やAI返信など、継続的に口コミを集められる体制が重要です。</li>
+            <li class="aio-step" style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">•</span><strong>成果をデータで報告してくれるか：</strong>月次レポートや定期コンサルの有無も比較材料になります。</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <div class="aio-step aio-h2card" style="flex:1;min-width:180px;border:1.5px solid #1a73e8;border-radius:12px;padding:10px 12px;background:#f8fbff;">
+              <div style="font-size:0.72rem;color:#5f6368;margin-bottom:2px;">🌐 h2t.co.jp</div>
+              <div style="font-size:0.82rem;font-weight:700;color:#1a0dab;line-height:1.4;">株式会社H2technology ｜ MEO×AIO対策</div>
+            </div>
+            <div class="aio-step" style="flex:1;min-width:180px;border:1px solid #dadce0;border-radius:12px;padding:10px 12px;">
+              <div style="font-size:0.72rem;color:#5f6368;margin-bottom:2px;">📍 Googleマップ</div>
+              <div style="font-size:0.82rem;font-weight:700;color:#1a0dab;line-height:1.4;">H2technology ／ 口コミ・営業時間</div>
+            </div>
+            <div class="aio-step" style="flex:1;min-width:180px;border:1px solid #dadce0;border-radius:12px;padding:10px 12px;">
+              <div style="font-size:0.72rem;color:#5f6368;margin-bottom:2px;">📰 外部メディア</div>
+              <div style="font-size:0.82rem;font-weight:700;color:#1a0dab;line-height:1.4;">MEO会社の選び方と比較ポイント</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px;margin:14px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;" class="aio-mock-notes">
+        <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.78rem;color:#ccc;line-height:1.6;"><strong style="color:var(--pink);">① 社名で推薦</strong><br>AIの回答文の中で名前が挙がる</div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.78rem;color:#ccc;line-height:1.6;"><strong style="color:var(--pink);">② 強みまで紹介</strong><br>GBP・HPの情報をもとに特徴が説明される</div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.78rem;color:#ccc;line-height:1.6;"><strong style="color:var(--pink);">③ 参照元に表示</strong><br>HP・Googleマップへのリンクから来店・問い合わせへ</div>
+      </div>
+      <p style="max-width:720px;margin:8px auto 0;font-size:0.72rem;color:#777;text-align:right;">※ 説明用に作成した表示イメージです。実際の表示内容は検索する人・時期によって異なります。</p>
     </div>
     <div style="margin-top:24px;background:rgba(232,50,122,0.1);border:1px solid rgba(232,50,122,0.3);border-radius:12px;padding:16px 20px;">
       <p style="color:#ff69b4;font-weight:600;font-size:0.92rem;">💡 GBP充実・Appleマップ登録・構造化データ整備を組み合わせることで、すべての主要AIをカバーできます</p>
     </div>
+    <p style="font-size:0.72rem;color:#777;margin-top:10px;text-align:right;">※ 利用率：サイバーエージェント GEOラボ（2026年8月・全国15〜69歳 9,278名）／利用者数：Google I/O 2026</p>
   </div>
 </section>
 
-<!-- ═══ 14. AI検索時代に必要な情報構築 ═══ -->
+<!-- ═══ 9. やるべきこと：AI情報構築 ═══ -->
 <section id="ai-info" style="background:var(--gray-bg);">
   <div class="container">
-    <span class="section-label"><span class="section-num" style="background:var(--pink);">14</span> AI Info Build</span>
+    <span class="section-label"><span class="section-num" style="background:var(--pink);">9</span> AI Info Build</span>
     <h2>AI検索時代に必要な<span class="accent">情報構築</span></h2>
     <p class="section-desc"><strong>「複数の信頼できる情報源で同じ内容が確認できる店舗」</strong>をAIは優先的に推薦します。</p>
 
@@ -751,8 +775,8 @@ footer a { color:var(--pink); }
         <div style="display:flex;align-items:center;font-size:1.5rem;color:var(--pink);font-weight:700;">→</div>
         <div style="flex:1;min-width:150px;max-width:230px;background:var(--gray-bg);border-radius:12px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
           <div style="font-size:2rem;margin-bottom:8px;">🌐</div>
-          <div style="font-size:0.95rem;font-weight:800;color:#333;margin-bottom:4px;"><strong style="color:var(--pink);">113媒体</strong>に同時配信</div>
-          <div style="font-size:0.78rem;color:#888;line-height:1.6;">Google・Apple・Bing<br>Alexa・Siri・他110媒体</div>
+          <div style="font-size:0.95rem;font-weight:800;color:#333;margin-bottom:4px;"><strong style="color:var(--pink);">100媒体以上</strong>に同時配信</div>
+          <div style="font-size:0.78rem;color:#888;line-height:1.6;">Google・Apple・Bing<br>Alexa・Siri など</div>
         </div>
         <div style="display:flex;align-items:center;font-size:1.5rem;color:var(--pink);font-weight:700;">→</div>
         <div style="flex:1;min-width:150px;max-width:230px;background:#fff0f6;border:2px solid var(--pink);border-radius:12px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
@@ -767,18 +791,117 @@ footer a { color:var(--pink); }
     <div class="card-grid-2">
       <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🏷️</div><div><strong style="color:#333;">店名・住所・電話番号の統一（NAP調査）</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">全媒体でNAP情報を一致させる。矛盾があるとAIの信頼スコアが下がります。</p></div></div>
       <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">📇</div><div><strong style="color:#333;">GBPの充実</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">写真・投稿・サービス・説明文を完璧に整備。すべてのAIの基本参照元です。</p></div></div>
-      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🍎</div><div><strong style="color:#333;">Appleマップへの登録・最適化</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">ChatGPTのデフォルトMAPはAppleマップ。登録なしでは届きません。</p></div></div>
-      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🌐</div><div><strong style="color:#333;">113媒体への情報一括配信</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AIが参照する主要媒体すべてに正確な情報を届け、信頼スコアを高めます。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🍎</div><div><strong style="color:#333;">Appleマップへの登録・最適化</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">iPhone版ChatGPTの地図表示はAppleマップが標準。Siriなど端末側のAIもAppleマップを参照します。</p></div></div>
+      <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">🌐</div><div><strong style="color:#333;">100媒体以上への情報一括配信</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AIが参照する主要媒体すべてに正確な情報を届け、信頼スコアを高めます。</p></div></div>
       <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">⭐</div><div><strong style="color:#333;">口コミと返信の質・量を高める</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AIは口コミ内容もテキスト分析。具体的な口コミが信頼性を高めます。</p></div></div>
       <div class="card" style="display:flex;gap:14px;align-items:flex-start;"><div style="font-size:1.6rem;flex-shrink:0;">✍️</div><div><strong style="color:#333;">AIO対応コンテンツの継続発信</strong><p style="font-size:0.86rem;color:#555;margin-top:4px;">AI向けに最適化された記事・投稿でサイテーションを継続獲得します。</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 15. やるメリットではなく、やらない機会損失 ═══ -->
-<section id="opportunity-loss" style="background:#fff;">
+<!-- ═══ 10. やれること：サービス全体像 ═══ -->
+<section id="service-overview" style="background:#fff;">
   <div class="container">
-    <span class="section-label"><span class="section-num">15</span> Opportunity Loss</span>
+    <span class="section-label"><span class="section-num">10</span> Service Overview</span>
+    <h2>H2technology<span class="accent">　サービス全体像</span></h2>
+    <p class="section-desc">MEO × AIOを軸に、広告・SNS・ツール提供まで一気通貫でサポートします。</p>
+    <div style="background:var(--gray-bg);border-radius:16px;padding:32px;text-align:center;margin-bottom:24px;">
+      <div style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;background:var(--navy);color:#fff;border-radius:50%;width:130px;height:130px;line-height:1.5;font-size:1rem;font-weight:700;margin-bottom:24px;box-shadow:0 6px 18px rgba(0,0,0,0.15);">MEO × AIO<span style="font-size:0.8rem;color:#ffb3d1;margin-top:2px;">コア戦略</span></div>
+      <div class="card-grid-3" style="max-width:760px;margin:0 auto;">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📊</div>
+          <strong style="color:#00b4a6;">MEO対策</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">GBP最適化・口コミ促進・順位管理</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">🤖</div>
+          <strong style="color:var(--pink);">AIO対策</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">AI参照元整備・100媒体以上への配信</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">🛠️</div>
+          <strong style="color:#6366f1;">ツール提供</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Mappy / Mappy＋ 内製化支援</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📱</div>
+          <strong style="color:#8b5cf6;">SNS運用</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Instagram運用・GBP連携</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📣</div>
+          <strong style="color:#f97316;">広告運用</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">Google/Meta広告運用代行</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">📋</div>
+          <strong style="color:#f59e0b;">月次レポート</strong>
+          <p style="font-size:0.82rem;margin-top:6px;">成果の可視化・定期コンサル</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11. やれること：MEOの強み ═══ -->
+<section id="meo-strength" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">11</span> MEO Strength</span>
+    <h2>MEOサービスの<span style="color:#00b4a6;">強み</span></h2>
+    <p class="section-desc">他社にない、H2technologyの3つの強みです。</p>
+    <div class="card-grid-3">
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🛠️</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">独自ツールで<br>徹底管理</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">自社開発ツール「Mappy」で順位・口コミ・分析をひとつの画面で完全可視化。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">⭐</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">口コミを<br>仕組みで増やす</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">SMS→口コミ依頼→AI返信まで一気通貫。現場任せにせず、継続的に口コミを獲得。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">📊</div>
+        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">レポート＋<br>コンサル付き</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">毎月の成果をデータで報告。次の打ち手を一緒に設計し、改善を繰り返します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 12. やれること：AIOの強み ═══ -->
+<section id="aio-strength" style="background:#fff;">
+  <div class="container">
+    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">12</span> AIO Strength</span>
+    <h2>AIOサービスの<span class="accent">強み</span></h2>
+    <div style="background:var(--navy);border-radius:14px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <div style="display:inline-block;background:var(--pink);color:#fff;font-size:0.75rem;font-weight:700;padding:5px 14px;border-radius:6px;flex-shrink:0;">🔒 日本独占</div>
+      <p style="color:#ddd;font-size:0.9rem;flex:1;min-width:200px;">海外トップ企業との<strong style="color:#fff;">独占パートナーシップ</strong>。この仕組みを使えるのは当社だけ。競合には真似できません。</p>
+    </div>
+    <div class="card-grid-3">
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🌐</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">100媒体以上へ<br>一括自動配信</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">日本で登録できる100以上の媒体に正確な情報を自動配信。1回設定で継続更新。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🤖</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">AIに<br>推薦される</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">複数媒体で一致した情報により、ChatGPT・Geminiが「信頼できる店」として推薦。</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:2.8rem;margin-bottom:12px;">🍎</div>
+        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">Appleマップ<br>最適化</h4>
+        <p style="font-size:0.88rem;color:#555;line-height:1.8;">iPhone版ChatGPTの地図表示はAppleマップが標準。登録でiPhoneユーザーへのリーチが向上。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 13. 機会損失 ═══ -->
+<section id="opportunity-loss" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label"><span class="section-num">13</span> Opportunity Loss</span>
     <h2>やる「メリット」より、<span class="accent">やらない「機会損失」</span></h2>
     <p class="section-desc">対策しない間にも、競合は着々と差をつけ続けています。</p>
     <div class="card-grid-2">
@@ -809,10 +932,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 16. 競合比較で負けるポイント ═══ -->
+<!-- ═══ 14. 機会損失：競合比較 ═══ -->
 <section id="competitive" style="background:#fff;">
   <div class="container">
-    <span class="section-label"><span class="section-num">16</span> Competitive Gap</span>
+    <span class="section-label"><span class="section-num">14</span> Competitive Gap</span>
     <h2>競合比較で<span class="accent">負けるポイント</span></h2>
     <p class="section-desc">競合がMEO・AIO対策をしている場合、以下の差が生まれます。</p>
     <div style="overflow-x:auto;">
@@ -826,152 +949,116 @@ footer a { color:var(--pink); }
         <tr><td>AI検索への対応</td><td style="color:#e53e3e;">AIに存在を認識されない</td><td class="aio-v">ChatGPT・Geminiで推薦される</td></tr>
         <tr><td>口コミ数・評価</td><td style="color:#e53e3e;">少ない・低評価放置</td><td class="aio-v">継続的に増加・適切に返信</td></tr>
         <tr><td>来店前の第一印象</td><td style="color:#e53e3e;">情報が少なく不安を与える</td><td class="aio-v">写真・情報が充実し信頼される</td></tr>
-        <tr><td>インバウンド対応</td><td style="color:#e53e3e;">外国語対応なし</td><td class="aio-v">多言語対応で4000万人市場にリーチ</td></tr>
-        <tr><td>情報の一貫性</td><td style="color:#e53e3e;">媒体ごとに情報がバラバラ</td><td class="aio-v">NAP統一・113媒体に正確な情報</td></tr>
+        <tr><td>インバウンド対応</td><td style="color:#e53e3e;">外国語対応なし</td><td class="aio-v">多言語対応で年間4,268万人（2025年）の訪日客にリーチ</td></tr>
+        <tr><td>情報の一貫性</td><td style="color:#e53e3e;">媒体ごとに情報がバラバラ</td><td class="aio-v">NAP統一・100媒体以上に正確な情報</td></tr>
       </table>
     </div>
   </div>
 </section>
 
+<!-- ═══ 15. サービス詳細：対策内容 ═══ -->
+<section id="measures" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">15</span> Our Measures</span>
+    <h2>MEO×AIO<span style="color:#00b4a6;">対策内容</span></h2>
+    <p class="section-desc">Googleマップで選ばれ、AIにも紹介されるために必要な対策を、5つの柱に分けて進めます。</p>
 
+    <div class="measure-summary" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d1d5db;border-radius:14px;overflow:hidden;margin-bottom:28px;">
+      <div style="background:#374151;color:#fff;padding:18px;text-align:center;"><div style="font-size:0.78rem;color:#cbd5e1;">対策の柱</div><div style="font-size:2rem;font-weight:900;">5<span style="font-size:1rem;">つ</span></div></div>
+      <div style="background:#374151;color:#fff;padding:18px;text-align:center;"><div style="font-size:0.78rem;color:#cbd5e1;">対策項目</div><div style="font-size:2rem;font-weight:900;">33<span style="font-size:1rem;">項目</span></div></div>
+      <div style="background:#374151;color:#fff;padding:18px;text-align:center;"><div style="font-size:0.78rem;color:#cbd5e1;">対応するAI・媒体</div><div style="font-size:1.05rem;font-weight:800;line-height:1.5;margin-top:6px;">Googleマップ・AI Overview<br>ChatGPT・Gemini ほか</div></div>
+    </div>
 
-<!-- ═══ 18. 新規を本当に増やしたいのか確認 ═══ -->
-<section id="closing-question" style="background:var(--navy);color:#fff;padding:90px 20px;text-align:center;">
-  <div class="container" style="max-width:720px;">
-    <span class="section-label" style="color:#f59e0b;"><span class="section-num" style="background:#f59e0b;">18</span> Let's Check</span>
-    <p style="color:#aaa;margin-bottom:16px;font-size:1rem;">少しだけ、一緒に考えてみませんか。</p>
-    <h2 style="color:#fff;font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:32px;">もし新規のお客様が増えたら、<br>お店はどう変わりそうですか？</h2>
-    <div style="text-align:left;max-width:580px;margin:0 auto 36px;">
-      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
-        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
-        <p style="font-size:1rem;color:#ccc;">今の集客に、少し物足りなさを感じることはありますか？</p>
+    <div class="measure-grid">
+      <div class="card measure-card" style="border-top:5px solid #00b4a6;padding:22px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#00b4a6;color:#fff;font-weight:900;">1</span>
+            <div><div style="font-size:0.72rem;color:#888;font-weight:700;">柱1｜MEO</div><h4 style="margin:0;font-size:1.02rem;">GBPの整備・定期更新</h4></div>
+          </div>
+          <span style="background:#f3f4f6;color:#555;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;white-space:nowrap;">13項目</span>
+        </div>
+        <div style="font-size:0.78rem;font-weight:700;color:#00b4a6;margin:12px 0 6px;">【初期整備】</div><ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>オーナー権限の確認と、更新できる体制づくり</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>カテゴリの見直し（メイン・追加を実態に合わせて設定）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>説明文の最適化（AIに伝えたい強みを1文目に）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>住所・電話番号・URLを公式サイトと完全に一致</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>属性・サービス・メニュー項目の登録</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>写真の追加（外観・内観・スタッフ・商品・サービス）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>Q&Aに、お客様がよく聞く質問と答えを掲載</span></li></ul><div style="font-size:0.78rem;font-weight:700;color:#00b4a6;margin:12px 0 6px;">【継続運用】</div><ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>投稿機能での定期発信（キャンペーン・新メニュー・イベント）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>写真の定期追加</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>基本情報・営業時間・特別営業時間（祝日・休業日）の更新</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>口コミへの返信</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>MEO順位計測（重点キーワードをヒアリングのうえ設定）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#00b4a6;font-weight:900;flex-shrink:0;">✓</span><span>表示回数・経路検索・電話・Webクリックの分析</span></li></ul>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
-        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
-        <p style="font-size:1rem;color:#ccc;">3年後も、今と同じやり方で大丈夫そうでしょうか？</p>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+      <div class="card measure-card" style="border-top:5px solid #6366f1;padding:22px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#6366f1;color:#fff;font-weight:900;">2</span>
+            <div><div style="font-size:0.72rem;color:#888;font-weight:700;">柱2｜情報の統一</div><h4 style="margin:0;font-size:1.02rem;">サイテーション対策</h4></div>
+          </div>
+          <span style="background:#f3f4f6;color:#555;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;white-space:nowrap;">6項目</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>ネット上の掲載情報を一斉調査（名称・住所・電話・URL・数字）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>「表記ルール」の作成（正式名称・略称・住所・強みの言い回し）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>地図アプリ・地域情報サイトなど主要媒体へ一括配信</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>古い情報・誤った情報の修正依頼（旧住所・旧URL・旧メニュー等）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>名前の似た店舗・他社との情報の書き分け</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#6366f1;font-weight:900;flex-shrink:0;">✓</span><span>揃えた情報が崩れていないかの定期チェック</span></li></ul>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #223;">
-        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
-        <p style="font-size:1rem;color:#ccc;">競合より一歩先に、AI対策を始めてみませんか？</p>
+      <div class="card measure-card" style="border-top:5px solid #e8327a;padding:22px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#e8327a;color:#fff;font-weight:900;">3</span>
+            <div><div style="font-size:0.72rem;color:#888;font-weight:700;">柱3｜信頼づくり</div><h4 style="margin:0;font-size:1.02rem;">口コミの充実</h4></div>
+          </div>
+          <span style="background:#f3f4f6;color:#555;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;white-space:nowrap;">5項目</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#e8327a;font-weight:900;flex-shrink:0;">✓</span><span>口コミを書いていただく導線づくり（QRカード・掲示物・SMS・依頼文面）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#e8327a;font-weight:900;flex-shrink:0;">✓</span><span>依頼のタイミング設計（来店直後・サービス提供後・イベント後）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#e8327a;font-weight:900;flex-shrink:0;">✓</span><span>良かった点が具体的に書かれやすい声かけ</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#e8327a;font-weight:900;flex-shrink:0;">✓</span><span>口コミへの丁寧な返信（感謝とお店の取り組みを添えて）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#e8327a;font-weight:900;flex-shrink:0;">✓</span><span>Googleの規約に沿った運用（謝礼と引き換えの依頼は行わない）</span></li></ul>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;padding:13px 0;">
-        <div style="width:9px;height:9px;background:#00b4a6;border-radius:50%;flex-shrink:0;"></div>
-        <p style="font-size:1rem;color:#ccc;">まずは小さく、できることから始めてみませんか？</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+      <div class="card measure-card" style="border-top:5px solid #ff8000;padding:22px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#ff8000;color:#fff;font-weight:900;">4</span>
+            <div><div style="font-size:0.72rem;color:#888;font-weight:700;">柱4｜改善点のご提示</div><h4 style="margin:0;font-size:1.02rem;">公式サイトのAI対応</h4></div>
+          </div>
+          <span style="background:#f3f4f6;color:#555;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;white-space:nowrap;">5項目</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#ff8000;font-weight:900;flex-shrink:0;">✓</span><span>最新の実績・数字を1ページにまとめて公開</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#ff8000;font-weight:900;flex-shrink:0;">✓</span><span>「よくある質問」の充実（一問一答形式）</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#ff8000;font-weight:900;flex-shrink:0;">✓</span><span>基本情報を構造化データ（AIが読み取れる形式）で記載</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#ff8000;font-weight:900;flex-shrink:0;">✓</span><span>サービスごとに「どんな方に向いているか」を明記</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#ff8000;font-weight:900;flex-shrink:0;">✓</span><span>AIに引用されやすい解説記事の掲載</span></li></ul>
+      </div>
+      <div class="card measure-card" style="border-top:5px solid #0ea5e9;padding:22px 20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0ea5e9;color:#fff;font-weight:900;">5</span>
+            <div><div style="font-size:0.72rem;color:#888;font-weight:700;">柱5｜効果測定</div><h4 style="margin:0;font-size:1.02rem;">AI回答の定点観測</h4></div>
+          </div>
+          <span style="background:#f3f4f6;color:#555;border-radius:20px;padding:3px 10px;font-size:0.75rem;font-weight:700;white-space:nowrap;">4項目</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;"><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#0ea5e9;font-weight:900;flex-shrink:0;">✓</span><span>お客様が実際にしそうな質問を一覧化</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#0ea5e9;font-weight:900;flex-shrink:0;">✓</span><span>ChatGPT・Gemini・AIによる概要／AIモード・Perplexityで紹介状況を定期確認</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#0ea5e9;font-weight:900;flex-shrink:0;">✓</span><span>紹介されていない質問・誤った紹介内容の洗い出しと改善</span></li><li style="display:flex;gap:8px;font-size:0.85rem;color:#444;line-height:1.6;padding:6px 0;border-bottom:1px dashed #e5e7eb;"><span style="color:#0ea5e9;font-weight:900;flex-shrink:0;">✓</span><span>月次レポートでの効果報告と次の施策のご提案</span></li></ul>
+      </div>
       </div>
     </div>
-    <div style="background:#00b4a6;border-radius:12px;padding:18px 28px;">
-      <p style="font-size:1.02rem;font-weight:700;color:#fff;">ひとつでも気になったら、それが始めどきのサインです。<br>H2technologyが、無理なく一歩ずつサポートします。</p>
+    <p style="font-size:0.75rem;color:#888;margin-top:10px;">※ 柱4の公式サイトの修正はお客様側で実施いただき、弊社から改善点をご提示します。解説記事の作成はプランに応じて対応します。</p>
+
+    <h3 style="font-size:1.05rem;font-weight:700;color:#333;margin:36px 0 14px;">進め方の目安</h3>
+    <div class="measure-phase" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+      <div style="background:#fff;border-radius:12px;padding:18px 18px;border:1px solid #e5e7eb;position:relative;">
+        <div style="font-size:0.75rem;color:#888;font-weight:700;">STEP 1｜1か月目</div>
+        <div style="font-size:1rem;font-weight:800;color:#333;margin:4px 0 10px;">土台づくり</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.7;">・ヒアリング（重点サービス・ターゲット）</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・AI回答・掲載状況の現状診断</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・表記ルールの決定</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・GBPの初期整備・順位計測の開始</div>
+      </div>      <div style="background:#fff;border-radius:12px;padding:18px 18px;border:1px solid #e5e7eb;position:relative;">
+        <div style="font-size:0.75rem;color:#888;font-weight:700;">STEP 2｜2〜3か月目</div>
+        <div style="font-size:1rem;font-weight:800;color:#333;margin:4px 0 10px;">情報を広げる</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.7;">・主要媒体への一括配信・表記統一</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・古い情報の修正依頼</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・口コミ導線の設置</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・公式サイトの改善ポイントのご提示</div>
+      </div>      <div style="background:#fff;border-radius:12px;padding:18px 18px;border:1px solid #e5e7eb;position:relative;">
+        <div style="font-size:0.75rem;color:#888;font-weight:700;">STEP 3｜4か月目以降</div>
+        <div style="font-size:1rem;font-weight:800;color:#333;margin:4px 0 10px;">育てる・測る</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.7;">・GBPの定期更新（投稿・写真・口コミ返信）</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・AI回答の定点観測と改善</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・繁忙期・イベントに合わせた発信</div><div style="font-size:0.83rem;color:#555;line-height:1.7;">・月次レポートでの効果報告</div>
+      </div>
     </div>
+
+    <h3 style="font-size:1.05rem;font-weight:700;color:#333;margin:36px 0 14px;">プラン別の対応範囲</h3>
+    <div style="overflow-x:auto;background:#fff;border-radius:12px;border:1px solid #e5e7eb;">
+      <table style="width:100%;border-collapse:collapse;min-width:600px;">
+        <thead><tr style="background:#374151;color:#fff;"><th style="padding:12px;text-align:left;font-size:0.85rem;">対策内容</th><th style="padding:12px;font-size:0.85rem;width:28%;">運用代行プラン</th><th style="padding:12px;font-size:0.85rem;width:28%;">ツールプラン</th></tr></thead>
+        <tbody><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">現状診断（AI回答・掲載状況の調査）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が実施</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールで確認</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">GBPの初期整備（カテゴリ・説明文・基本情報）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が実施</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">お客様</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">GBPの定期更新（投稿・写真・基本情報）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が定期実施</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">お客様（ツールで効率化）</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">MEO順位計測</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が計測・報告</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールで確認</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">インサイト分析（表示回数・経路検索・電話・Webクリック）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が分析</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールで確認</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">サイテーション：表記ルールの作成</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が作成</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">お客様</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">サイテーション：主要媒体への一括配信・統一</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が実施</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールでお客様が配信</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">サイテーション：個別媒体への修正依頼</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が実施</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">お客様</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">口コミ獲得ツール（QRカード・掲示物・依頼文面）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が用意</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">—</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">口コミへの返信</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が対応（AI返信を活用）</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールのAI返信でお客様</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">公式サイトの改善ポイントのご提示</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社がご提示</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">—</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">AI回答の定点観測</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が実施・解説</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールで確認</td></tr><tr><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;color:#333;">月次レポート・改善のご提案</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#00897b;font-weight:700;background:#f2fbfa;">弊社が作成・ご報告</td><td style="padding:10px 12px;border-bottom:1px solid #eee;font-size:0.85rem;text-align:center;color:#666;">ツールの分析画面で確認</td></tr></tbody>
+      </table>
+    </div>
+    <p style="font-size:0.75rem;color:#888;margin-top:8px;">※ 運用代行プランは弊社が作業を担当し、ツールプランはMappyを使ってお客様ご自身で運用いただく形です。詳しくは料金プランをご覧ください。</p>
   </div>
 </section>
 
-<!-- ═══ 19. サービス全体像 ═══ -->
-<section id="service-overview" style="background:#fff;">
+<!-- ═══ 16. サービス詳細：ツール ═══ -->
+<section id="tool" style="background:#fff;">
   <div class="container">
-    <span class="section-label"><span class="section-num">19</span> Service Overview</span>
-    <h2>H2technology<span class="accent">　サービス全体像</span></h2>
-    <p class="section-desc">MEO × AIOを軸に、広告・SNS・ツール提供まで一気通貫でサポートします。</p>
-    <div style="background:var(--gray-bg);border-radius:16px;padding:32px;text-align:center;margin-bottom:24px;">
-      <div style="display:inline-block;background:var(--navy);color:#fff;border-radius:50%;width:120px;height:120px;line-height:120px;font-size:1rem;font-weight:700;margin-bottom:24px;">MEO × AIO<br>コア戦略</div>
-      <div class="card-grid-3" style="max-width:760px;margin:0 auto;">
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">📊</div>
-          <strong style="color:#00b4a6;">MEO対策</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">GBP最適化・口コミ促進・順位管理</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">🤖</div>
-          <strong style="color:var(--pink);">AIO対策</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">AI参照元整備・113媒体配信</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">🛠️</div>
-          <strong style="color:#6366f1;">ツール提供</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">Mappy / Mappy＋ 内製化支援</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">📱</div>
-          <strong style="color:#8b5cf6;">SNS運用</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">Instagram運用・GBP連携</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">📣</div>
-          <strong style="color:#f97316;">広告運用</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">Google/Meta広告運用代行</p>
-        </div>
-        <div class="card" style="text-align:center;">
-          <div style="font-size:1.5rem;margin-bottom:6px;">📋</div>
-          <strong style="color:#f59e0b;">月次レポート</strong>
-          <p style="font-size:0.82rem;margin-top:6px;">成果の可視化・定期コンサル</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 20. MEOサービスの強み ═══ -->
-<section id="meo-strength" style="background:var(--gray-bg);">
-  <div class="container">
-    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">20</span> MEO Strength</span>
-    <h2>MEOサービスの<span style="color:#00b4a6;">強み</span></h2>
-    <p class="section-desc">他社にない、H2technologyの3つの強みです。</p>
-    <div class="card-grid-3">
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">🛠️</div>
-        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">独自ツールで<br>徹底管理</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">自社開発ツール「Mappy」で順位・口コミ・分析をひとつの画面で完全可視化。</p>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">⭐</div>
-        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">口コミを<br>仕組みで増やす</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">SMS→口コミ依頼→AI返信まで一気通貫。現場任せにせず、継続的に口コミを獲得。</p>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid #00b4a6;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">📊</div>
-        <h4 style="font-size:1.1rem;color:#00b4a6;margin-bottom:10px;">レポート＋<br>コンサル付き</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">毎月の成果をデータで報告。次の打ち手を一緒に設計し、改善を繰り返します。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 21. AIOサービスの強み ═══ -->
-<section id="aio-strength" style="background:#fff;">
-  <div class="container">
-    <span class="section-label" style="color:var(--pink);"><span class="section-num" style="background:var(--pink);">21</span> AIO Strength</span>
-    <h2>AIOサービスの<span class="accent">強み</span></h2>
-    <div style="background:var(--navy);border-radius:14px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-      <div style="display:inline-block;background:var(--pink);color:#fff;font-size:0.75rem;font-weight:700;padding:5px 14px;border-radius:6px;flex-shrink:0;">🔒 日本独占</div>
-      <p style="color:#ddd;font-size:0.9rem;flex:1;min-width:200px;">海外トップ企業との<strong style="color:#fff;">独占パートナーシップ</strong>。この仕組みを使えるのは当社だけ。競合には真似できません。</p>
-    </div>
-    <div class="card-grid-3">
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">🌐</div>
-        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">113媒体へ<br>一括自動配信</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">日本で登録できる113媒体すべてに正確な情報を自動配信。1回設定で継続更新。</p>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">🤖</div>
-        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">AIに<br>推薦される</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">複数媒体で一致した情報により、ChatGPT・Geminiが「信頼できる店」として推薦。</p>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:28px 22px;text-align:center;border-top:5px solid var(--pink);box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:2.8rem;margin-bottom:12px;">🍎</div>
-        <h4 style="font-size:1.1rem;color:var(--pink);margin-bottom:10px;">Appleマップ<br>最適化</h4>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;">ChatGPTのデフォルトMAPはAppleマップ。登録でChatGPTユーザーへのリーチが向上。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- ═══ 24. ツール紹介 ═══ -->
-<section id="tool" style="background:var(--gray-bg);">
-  <div class="container">
-    <span class="section-label"><span class="section-num">24</span> Tool</span>
+    <span class="section-label"><span class="section-num">16</span> Tool</span>
     <h2>専用ツール<span class="accent">「Mappy」</span>のご紹介</h2>
     <p class="section-desc">MEO運用に必要な機能をワンストップで。<strong>最大の強みは「口コミを現場任せから仕組みへ変える」こと。</strong><br>※ 詳細は別途お送りするマニュアル資料をご覧ください。</p>
 
@@ -1005,67 +1092,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 25. 運用代行サービス ═══ -->
-<section id="managed" style="background:#fff;">
-  <div class="container">
-    <span class="section-label"><span class="section-num">25</span> Managed Service</span>
-    <h2>運用代行<span class="accent">サービス</span></h2>
-    <p class="section-desc">MEO・AIO対策を丸ごとお任せ。専門チームがすべて代行します。</p>
-    <div style="display:grid;gap:12px;">
-      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">1</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">GBP最適化・情報更新</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">ビジネスプロフィールの全項目を定期的に最適化・最新状態に保ちます</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">2</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">AIO対応記事・投稿作成</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">AIに引用されやすい記事・GBP投稿を月1〜4回作成・配信します</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">3</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">ブログサイテーション獲得</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">外部サイトへの言及・引用を継続的に増やしAI信頼スコアを向上させます</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">4</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">口コミ返信・促進対応</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">24時間以内のAI対応口コミ返信＋SMS送信で口コミを継続的に獲得します</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;background:var(--gray-bg);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">5</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">月次レポート提出</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">順位・インサイト・口コミ状況を毎月レポートでわかりやすくご報告します</p>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
-        <div style="width:32px;height:32px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;">6</div>
-        <div>
-          <strong style="font-size:0.95rem;color:#333;">定期コンサルテーション</strong>
-          <p style="font-size:0.85rem;color:#666;margin-top:2px;">次の施策の方向性を一緒に設計する定例MTGを実施します（年2〜4回）</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- ═══ 28. モデル店舗紹介（口コミ事例） ═══ -->
+<!-- ═══ 17. 事例 ═══ -->
 <section id="cases" style="background:var(--gray-bg);">
   <div class="container">
-    <span class="section-label"><span class="section-num">28</span> Case Study</span>
+    <span class="section-label"><span class="section-num">17</span> Case Study</span>
     <h2>口コミ増加実績<span class="accent">　導入事例</span></h2>
     <p class="section-desc">実際に導入されたお客様の口コミ増加成果です。</p>
     <div class="case-grid">
@@ -1165,128 +1195,165 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 29. 料金プラン ═══ -->
-<section id="plans" style="background:#fff;">
+
+
+<!-- ═══ 18. プラン説明：運用代行 ═══ -->
+<section id="plans" class="lx-section">
+  <div class="container lx-container">
+    <div class="lx-intro">
+      <span class="section-label lx-label"><span class="section-num" style="background:#c8a86b;color:#1b1e23;">18</span> Pricing ／ Managed</span>
+      <h2 class="lx-h2">運用代行プラン<span>PLAN 01</span></h2>
+      <p class="lx-desc">専門チームがMEO・AIO対策を実施します。お店は本業に集中いただけます。</p>
+      <div class="lx-note">税抜表示 ／ 契約期間 12ヶ月<br>ご状況に合わせて最適なプランをご提案します。</div>
+    </div>
+    <div class="lx-tablewrap"><table class="lx-table"><thead><tr><th class="lx-cat"></th><th class="lx-item"></th><th class="lx-col lx-head"><div class="lx-catch">まずはMEO対策から</div><div class="lx-name">スタンダード</div><div class="lx-price"><small>¥</small>20,000<span>／月</span></div><div class="lx-tax">税抜　税込 ¥22,000</div></th><th class="lx-col lx-prem lx-head"><div class="lx-badge">RECOMMENDED</div><div class="lx-catch">MEO＋AIOをまるごとお任せ</div><div class="lx-name">プレミアム</div><div class="lx-price"><small>¥</small>50,000<span>／月</span></div><div class="lx-tax">税抜　税込 ¥55,000</div></th></tr></thead><tbody><tr class=""><th class="lx-cat" rowspan="4"><span>MEO運用</span></th><th class="lx-item">GBP最適化</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">NAP調査</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">改ざん防止対応</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">Instagram連動</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="6"><span>AIO対策</span></th><th class="lx-item">AIO対応記事</th><td class="lx-col"><span class="lx-val">月1回</span></td><td class="lx-col lx-prem"><span class="lx-val lx-gold">月4回</span></td></tr><tr class=""><th class="lx-item">ブログサイテーション</th><td class="lx-col"><span class="lx-val">月1回</span></td><td class="lx-col lx-prem"><span class="lx-val lx-gold">月4回</span></td></tr><tr class=""><th class="lx-item">外部媒体への登録・配信</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-val lx-gold">100媒体以上</span></td></tr><tr class=""><th class="lx-item">Appleマップ・各種AI媒体登録</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">AI参照元の網羅的整備</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">インバウンド対応（多言語）</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="3"><span>口コミ</span></th><th class="lx-item">口コミ対応（AI返信）</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">SMS送信・口コミ促進</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">アンケート機能</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="3"><span>分析・支援</span></th><th class="lx-item">分析ツール（Mappy）</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">競合分析</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-val lx-gold">定期</span></td></tr><tr class="lx-glast"><th class="lx-item">定期コンサル</th><td class="lx-col"><span class="lx-val">年2回</span></td><td class="lx-col lx-prem"><span class="lx-val lx-gold">年4回</span></td></tr><tr class="lx-foot"><th class="lx-cat"></th><th class="lx-item"></th><td class="lx-col"></td><td class="lx-col lx-prem"></td></tr></tbody></table></div>
+  </div>
+</section>
+
+<!-- ═══ 19. プラン説明：ツール ═══ -->
+<section id="plans-tool" class="lx-section">
+  <div class="container lx-container">
+    <div class="lx-intro">
+      <span class="section-label lx-label"><span class="section-num" style="background:#c8a86b;color:#1b1e23;">19</span> Pricing ／ Tool</span>
+      <h2 class="lx-h2">ツールプラン<span>PLAN 02</span></h2>
+      <p class="lx-desc">Mappyを使い、お客様ご自身で運用いただくプランです。日々の更新や口コミ対応を効率化します。</p>
+      <div class="lx-note">税抜表示 ／ 契約期間 12ヶ月<br>運用代行プランにも分析ツール（Mappy）が含まれます。</div>
+    </div>
+    <div class="lx-tablewrap"><table class="lx-table"><thead><tr><th class="lx-cat"></th><th class="lx-item"></th><th class="lx-col lx-head"><div class="lx-catch">自社で運用したい方に</div><div class="lx-name">Mappy</div><div class="lx-price"><small>¥</small>5,000<span>／月</span></div><div class="lx-tax">税抜　税込 ¥5,500</div></th><th class="lx-col lx-prem lx-head"><div class="lx-badge">RECOMMENDED</div><div class="lx-catch">自社運用＋AIO対策まで</div><div class="lx-name">Mappy＋</div><div class="lx-price"><small>¥</small>18,000<span>／月</span></div><div class="lx-tax">税抜　税込 ¥19,800</div></th></tr></thead><tbody><tr class="lx-glast"><th class="lx-cat" rowspan="1"><span>分析</span></th><th class="lx-item">分析・検索順位モニタリング</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="2"><span>口コミ</span></th><th class="lx-item">口コミ管理・AI返信</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">SMS送信・アンケート</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="2"><span>店舗運用</span></th><th class="lx-item">店舗管理（投稿・写真・基本情報）</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">SNS連携（Instagram→GBP）</th><td class="lx-col"><span class="lx-check">✓</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-cat" rowspan="4"><span>AIO対策</span></th><th class="lx-item">100媒体以上への一括情報配信</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">Appleマップ・各種AI媒体登録</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class=""><th class="lx-item">AI参照元の網羅的整備</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-glast"><th class="lx-item">サイテーション・AIリスティング管理</th><td class="lx-col"><span class="lx-dash">—</span></td><td class="lx-col lx-prem"><span class="lx-check lx-gold">✓</span></td></tr><tr class="lx-foot"><th class="lx-cat"></th><th class="lx-item"></th><td class="lx-col"></td><td class="lx-col lx-prem"></td></tr></tbody></table></div>
+  </div>
+</section>
+
+<!-- ═══ 20. オプション：広告運用 ═══ -->
+<section id="ads" style="background:var(--gray-bg);">
   <div class="container">
-    <span class="section-label"><span class="section-num">29</span> Pricing</span>
-    <h2>料金<span class="accent">プラン</span></h2>
-    <p class="section-desc">ご状況に合わせて、運用代行プランとツールプランをご用意しています。<br><strong>上位プランは、下位プランでできることすべてに加え、色付きの項目が追加されます。</strong></p>
-
-    <!-- ═══ 運用代行プラン ═══ -->
-    <h3 style="font-size:1.15rem;font-weight:900;color:#00b4a6;margin-bottom:16px;">運用代行プラン　<span style="font-size:0.85rem;font-weight:600;color:#888;">プロにまるごとお任せ</span></h3>
-    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:start;margin-bottom:44px;">
-
-      <!-- スタンダード -->
-      <div style="background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:30px 26px;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
-        <div style="font-size:0.85rem;font-weight:700;color:#6366f1;margin-bottom:4px;">📍 まずはMEO対策だけ</div>
-        <div style="font-size:1.7rem;font-weight:900;color:#333;margin-bottom:10px;">スタンダードプラン</div>
-        <div style="display:flex;align-items:baseline;gap:4px;">
-          <span style="font-size:2.8rem;font-weight:900;color:#333;">¥20,000</span>
-          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
-        </div>
-        <div style="font-size:0.82rem;color:#aaa;margin-bottom:18px;padding-bottom:18px;border-bottom:2px solid #f0f0f0;">税込 ¥22,000 ／ 契約期間 12ヶ月</div>
-        <ul style="list-style:none;font-size:0.9rem;line-height:1.5;">
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ GBP最適化</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ AIO対応記事　<strong>1回/月</strong></li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ ブログサイテーション　<strong>1回/月</strong></li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ 分析ツール（Mappy）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ Instagram連動</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ SMS送信・口コミ促進</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ アンケート機能</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ 改ざん防止対応</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ 口コミ対応（AI対応）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ NAP調査</li>
-          <li style="padding:8px 0;color:#555;">✓ 定例コンサル　<strong>2回/年</strong></li>
+    <span class="section-label" style="color:#f97316;"><span class="section-num" style="background:#f97316;">20</span> Ad Management</span>
+    <h2>広告運用<span style="background:linear-gradient(135deg,#f97316,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
+    <p class="section-desc">MEO・AIOと組み合わせることで、短期集客と長期資産構築を両立します。</p>
+    <div class="card-grid-2">
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h4 style="color:#f97316;">Google広告</h4>
+        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 検索広告・P-MAX・ローカル広告</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ キーワード・入札の継続最適化</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 月次レポート・改善提案</li>
+          <li style="padding:6px 0;">→ MEO対策との相乗効果設計</li>
         </ul>
       </div>
-
-      <!-- プレミアム -->
-      <div style="background:linear-gradient(160deg,#fff8f0,#fff0f6);border:2.5px solid var(--pink);border-radius:18px;padding:32px 28px;box-shadow:0 8px 32px rgba(232,50,122,0.15);position:relative;">
-        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.8rem;font-weight:700;padding:6px 20px;border-radius:20px;white-space:nowrap;box-shadow:0 4px 12px rgba(232,50,122,0.3);">⭐ 一番人気・おすすめ</div>
-        <div style="font-size:0.85rem;font-weight:700;color:var(--pink);margin-bottom:4px;margin-top:6px;">🏆 全部まるごと任せたい</div>
-        <div style="font-size:1.9rem;font-weight:900;color:#333;margin-bottom:10px;">プレミアムプラン</div>
-        <div style="display:flex;align-items:baseline;gap:4px;">
-          <span style="font-size:3.2rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">¥50,000</span>
-          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
-        </div>
-        <div style="font-size:0.82rem;color:#aaa;margin-bottom:14px;padding-bottom:14px;border-bottom:2px solid #fce0ec;">税込 ¥55,000 ／ 契約期間 12ヶ月</div>
-        <div style="font-size:0.78rem;font-weight:700;color:#999;margin-bottom:8px;">スタンダードの全機能を含む（内容は強化）</div>
-        <ul style="list-style:none;font-size:0.9rem;line-height:1.5;">
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ GBP最適化</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#333;">✓ AIO対応記事　<strong style="color:var(--pink);">4回/月</strong> <span style="font-size:0.72rem;color:var(--pink);font-weight:700;">↑UP</span></li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#333;">✓ ブログサイテーション　<strong style="color:var(--pink);">4回/月</strong> <span style="font-size:0.72rem;color:var(--pink);font-weight:700;">↑UP</span></li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 分析ツール（Mappy）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ Instagram連動</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ SMS送信・口コミ促進</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ アンケート機能</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 改ざん防止対応</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 口コミ対応（AI対応）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ NAP調査</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#333;">✓ 定例コンサル　<strong style="color:var(--pink);">4回/年</strong> <span style="font-size:0.72rem;color:var(--pink);font-weight:700;">↑UP</span></li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ 外部媒体登録 100件以上（113媒体配信）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ AI参照元の網羅的整備</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ Appleマップ・各種AI媒体登録</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ インバウンド対応（多言語）</li>
-          <li style="padding:8px 0;color:var(--pink);font-weight:700;">＋ 競合分析 定期</li>
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h4 style="color:#f97316;">Meta広告（Facebook / Instagram）</h4>
+        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ ターゲティング設計・クリエイティブ制作</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ A/Bテストによる継続改善</li>
+          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ リターゲティング活用</li>
+          <li style="padding:6px 0;">→ SNS運用との連携</li>
         </ul>
       </div>
     </div>
-
-    <!-- ═══ ツールプラン ═══ -->
-    <h3 style="font-size:1.15rem;font-weight:900;color:#6366f1;margin-bottom:16px;">ツールプラン　<span style="font-size:0.85rem;font-weight:600;color:#888;">自社で運用したい方向け</span></h3>
-    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:start;">
-
-      <!-- Mappy -->
-      <div style="background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:30px 26px;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
-        <div style="font-size:1.7rem;font-weight:900;color:#6366f1;margin-bottom:10px;">Mappy</div>
-        <div style="display:flex;align-items:baseline;gap:4px;">
-          <span style="font-size:2.8rem;font-weight:900;color:#333;">¥5,000</span>
-          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
-        </div>
-        <div style="font-size:0.82rem;color:#aaa;margin-bottom:18px;padding-bottom:18px;border-bottom:2px solid #f0f0f0;">税込 ¥5,500 ／ 契約期間 12ヶ月</div>
-        <ul style="list-style:none;font-size:0.9rem;line-height:1.5;">
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ 分析・検索順位モニタリング</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ 口コミ管理・AI返信</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ SMS送信・アンケート</li>
-          <li style="padding:8px 0;border-bottom:1px solid #f4f4f4;color:#555;">✓ SNS連携（Instagram→GBP）</li>
-          <li style="padding:8px 0;color:#555;">✓ 店舗管理（投稿・写真・基本情報）</li>
-        </ul>
-      </div>
-
-      <!-- Mappy＋ -->
-      <div style="background:linear-gradient(160deg,#fff8f0,#fff0f6);border:2.5px solid var(--pink);border-radius:18px;padding:32px 28px;box-shadow:0 4px 20px rgba(232,50,122,0.12);position:relative;">
-        <div style="position:absolute;top:16px;right:16px;background:var(--grad);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:20px;">AIO対応</div>
-        <div style="font-size:1.7rem;font-weight:900;color:var(--pink);margin-bottom:10px;">Mappy＋</div>
-        <div style="display:flex;align-items:baseline;gap:4px;">
-          <span style="font-size:2.8rem;font-weight:900;background:var(--grad-t);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">¥18,000</span>
-          <span style="font-size:0.9rem;color:#aaa;">/月（税抜）</span>
-        </div>
-        <div style="font-size:0.82rem;color:#aaa;margin-bottom:14px;padding-bottom:14px;border-bottom:2px solid #fce0ec;">税込 ¥19,800 ／ 契約期間 12ヶ月</div>
-        <div style="font-size:0.78rem;font-weight:700;color:#999;margin-bottom:8px;">Mappyの全機能を含む</div>
-        <ul style="list-style:none;font-size:0.9rem;line-height:1.5;">
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 分析・検索順位モニタリング</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 口コミ管理・AI返信</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ SMS送信・アンケート</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ SNS連携（Instagram→GBP）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:#999;">✓ 店舗管理（投稿・写真・基本情報）</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ 113媒体への一括情報配信</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ Appleマップ・各種AI媒体登録</li>
-          <li style="padding:8px 0;border-bottom:1px solid #fce8f0;color:var(--pink);font-weight:700;">＋ AI参照元の網羅的整備</li>
-          <li style="padding:8px 0;color:var(--pink);font-weight:700;">＋ サイテーション・AIリスティング管理</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tip-box" style="margin-top:24px;">
-      <strong>グレーの項目</strong>＝下位プランと共通　／　<strong style="color:var(--pink);">ピンクの「＋」項目</strong>＝上位プランで追加される機能。<br>全プラン税抜表示 ｜ 契約期間 12ヶ月。ニーズに合わせて最適なプランをご提案します。
+    <div style="margin-top:20px;background:#fff8f0;border-radius:12px;padding:16px 20px;font-size:0.9rem;color:#c2410c;font-weight:700;">
+      料金：広告運用費の10%（管理費）
     </div>
   </div>
 </section>
 
-<!-- ═══ 30. 導入までの流れ ═══ -->
-<section id="onboarding" style="background:var(--gray-bg);">
+<!-- ═══ 21. オプション：SNS運用 ═══ -->
+<section id="sns" style="background:#fff;">
   <div class="container">
-    <span class="section-label"><span class="section-num">30</span> Onboarding</span>
+    <span class="section-label" style="color:#8b5cf6;"><span class="section-num" style="background:#8b5cf6;">21</span> SNS Management</span>
+    <h2>SNS運用<span style="background:linear-gradient(135deg,#8b5cf6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
+    <p class="section-desc">Instagramを中心にSNS運用を代行。GBPへの自動連携でMEO効果も高めます。</p>
+    <div class="card-grid-2">
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>コンテンツ企画・制作</h4>
+        <p>集客に直結するInstagramの投稿を企画・制作。ターゲット層に合ったビジュアルと文章で発信します。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>Instagram→GBP自動連携</h4>
+        <p>Mappyを活用し、Instagramへの投稿をGoogleビジネスプロフィールに自動配信。手間ゼロで情報を二重発信。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>ハッシュタグ・アカウント最適化</h4>
+        <p>検索流入を最大化するハッシュタグ設計と、プロフィール・ハイライトの最適化を実施します。</p>
+      </div>
+      <div class="card" style="border-left:4px solid #8b5cf6;">
+        <h4>効果測定・月次レポート</h4>
+        <p>フォロワー数・リーチ数・保存数・来店誘導数を毎月レポート。投稿内容の改善に活用します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 22. オプション：LINE運用 ═══ -->
+<section id="line" style="background:var(--gray-bg);">
+  <div class="container">
+    <span class="section-label" style="color:#06c755;"><span class="section-num" style="background:#06c755;">22</span> LINE Management</span>
+    <h2>LINE運用<span style="color:#06c755;">サービス</span></h2>
+    <p class="section-desc">LINE公式アカウントで、来店したお客様との関係を続けます。MEOで見つけてもらい、LINEでリピートにつなげる流れをつくります。</p>
+
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-bottom:28px;" class="line-contract">
+      <div class="card" style="border-top:4px solid #9aa0a6;">
+        <div style="font-size:0.78rem;color:#888;font-weight:700;margin-bottom:6px;">① LINE公式アカウントの利用料</div>
+        <h4 style="margin-bottom:6px;">LINEヤフー社とお客様のご契約</h4>
+        <p style="font-size:0.85rem;color:#666;margin-bottom:12px;">配信数に応じてプランを選びます。お支払いはLINEヤフー社へ直接となります。</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+          <tr style="background:#f3f4f6;"><th style="padding:7px 8px;text-align:left;">プラン</th><th style="padding:7px 8px;text-align:right;">月額（税別）</th><th style="padding:7px 8px;text-align:right;">無料配信数</th></tr>
+          <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">コミュニケーション</td><td style="padding:7px 8px;border-bottom:1px solid #eee;text-align:right;">0円</td><td style="padding:7px 8px;border-bottom:1px solid #eee;text-align:right;">200通</td></tr>
+          <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">ライト</td><td style="padding:7px 8px;border-bottom:1px solid #eee;text-align:right;">5,000円</td><td style="padding:7px 8px;border-bottom:1px solid #eee;text-align:right;">5,000通</td></tr>
+          <tr><td style="padding:7px 8px;">スタンダード</td><td style="padding:7px 8px;text-align:right;">15,000円</td><td style="padding:7px 8px;text-align:right;">30,000通</td></tr>
+        </table>
+        <p style="font-size:0.7rem;color:#aaa;margin-top:8px;">※ 2026年11月時点。チャット・応答メッセージは配信数に含まれません（出典：LINEヤフー for Business）</p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:#06c755;">＋</div>
+      <div class="card" style="border-top:4px solid #06c755;background:#f3fcf6;">
+        <div style="font-size:0.78rem;color:#06c755;font-weight:700;margin-bottom:6px;">② H2technologyの運用サポート</div>
+        <h4 style="margin-bottom:6px;">当社とのご契約（運用側）</h4>
+        <p style="font-size:0.85rem;color:#555;margin-bottom:12px;">LINEの利用料とは別のご契約です。配信回数や作業範囲によって金額が変わるため、<strong>ご要望を伺ったうえで個別にお見積り</strong>します。</p>
+        <div style="background:#fff;border-radius:10px;padding:12px 14px;font-size:0.84rem;color:#444;line-height:1.8;">
+          <div>✓ 必要な作業だけを選んで依頼できます</div>
+          <div>✓ 初期構築のみ／毎月の運用のみも対応</div>
+          <div>✓ MEO・Instagramとあわせた導線設計も可能</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.05rem;font-weight:700;color:#333;margin-bottom:14px;">想定される運用内容</h3>
+    <div class="card-grid-3" style="margin-bottom:28px;">
+      <div class="card" style="border-left:4px solid #06c755;"><h4>アカウント初期構築</h4><p>プロフィール、あいさつメッセージ、自動応答、営業時間などの基本設定を整えます。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>リッチメニュー設計・制作</h4><p>予約・メニュー・地図・クーポンなど、よく使うボタンをトーク画面の下に配置します。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>配信の企画・作成</h4><p>お知らせ、新メニュー、キャンペーン、季節の案内などを企画し、文章・画像を作成して配信します。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>クーポン・ショップカード</h4><p>再来店につながるクーポンやポイントカードを設計し、来店頻度を高めます。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>友だち集めの導線づくり</h4><p>店頭POP・QRコード、Googleビジネスプロフィール、Instagramから友だち追加につなげます。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>セグメント・ステップ配信</h4><p>来店回数や属性に合わせた配信、友だち追加後に自動で届くメッセージを設計します。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>口コミ投稿のご案内</h4><p>来店後のお客様にLINEでGoogle口コミの投稿をお願いし、MEOとの相乗効果を生みます。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>チャット対応の体制づくり</h4><p>よくある質問への自動応答や、問い合わせ・予約対応のルールを整備します。</p></div>
+      <div class="card" style="border-left:4px solid #06c755;"><h4>効果測定・月次レポート</h4><p>友だち数、開封数、クリック数、クーポン利用数を毎月まとめ、次の配信に活かします。</p></div>
+    </div>
+
+    <h3 style="font-size:1.05rem;font-weight:700;color:#333;margin-bottom:14px;">ご依頼内容のイメージ</h3>
+    <div class="card-grid-3">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:0.78rem;color:#888;font-weight:700;">まずは整えたい</div>
+        <h4 style="color:#06c755;margin:6px 0 10px;">初期構築パック</h4>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8;">アカウント初期設定<br>リッチメニュー制作<br>友だち集めのPOP・導線</p>
+      </div>
+      <div class="card" style="text-align:center;border:2px solid #06c755;">
+        <div style="font-size:0.78rem;color:#888;font-weight:700;">定期的に発信したい</div>
+        <h4 style="color:#06c755;margin:6px 0 10px;">月次運用</h4>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8;">配信の企画・作成（月2〜4回）<br>クーポン・ショップカード運用<br>月次レポート</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:0.78rem;color:#888;font-weight:700;">リピートを仕組み化したい</div>
+        <h4 style="color:#06c755;margin:6px 0 10px;">しっかり運用</h4>
+        <p style="font-size:0.85rem;color:#555;line-height:1.8;">月次運用の内容すべて<br>セグメント・ステップ配信<br>口コミ導線・MEO連携</p>
+      </div>
+    </div>
+    <div style="margin-top:20px;background:#f3fcf6;border-left:4px solid #06c755;border-radius:8px;padding:14px 18px;font-size:0.9rem;color:#333;">料金：運用内容に応じて個別にお見積り（LINE公式アカウントの利用料は別途、LINEヤフー社へお支払いいただきます）</div>
+  </div>
+</section>
+
+<!-- ═══ 23. スケジュール：導入までの流れ ═══ -->
+<section id="onboarding" style="background:#fff;">
+  <div class="container">
+    <span class="section-label"><span class="section-num">23</span> Onboarding</span>
     <h2>導入までの<span class="accent">流れ</span></h2>
     <p class="section-desc">最短翌月よりサービスを開始できます。</p>
     <div class="step-flow">
@@ -1333,69 +1400,10 @@ footer a { color:var(--pink); }
   </div>
 </section>
 
-<!-- ═══ 26. 広告運用サービス ═══ -->
-<section id="ads" style="background:var(--gray-bg);">
-  <div class="container">
-    <span class="section-label" style="color:#f97316;"><span class="section-num" style="background:#f97316;">26</span> Ad Management</span>
-    <h2>広告運用<span style="background:linear-gradient(135deg,#f97316,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
-    <p class="section-desc">MEO・AIOと組み合わせることで、短期集客と長期資産構築を両立します。</p>
-    <div class="card-grid-2">
-      <div class="card" style="border-top:4px solid #f97316;">
-        <h4 style="color:#f97316;">Google広告</h4>
-        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 検索広告・P-MAX・ローカル広告</li>
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ キーワード・入札の継続最適化</li>
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ 月次レポート・改善提案</li>
-          <li style="padding:6px 0;">→ MEO対策との相乗効果設計</li>
-        </ul>
-      </div>
-      <div class="card" style="border-top:4px solid #f97316;">
-        <h4 style="color:#f97316;">Meta広告（Facebook / Instagram）</h4>
-        <ul style="list-style:none;font-size:0.88rem;color:#555;line-height:2.1;margin-top:12px;">
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ ターゲティング設計・クリエイティブ制作</li>
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ A/Bテストによる継続改善</li>
-          <li style="padding:6px 0;border-bottom:1px solid #f0f0f0;">→ リターゲティング活用</li>
-          <li style="padding:6px 0;">→ SNS運用との連携</li>
-        </ul>
-      </div>
-    </div>
-    <div style="margin-top:20px;background:#fff8f0;border-radius:12px;padding:16px 20px;font-size:0.9rem;color:#c2410c;font-weight:700;">
-      料金：広告運用費の10%（管理費）
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 27. SNS運用サービス ═══ -->
-<section id="sns" style="background:#fff;">
-  <div class="container">
-    <span class="section-label" style="color:#8b5cf6;"><span class="section-num" style="background:#8b5cf6;">27</span> SNS Management</span>
-    <h2>SNS運用<span style="background:linear-gradient(135deg,#8b5cf6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">サービス</span></h2>
-    <p class="section-desc">Instagramを中心にSNS運用を代行。GBPへの自動連携でMEO効果も高めます。</p>
-    <div class="card-grid-2">
-      <div class="card" style="border-left:4px solid #8b5cf6;">
-        <h4>コンテンツ企画・制作</h4>
-        <p>集客に直結するInstagramの投稿を企画・制作。ターゲット層に合ったビジュアルと文章で発信します。</p>
-      </div>
-      <div class="card" style="border-left:4px solid #8b5cf6;">
-        <h4>Instagram→GBP自動連携</h4>
-        <p>Mappyを活用し、Instagramへの投稿をGoogleビジネスプロフィールに自動配信。手間ゼロで情報を二重発信。</p>
-      </div>
-      <div class="card" style="border-left:4px solid #8b5cf6;">
-        <h4>ハッシュタグ・アカウント最適化</h4>
-        <p>検索流入を最大化するハッシュタグ設計と、プロフィール・ハイライトの最適化を実施します。</p>
-      </div>
-      <div class="card" style="border-left:4px solid #8b5cf6;">
-        <h4>効果測定・月次レポート</h4>
-        <p>フォロワー数・リーチ数・保存数・来店誘導数を毎月レポート。投稿内容の改善に活用します。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 31. まとめ・クロージング ═══ -->
+<!-- ═══ 24. まとめ ═══ -->
 <section id="final" style="background:var(--navy);color:#fff;padding:100px 20px;text-align:center;">
   <div class="container" style="max-width:760px;">
-    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">31</span> Summary</span>
+    <span class="section-label" style="color:#00b4a6;"><span class="section-num" style="background:#00b4a6;">24</span> Summary</span>
     <h2 style="color:#fff;font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:16px;">AIはすでに「おすすめの店」を<br>選び始めています。</h2>
     <p style="color:#00b4a6;font-size:1.1rem;margin-bottom:40px;">選ばれる側に回るかどうか、それを決めるのは「今」です。</p>
     <div style="text-align:left;margin-bottom:40px;display:grid;gap:16px;">
@@ -1412,15 +1420,13 @@ footer a { color:var(--pink); }
         <p style="color:#aaa;font-size:0.9rem;">継続的な対策が情報資産となり、長期的に競合優位を確立。やめるほどもったいない。</p>
       </div>
     </div>
-    <a href="https://timerex.net/s/r.nanbara_5e4f/014f6141" target="_blank" style="display:inline-block;background:#00b4a6;color:#fff;padding:18px 52px;border-radius:40px;font-size:1.1rem;font-weight:700;box-shadow:0 6px 24px rgba(0,180,166,0.4);transition:transform 0.2s;">無料相談を予約する →</a>
-    <p style="color:#555;font-size:0.82rem;margin-top:14px;">※ 無理な営業は一切いたしません</p>
   </div>
 </section>
 
 <footer>
   <p>株式会社 H2technology ／ MEO事業部</p>
   <p style="margin-top:6px;"><a href="mailto:r.nanbara@h2t.co.jp">r.nanbara@h2t.co.jp</a></p>
-  <p style="margin-top:6px;font-size:0.75rem;color:#555;">©2025 H2technology Inc.</p>
+  <p style="margin-top:6px;font-size:0.75rem;color:#555;">©2026 H2technology Inc.</p>
 </footer>
 
 <script>
@@ -1439,23 +1445,33 @@ window.addEventListener('scroll', () => {
   links.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#'+cur); });
 });
 
-// LTV Calculator
-function calcLTV() {
-  const price = +document.getElementById('ltv-price').value || 0;
-  const freq  = +document.getElementById('ltv-freq').value || 0;
-  const years = +document.getElementById('ltv-years').value || 0;
-  const newC  = +document.getElementById('ltv-new').value || 0;
-  const ltv = price * freq * 12 * years;
-  const yearImpact = ltv * newC;
-  document.getElementById('ltv-result').textContent = '¥' + ltv.toLocaleString();
-  document.getElementById('ltv-year').textContent = '¥' + yearImpact.toLocaleString();
-}
-['ltv-price','ltv-freq','ltv-years','ltv-new'].forEach(id => {
-  const el = document.getElementById(id);
-  if(el) el.addEventListener('input', calcLTV);
-});
-calcLTV();
 
+// AI Overview モック アニメーション
+(function(){
+  const mock=document.querySelector('.aio-mock'); if(!mock) return;
+  const q=document.getElementById('aio-q'), caret=document.getElementById('aio-caret');
+  const head=document.getElementById('aio-head'), load=document.getElementById('aio-loading'), para=document.getElementById('aio-para');
+  const steps=[...mock.querySelectorAll('.aio-step')], h2=mock.querySelector('.aio-h2card');
+  const qText=q.textContent, paraHTML=para.innerHTML;
+  // 段落をテキスト/マークの塊に分解
+  const tmp=document.createElement('div'); tmp.innerHTML=paraHTML;
+  const parts=[...tmp.childNodes].map(n=>n.nodeType===3?{t:n.textContent,mark:null}:{t:n.textContent,mark:n.outerHTML.replace(n.innerHTML,'')});
+  let timers=[]; const T=(f,ms)=>timers.push(setTimeout(f,ms));
+  function reset(){timers.forEach(clearTimeout);timers=[];mock.classList.add('aio-anim');q.textContent='';para.innerHTML='';para.style.display='none';load.style.display='none';head.style.visibility='hidden';caret.style.display='inline-block';steps.forEach(s=>s.classList.remove('on'));h2.classList.remove('glow');}
+  function play(){
+    reset(); let t=400;
+    [...qText].forEach((c,i)=>{T(()=>{q.textContent=qText.slice(0,i+1);},t);t+=110;});
+    t+=350; T(()=>{caret.style.display='none';head.style.visibility='visible';load.style.display='block';},t);
+    t+=1500; T(()=>{load.style.display='none';para.style.display='block';},t);
+    // 本文をストリーミング表示
+    let shown=[]; parts.forEach((p,pi)=>{shown.push('');[...p.t].forEach((c,ci)=>{T(()=>{shown[pi]=p.t.slice(0,ci+1);para.innerHTML=parts.map((pp,k)=>{const v=shown[k]||'';if(!pp.mark||!v)return v;return pp.mark.replace('><','>'+v+'<').replace('<mark','<mark class="aio-hl"');}).join('');},t);t+=28;});});
+    t+=300; steps.forEach(s=>{T(()=>s.classList.add('on'),t);t+=260;});
+    T(()=>h2.classList.add('glow'),t+200);
+  }
+  document.getElementById('aio-replay').addEventListener('click',play);
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){play();io.disconnect();}});},{threshold:0.4});
+  reset(); io.observe(mock);
+})();
 </script>
 </body>
 </html>
